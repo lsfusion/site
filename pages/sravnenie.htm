@@ -1,0 +1,38 @@
+title = "Сравнение"
+url = "/comparison"
+layout = "main"
+description = "Сравнение платформ"
+meta_title = "Сравнение"
+meta_description = "Сравнение LsFusion.org"
+is_hidden = 0
+
+[viewBag]
+localeUrl[en] = "/sravnenie"
+==
+<?php
+function onStart(){
+	if(!empty($_GET['checked'])){
+		$this['checked_input'] = htmlspecialchars($_GET['checked']); 
+	}
+}
+?>
+==
+<div class="mode-panel">
+	<ul class="mode-panel__mode-list">
+		<li class="mode-panel__mode-li">
+			<a class="link mode-panel__mode-item mode-panel__mode-item_active" href="#tab_1">По возможностям</a>
+		</li>
+		<li class="mode-panel__mode-li">
+			<a class="link mode-panel__mode-item" href="#tab_2">По нефункциональным требованиям</a>
+		</li>
+		<li class="mode-panel__mode-li">
+			<a class="link mode-panel__mode-item" href="#tab_3">По ролям</a>
+		</li>
+	</ul>
+</div>
+
+{% partial "comparing/tab1.htm" %}
+
+{% partial "comparing/tab2.htm" %}
+
+{% partial "comparing/tab3.htm" %}

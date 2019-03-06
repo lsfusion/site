@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none">
+   <circle cx="6.5" cy="6.5" r="5.5" stroke="#373D3F"/>
+   <circle r=".5" fill="#373D3F" transform="matrix(1 0 0 -1 6.5 3.5)"/>
+   <path fill="#373D3F" d="M6 5h1v5H6z"/>
+</svg>

@@ -1,0 +1,29 @@
+name: main
+items:
+    -
+        title: Обзор
+        type: url
+        url: /
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Возможности
+        type: url
+        url: /opportunities
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Сравнение
+        type: url
+        url: /comparison
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

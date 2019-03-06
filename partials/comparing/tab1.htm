@@ -1,0 +1,729 @@
+==
+<div class="mode-content active" id="tab_1">
+
+	<div class="filter-panel list-active">
+
+		<div class="filter-panel__current visible-md">
+			<div class="caption">Скорость разработки</div>
+			<div class="link-off">
+				<img alt="off" src="{{ 'assets/images/down-arrow.svg'|theme }}" />
+			</div>
+		</div>
+
+		<ul class="filter-panel__list">
+	
+			<li class="filter-panel__item">
+				<label class="filter" for="speed">
+					<span class="caption-wrap">
+						<input class="filter__input" id="speed" type="checkbox"  name="speed" {% if checked_input == 'speed' %} checked {% endif %} data-sort-selector="speed"/>
+						<span class="filter__caption caption">Скорость разработки</span>
+					</span>
+				</label>
+			</li>
+			
+			<li class="filter-panel__item">
+				<label class="filter" for="easy">
+					<span class="caption-wrap">
+						<input class="filter__input" id="easy" type="checkbox" name="easy" {% if checked_input == 'easy' %} checked {% endif %} data-sort-selector="easy"/>
+						<span class="filter__caption caption">Простота разработки</span>
+					</span>
+				</label>
+			</li>
+			
+			<li class="filter-panel__item">
+				<label class="filter" for="modul">
+					<span class="caption-wrap">
+						<input class="filter__input" id="modul" type="checkbox" name="modul" {% if checked_input == 'modul' %} checked {% endif %} data-sort-selector="modul"/>
+						<span class="filter__caption caption">Модульность</span>
+					</span>
+				</label>
+			</li>
+			
+			<li class="filter-panel__item">
+				<label class="filter" for="productivity">
+					<span class="caption-wrap">
+						<input class="filter__input" id="productivity" type="checkbox" name="productivity" {% if checked_input == 'productivity' %} checked {% endif %} data-sort-selector="productivity"/>
+						<span class="filter__caption caption">Производительность</span>
+					</span>
+				</label>
+			</li>
+			
+			<li class="filter-panel__item">
+				<label class="filter" for="scalability">
+					<span class="caption-wrap">
+						<input class="filter__input" id="scalability" type="checkbox" name="scalability" {% if checked_input == 'scalability' %} checked {% endif %} data-sort-selector="scalability"/>
+						<span class="filter__caption caption">Масштабируемость</span>
+					</span>
+				</label>
+			</li>
+			
+			<li class="filter-panel__item">
+				<label class="filter" for="entirety">
+					<span class="caption-wrap">
+						<input class="filter__input" id="entirety" type="checkbox" name="entirety" {% if checked_input == 'entirety' %} checked {% endif %} data-sort-selector="entirety"/>
+						<span class="filter__caption caption">Целостность</span>
+					</span>
+				</label>
+			</li>
+			
+			<li class="filter-panel__item">
+				<label class="filter" for="openness">
+					<span class="caption-wrap">
+						<input class="filter__input" id="openness" type="checkbox" name="openness" {% if checked_input == 'openness' %} checked {% endif %} data-sort-selector="openness"/>
+						<span class="filter__caption caption">Открытость</span>
+					</span>
+				</label>
+			</li>
+			
+			<li class="filter-panel__item">
+				<label class="filter" for="supportability">
+					<span class="caption-wrap">
+						<input class="filter__input" id="supportability" type="checkbox" name="supportability" {% if checked_input == 'supportability' %} checked {% endif %} data-sort-selector="supportability"/>
+						<span class="filter__caption caption">Поддерживаемость</span>
+					</span>
+				</label>
+			</li>
+			
+			<li class="filter-panel__item">
+				<label class="filter" for="universalism">
+					<span class="caption-wrap">
+						<input class="filter__input" id="universalism" type="checkbox" name="universalism" {% if checked_input == 'universalism' %} checked {% endif %} data-sort-selector="universalism"/>
+						<span class="filter__caption caption">Универсальность</span>
+					</span>
+				</label>
+			</li>
+			
+			<li class="filter-panel__item">
+				<label class="filter" for="safety">
+					<span class="caption-wrap">
+						<input class="filter__input" id="safety" type="checkbox" name="safety" {% if checked_input == 'safety' %} checked {% endif %} data-sort-selector="safety"/>
+						<span class="filter__caption caption">Безопасность</span>
+					</span>
+				</label>
+			</li>
+			
+			<li class="filter-panel__item">
+				<label class="filter" for="internationalization">
+					<span class="caption-wrap">
+						<input class="filter__input" id="internationalization" type="checkbox" name="internationalization" {% if checked_input == 'internationalization' %} checked {% endif %} data-sort-selector="internationalization"/>
+						<span class="filter__caption caption">Интернационализация</span>
+					</span>
+				</label>
+			</li>
+			
+			<li class="filter-panel__item">
+				<label class="filter" for="usability">
+					<span class="caption-wrap">
+						<input class="filter__input" id="usability" type="checkbox" name="usability" {% if checked_input == 'usability' %} checked {% endif %} data-sort-selector="usability"/>
+						<span class="filter__caption caption">Удобство использования</span>
+					</span>
+				</label>
+			</li>
+			
+			<li class="filter-panel__item">
+				<label class="filter" for="port">
+					<span class="caption-wrap">
+						<input class="filter__input" id="port" type="checkbox" name="port" {% if checked_input == 'port' %} checked {% endif %} data-sort-selector="port"/>
+						<span class="filter__caption caption">Портируемость</span>
+					</span>
+				</label>
+			</li>
+			
+			<li class="filter-panel__item">
+				<label class="filter" for="cost">
+					<span class="caption-wrap">
+						<input class="filter__input" id="cost" type="checkbox" name="cost" {% if checked_input == 'cost' %} checked {% endif %} data-sort-selector="cost"/>
+						<span class="filter__caption caption">Стоимость</span>
+					</span>
+				</label>
+			</li>
+			
+			<li class="filter-panel__item"></li>
+		</ul>
+	</div>
+
+	<div class="table__wrapp">
+		<div class="table">
+			<div class="table__head">
+				<div class="table__row table__row_line">
+					<div class="table__cell" style="width: 300px">Название
+					</div>
+					<div class="table__cell" style="width: 330px">ERP
+					</div>
+					<div class="table__cell" style="width: 220px">СУБД + UI
+					</div>
+					<div class="table__cell" style="width: 110px">ORM + UI
+					</div>
+					<div class="table__cell" style="width: 110px">RAD
+					</div>
+					<div class="table__cell" style="width: 110px">Electronic tables
+					</div>
+					<div class="table__cell" style="width: 110px">lsFusion
+					</div>
+				</div>
+			</div>
+			<div class="table__body">
+				<div class="table__row table__row_sub table__row_line">
+					<div class="table__cell">Подтип
+					</div>
+					<div class="table__cell">
+						<div class="table">
+							<div class="table__body">
+								<div class="table__row cols-3">
+									<div class="table__cell">SQL-style
+									</div>
+									<div class="table__cell">ORM-style
+									</div>
+									<div class="table__cell">Doc-style
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table__cell">
+						<div class="table">
+							<div class="table__body">
+								<div class="table__row cols-2">
+									<div class="table__cell">Commercial
+									</div>
+									<div class="table__cell">Free
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table__cell">
+					</div>
+					<div class="table__cell">
+					</div>
+					<div class="table__cell">
+					</div>
+					<div class="table__cell">
+					</div>
+				</div>
+				<div class="table__row table__row_sub table__row_line">
+					<div class="table__cell">Примеры
+					</div>
+					<div class="table__cell">
+						<div class="table">
+							<div class="table__body">
+								<div class="table__row cols-3">
+									<div class="table__cell">SAP
+										<div class="info">
+											<div class="info-box">
+												<p>В 4GL языках (ABAP, C#, Foxpro и т.д.) работа с SQL интегрирована в
+													язык, но все равно оперирует понятиями из реляционной алгебры —
+													таблицами, соединениями, объединениями и т.п.</p>
+											</div>
+											<img alt="info" src="{{ 'assets/images/i-info.svg'|theme }}"/>
+										</div>
+									</div>
+									<div class="table__cell">Axapta, SAP
+										<div class="info">
+											<div class="info-box">
+												<p>В 4GL языках (ABAP, C#, Foxpro и т.д.) работа с SQL интегрирована в
+													язык, но все равно оперирует понятиями из реляционной алгебры —
+													таблицами, соединениями, объединениями и т.п.</p>
+											</div>
+											<img alt="info" src="{{ 'assets/images/i-info.svg'|theme }}"/>
+										</div>
+									</div>
+									<div class="table__cell">1С >= 8.2
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table__cell">
+						<div class="table">
+							<div class="table__body">
+								<div class="table__row cols-2">
+									<div class="table__cell">Oracle + (Oracle Forms / ADF), MS SQL + (WinForms)
+									</div>
+									<div class="table__cell">Postgres, MySQL, Firebird
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table__cell">Java Spring, J2EE, .NET
+					</div>
+					<div class="table__cell">MS Access, Foxpro, Delphi, 1C<8.2
+					</div>
+					<div class="table__cell">Excel,  Google docs
+					</div>
+					<div class="table__cell">lsFusion
+					</div>
+				</div>
+				<div class="table__row table__row_line" data-row-type="speed" data-id="10">
+					<div class="table__cell">Один язык работы с данным
+						<div class="info">
+							<div class="info-box">
+								<p>В 4GL языках (ABAP, C#, Foxpro и т.д.) работа с SQL интегрирована в язык, но все
+									равно оперирует понятиями из реляционной алгебры — таблицами, соединениями,
+									объединениями и т.п.</p>
+							</div>
+							<img alt="info" src="{{ 'assets/images/i-info.svg'|theme }}"/>
+						</div>
+					</div>
+					<div class="table__cell">
+						<div class="table">
+							<div class="table__body">
+								<div class="table__row cols-3">
+									<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+										<div class="info">
+											<div class="info-box">
+												<p>В 4GL языках (ABAP, C#, Foxpro и т.д.) работа с SQL интегрирована в
+													язык, но все равно оперирует понятиями из реляционной алгебры —
+													таблицами, соединениями, объединениями и т.п.</p>
+											</div>
+											<img alt="info" src="{{ 'assets/images/i-info.svg'|theme }}"/>
+										</div>
+									</div>
+									<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+										<div class="info">
+											<div class="info-box">
+												<p>В 4GL языках (ABAP, C#, Foxpro и т.д.) работа с SQL интегрирована в
+													язык, но все равно оперирует понятиями из реляционной алгебры —
+													таблицами, соединениями, объединениями и т.п.</p>
+											</div>
+											<img alt="info" src="{{ 'assets/images/i-info.svg'|theme }}"/>
+										</div>
+									</div>
+									<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+										<div class="info">
+											<div class="info-box">
+												<p>В 4GL языках (ABAP, C#, Foxpro и т.д.) работа с SQL интегрирована в
+													язык, но все равно оперирует понятиями из реляционной алгебры —
+													таблицами, соединениями, объединениями и т.п.</p>
+											</div>
+											<img alt="info" src="{{ 'assets/images/i-info.svg'|theme }}"/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table__cell">
+						<div class="table">
+							<div class="table__body">
+								<div class="table__row cols-2">
+									<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+										<div class="info">
+											<div class="info-box">
+												<p>В 4GL языках (ABAP, C#, Foxpro и т.д.) работа с SQL интегрирована в
+													язык, но все равно оперирует понятиями из реляционной алгебры —
+													таблицами, соединениями, объединениями и т.п.</p>
+											</div>
+											<img alt="info" src="{{ 'assets/images/i-info.svg'|theme }}"/>
+										</div>
+									</div>
+									<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+										<div class="info">
+											<div class="info-box">
+												<p>В 4GL языках (ABAP, C#, Foxpro и т.д.) работа с SQL интегрирована в
+													язык, но все равно оперирует понятиями из реляционной алгебры —
+													таблицами, соединениями, объединениями и т.п.</p>
+											</div>
+											<img alt="info" src="{{ 'assets/images/i-info.svg'|theme }}"/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+					</div>
+					<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+					</div>
+					<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+					</div>
+					<div class="table__cell table__cell_plus"><span class="icon-plus"></span>
+					</div>
+				</div>
+				<div class="table__row table__row_line" data-row-type="easy" data-id="1">
+					<div class="table__cell">Обращение сервера к клиенту
+					</div>
+					<div class="table__cell">
+						<div class="table">
+							<div class="table__body">
+								<div class="table__row cols-3">
+									<div class="table__cell table__cell_minusplus"><span class="icon-minusplus"></span>
+									</div>
+									<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+									</div>
+									<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table__cell">
+						<div class="table">
+							<div class="table__body">
+								<div class="table__row cols-2">
+									<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+									</div>
+									<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+					</div>
+					<div class="table__cell table__cell_plus"><span class="icon-plus"></span>
+					</div>
+					<div class="table__cell table__cell_plus"><span class="icon-plus"></span>
+					</div>
+					<div class="table__cell table__cell_plus"><span class="icon-plus"></span>
+					</div>
+				</div>
+				<div class="table__row table__row_line" data-row-type="modul" data-id="2">
+					<div class="table__cell">Одна парадигма работы с UI
+					</div>
+					<div class="table__cell">
+						<div class="table">
+							<div class="table__body">
+								<div class="table__row cols-3">
+									<div class="table__cell table__cell_minusplus"><span class="icon-minusplus"></span>
+									</div>
+									<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+									</div>
+									<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table__cell">
+						<div class="table">
+							<div class="table__body">
+								<div class="table__row cols-2">
+									<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+									</div>
+									<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+					</div>
+					<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+					</div>
+					<div class="table__cell table__cell_plus"><span class="icon-plus"></span>
+					</div>
+					<div class="table__cell table__cell_plus"><span class="icon-plus"></span>
+					</div>
+				</div>
+				<div class="table__row table__row_line" data-row-type="productivity" data-id="3">
+					<div class="table__cell">Одна парадигма работы с UI
+					</div>
+					<div class="table__cell">
+						<div class="table">
+							<div class="table__body">
+								<div class="table__row cols-3">
+									<div class="table__cell table__cell_minusplus"><span class="icon-minusplus"></span>
+									</div>
+									<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+									</div>
+									<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table__cell">
+						<div class="table">
+							<div class="table__body">
+								<div class="table__row cols-2">
+									<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+									</div>
+									<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+					</div>
+					<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+					</div>
+					<div class="table__cell table__cell_plus"><span class="icon-plus"></span>
+					</div>
+					<div class="table__cell table__cell_plus"><span class="icon-plus"></span>
+					</div>
+				</div>
+				<div class="table__row table__row_line" data-row-type="scalability" data-id="4">
+					<div class="table__cell">Трехзвенная архитектура
+					</div>
+					<div class="table__cell">
+						<div class="table">
+							<div class="table__body">
+								<div class="table__row cols-3">
+									<div class="table__cell table__cell_minusplus"><span class="icon-minusplus"></span>
+									</div>
+									<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+									</div>
+									<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table__cell">
+						<div class="table">
+							<div class="table__body">
+								<div class="table__row cols-2">
+									<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+									</div>
+									<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+					</div>
+					<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+					</div>
+					<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+					</div>
+					<div class="table__cell table__cell_plus"><span class="icon-plus"></span>
+					</div>
+				</div>
+				<div class="table__row table__row_line" data-row-type="entirety" data-id="5">
+					<div class="table__cell">No ORM, Yes SQL
+					</div>
+					<div class="table__cell">
+						<div class="table">
+							<div class="table__body">
+								<div class="table__row cols-3">
+									<div class="table__cell table__cell_minusplus"><span class="icon-minusplus"></span>
+									</div>
+									<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+									</div>
+									<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table__cell">
+						<div class="table">
+							<div class="table__body">
+								<div class="table__row cols-2">
+									<div class="table__cell table__cell_minusplus"><span class="icon-minusplus"></span>
+									</div>
+									<div class="table__cell table__cell_minusplus"><span class="icon-minusplus"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+					</div>
+					<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+					</div>
+					<div class="table__cell table__cell_plus"><span class="icon-plus"></span>
+					</div>
+					<div class="table__cell table__cell_plus"><span class="icon-plus"></span>
+					</div>
+				</div>
+				<div class="table__row table__row_line" data-row-type="openness cost" data-id="6">
+					<div class="table__cell">События изменения данных
+					</div>
+					<div class="table__cell">
+						<div class="table">
+							<div class="table__body">
+								<div class="table__row cols-3">
+									<div class="table__cell table__cell_minusplus"><span class="icon-minusplus"></span>
+									</div>
+									<div class="table__cell table__cell_minusplus"><span class="icon-minusplus"></span>
+									</div>
+									<div class="table__cell table__cell_minusplus"><span class="icon-minusplus"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table__cell">
+						<div class="table">
+							<div class="table__body">
+								<div class="table__row cols-2">
+									<div class="table__cell table__cell_minusplus"><span class="icon-minusplus"></span>
+										<div class="info">
+											<div class="info-box">
+												<p>В 4GL языках (ABAP, C#, Foxpro и т.д.) работа с SQL интегрирована в
+													язык, но все равно оперирует понятиями из реляционной алгебры —
+													таблицами, соединениями, объединениями и т.п.</p>
+											</div>
+											<img alt="info" src="{{ 'assets/images/i-info.svg'|theme }}"/>
+										</div>
+									</div>
+									<div class="table__cell table__cell_minusplus"><span class="icon-minusplus"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table__cell table__cell_minusplus"><span class="icon-minusplus"></span>
+						<div class="info">
+							<div class="info-box">
+								<p>В 4GL языках (ABAP, C#, Foxpro и т.д.) работа с SQL интегрирована в язык, но все
+									равно оперирует понятиями из реляционной алгебры — таблицами, соединениями,
+									объединениями и т.п.</p>
+							</div>
+							<img alt="info" src="{{ 'assets/images/i-info.svg'|theme }}"/>
+						</div>
+					</div>
+					<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+					</div>
+					<div class="table__cell table__cell_plus"><span class="icon-plus"></span>
+					</div>
+					<div class="table__cell table__cell_plus"><span class="icon-plus"></span>
+					</div>
+				</div>
+				<div class="table__row table__row_line" data-row-type="supportability port cost" data-id="7">
+					<div class="table__cell">Ограничения любых данных
+					</div>
+					<div class="table__cell">
+						<div class="table">
+							<div class="table__body">
+								<div class="table__row cols-3">
+									<div class="table__cell table__cell_minusplus"><span class="icon-minusplus"></span>
+									</div>
+									<div class="table__cell table__cell_minusplus"><span class="icon-minusplus"></span>
+									</div>
+									<div class="table__cell table__cell_minusplus"><span class="icon-minusplus"></span>
+										<div class="info">
+											<div class="info-box">
+												<p>В 4GL языках (ABAP, C#, Foxpro и т.д.) работа с SQL интегрирована в
+													язык, но все равно оперирует понятиями из реляционной алгебры —
+													таблицами, соединениями, объединениями и т.п.</p>
+											</div>
+											<img alt="info" src="{{ 'assets/images/i-info.svg'|theme }}"/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table__cell">
+						<div class="table">
+							<div class="table__body">
+								<div class="table__row cols-2">
+									<div class="table__cell table__cell_minusplus"><span class="icon-minusplus"></span>
+									</div>
+									<div class="table__cell table__cell_minusplus"><span class="icon-minusplus"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+					</div>
+					<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+					</div>
+					<div class="table__cell table__cell_plus"><span class="icon-plus"></span>
+					</div>
+					<div class="table__cell table__cell_plus"><span class="icon-plus"></span>
+					</div>
+				</div>
+				<div class="table__row table__row_line" data-row-type="universalism internationalization usability" data-id="8">
+					<div class="table__cell">Открытая структура БД
+					</div>
+					<div class="table__cell">
+						<div class="table">
+							<div class="table__body">
+								<div class="table__row cols-3">
+									<div class="table__cell table__cell_plus"><span class="icon-plus"></span>
+									</div>
+									<div class="table__cell table__cell_plus"><span class="icon-plus"></span>
+									</div>
+									<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table__cell">
+						<div class="table">
+							<div class="table__body">
+								<div class="table__row cols-2">
+									<div class="table__cell table__cell_plus"><span class="icon-plus"></span>
+									</div>
+									<div class="table__cell table__cell_plus"><span class="icon-plus"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table__cell table__cell_plus"><span class="icon-plus"></span>
+					</div>
+					<div class="table__cell table__cell_plus"><span class="icon-plus"></span>
+					</div>
+					<div class="table__cell table__cell_plus"><span class="icon-plus"></span>
+					</div>
+					<div class="table__cell table__cell_plus"><span class="icon-plus"></span>
+					</div>
+				</div>
+				<div class="table__row table__row_line" data-row-type="safety usability" data-id="9">
+					<div class="table__cell">Абсолютная реактивность
+					</div>
+					<div class="table__cell">
+						<div class="table">
+							<div class="table__body">
+								<div class="table__row cols-3">
+									<div class="table__cell table__cell_minusplus"><span class="icon-minusplus"></span>
+									</div>
+									<div class="table__cell table__cell_minusplus"><span class="icon-minusplus"></span>
+										<div class="info">
+											<div class="info-box">
+												<p>В 4GL языках (ABAP, C#, Foxpro и т.д.) работа с SQL интегрирована в
+													язык, но все равно оперирует понятиями из реляционной алгебры —
+													таблицами, соединениями, объединениями и т.п.</p>
+											</div>
+											<img alt="info" src="{{ 'assets/images/i-info.svg'|theme }}"/>
+										</div>
+									</div>
+									<div class="table__cell table__cell_minusplus"><span class="icon-minusplus"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table__cell">
+						<div class="table">
+							<div class="table__body">
+								<div class="table__row cols-2">
+									<div class="table__cell table__cell_minusplus"><span class="icon-minusplus"></span>
+									</div>
+									<div class="table__cell table__cell_minusplus"><span class="icon-minusplus"></span>
+										<div class="info">
+											<div class="info-box">
+												<p>В 4GL языках (ABAP, C#, Foxpro и т.д.) работа с SQL интегрирована в
+													язык, но все равно оперирует понятиями из реляционной алгебры —
+													таблицами, соединениями, объединениями и т.п.</p>
+											</div>
+											<img alt="info" src="{{ 'assets/images/i-info.svg'|theme }}"/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table__cell table__cell_plusminus"><span class="icon-plusminus"></span>
+					</div>
+					<div class="table__cell table__cell_minus"><span class="icon-minus"></span>
+					</div>
+					<div class="table__cell table__cell_plus"><span class="icon-plus"></span>
+					</div>
+					<div class="table__cell table__cell_plus"><span class="icon-plu"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

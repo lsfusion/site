@@ -1,0 +1,109 @@
+<header class="header">
+	<div class="container">
+
+		<div class="head_block">
+
+			<div class="logo">
+
+				{% if this.page.url == "/" %}
+					<div class="logo__link">
+				{% else %}
+					<a class="logo__link" href="/">
+				{% endif %}
+
+					<img alt="logo" src="{{ 'assets/images/i-logo-lsfusion.svg'|theme }}">
+
+				{% if this.page.url == "/" %}
+					</div>
+				{% else %}
+					</a>
+				{% endif %}
+
+			</div>
+
+			<div class="inner__head_block hide-below-md">
+
+				<a class="link tlink__btn" href="/support">{% content "header/header_support.txt" %}</a>
+
+				<a class="btn btn_white" href="/try">
+                    <span class="link">
+                        <svg class="link__icon i i-learn">
+                            <use xlink:href="#i-learn"></use>
+                        </svg>
+                        <span class="link__text">{% content "header/header_study.txt" %}</span>
+                    </span>
+				</a>
+				<a class="btn btn_blue" href="/download">
+                    <span class="link">
+                        <span class="link__text">{% content "header/header_install.txt" %}</span>
+                    </span>
+				</a>
+			</div>
+
+			<div class="mobile-menu visible-md">
+
+				<input class="hidden-menu-trigger" type="checkbox" id="nav-trigger">
+
+				<label class="btn-menu" for="nav-trigger">
+					<span class="first"></span>
+					<span class="second"></span>
+					<span class="third"></span>
+				</label>
+
+				<div class="mobile-menu__panel">
+					<div class="mobile-menu__box">
+
+						<input class="hidden-menu-trigger" type="checkbox" id="nav-trigger" />
+
+						<label class="btn-menu-x" for="nav-trigger">
+							<img alt="x" src="{{ 'assets/images/x.svg'|theme }}">
+						</label>
+
+						<ul class="mob-menu-list">
+							<li class="close-mob-menu"></li>
+							{% content "header/header_mobile_menu.htm" %}
+						</ul>
+
+						<a class="btn btn_white" href="/try">
+                            <span class="link">
+                                <svg class="link__icon i i-learn">
+                                    <use xlink:href="#i-learn"></use>
+                                </svg>
+                                <span class="link__text">{% content "header/header_study.txt" %}</span>
+                            </span>
+						</a>
+
+						<a class="btn btn_blue" href="/download">
+                            <span class="link">
+                                <span class="link__text">{% content "header/header_install.txt" %}</span>
+                            </span>
+						</a>
+
+						<div class="language">
+							<div class="link link_active">Рус</div>
+							<a class="link" href="/en">Eng</a>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="head_block">
+
+			<div class="main-menu">
+				<ul class="main-menu-list">
+					{% partial "header_menu" %}
+				</ul>
+			</div>
+
+			<!--<div class="language hide-below-md">
+				<div class="link link_active">Рус</div>
+				<a class="link" href="/en">Eng</a>
+			</div>-->
+
+		</div>
+
+	</div>
+</header>

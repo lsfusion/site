@@ -1,0 +1,980 @@
+title = "Возможности"
+url = "/opportunities"
+layout = "main"
+description = "Использование механизмов инкрементальных вычислений, комбинаторного, реактивного и событийного программирования, возможность записи и итерирования по всем значениям функций, множественные наследование и полиморфизм, отказ от инкапсуляции и ряд других принципиально новых идей позволяет на порядок повысить скорость и качество разработки, а также быстродействие создаваемых систем по сравнению с традиционными подходами."
+meta_title = "Возможности"
+meta_description = "Возможности LsFusion.org"
+is_hidden = 0
+
+[viewBag]
+localeUrl[en] = "/vozmozhnosti"
+==
+<?php
+function onStart(){
+	if(!empty($_GET['checked'])){
+		$this['checked_input'] = htmlspecialchars($_GET['checked']); 
+	}
+}
+?>
+==
+<div class="filter-panel list-active">
+
+	<div class="filter-panel__current visible-md">
+		<div class="caption">Скорость разработки</div>
+		<div class="link-off">
+			<img alt="off" src="{{ 'assets/images/down-arrow.svg'|theme }}" />
+		</div>
+	</div>
+
+	<ul class="filter-panel__list">
+	
+		<li class="filter-panel__item">
+			<label class="filter filter_checked" for="speed">
+				<span class="caption-wrap">
+					<input class="filter__input" id="speed" type="checkbox"  name="speed" {% if checked_input == 'speed' %} checked {% endif %} data-sort-selector="speed"/>
+					<span class="filter__caption caption">Скорость разработки</span>
+				</span>
+			</label>
+		</li>
+		
+		<li class="filter-panel__item">
+			<label class="filter" for="easy">
+				<span class="caption-wrap">
+					<input class="filter__input" id="easy" type="checkbox" name="easy" {% if checked_input == 'easy' %} checked {% endif %} data-sort-selector="easy"/>
+					<span class="filter__caption caption">Простота разработки</span>
+				</span>
+			</label>
+		</li>
+		
+		<li class="filter-panel__item">
+			<label class="filter" for="modul">
+				<span class="caption-wrap">
+					<input class="filter__input" id="modul" type="checkbox" name="modul" {% if checked_input == 'modul' %} checked {% endif %} data-sort-selector="modul"/>
+					<span class="filter__caption caption">Модульность</span>
+				</span>
+			</label>
+		</li>
+		
+		<li class="filter-panel__item">
+			<label class="filter" for="productivity">
+				<span class="caption-wrap">
+					<input class="filter__input" id="productivity" type="checkbox" name="productivity" {% if checked_input == 'productivity' %} checked {% endif %} data-sort-selector="productivity"/>
+					<span class="filter__caption caption">Производительность</span>
+				</span>
+			</label>
+		</li>
+		
+		<li class="filter-panel__item">
+			<label class="filter" for="scalability">
+				<span class="caption-wrap">
+					<input class="filter__input" id="scalability" type="checkbox" name="scalability" {% if checked_input == 'scalability' %} checked {% endif %} data-sort-selector="scalability"/>
+					<span class="filter__caption caption">Масштабируемость</span>
+				</span>
+			</label>
+		</li>
+		
+		<li class="filter-panel__item">
+			<label class="filter" for="entirety">
+				<span class="caption-wrap">
+					<input class="filter__input" id="entirety" type="checkbox" name="entirety" {% if checked_input == 'entirety' %} checked {% endif %} data-sort-selector="entirety"/>
+					<span class="filter__caption caption">Целостность</span>
+				</span>
+			</label>
+		</li>
+		
+		<li class="filter-panel__item">
+			<label class="filter" for="openness">
+				<span class="caption-wrap">
+					<input class="filter__input" id="openness" type="checkbox" name="openness" {% if checked_input == 'openness' %} checked {% endif %} data-sort-selector="openness"/>
+					<span class="filter__caption caption">Открытость</span>
+				</span>
+			</label>
+		</li>
+		
+		<li class="filter-panel__item">
+			<label class="filter" for="supportability">
+				<span class="caption-wrap">
+					<input class="filter__input" id="supportability" type="checkbox" name="supportability" {% if checked_input == 'supportability' %} checked {% endif %} data-sort-selector="supportability"/>
+					<span class="filter__caption caption">Поддерживаемость</span>
+				</span>
+			</label>
+		</li>
+		
+		<li class="filter-panel__item">
+			<label class="filter" for="universalism">
+				<span class="caption-wrap">
+					<input class="filter__input" id="universalism" type="checkbox" name="universalism" {% if checked_input == 'universalism' %} checked {% endif %} data-sort-selector="universalism"/>
+					<span class="filter__caption caption">Универсальность</span>
+				</span>
+			</label>
+		</li>
+		
+		<li class="filter-panel__item">
+			<label class="filter" for="safety">
+				<span class="caption-wrap">
+					<input class="filter__input" id="safety" type="checkbox" name="safety" {% if checked_input == 'safety' %} checked {% endif %} data-sort-selector="safety"/>
+					<span class="filter__caption caption">Безопасность</span>
+				</span>
+			</label>
+		</li>
+		
+		<li class="filter-panel__item">
+			<label class="filter" for="internationalization">
+				<span class="caption-wrap">
+					<input class="filter__input" id="internationalization" type="checkbox" name="internationalization" {% if checked_input == 'internationalization' %} checked {% endif %} data-sort-selector="internationalization"/>
+					<span class="filter__caption caption">Интернационализация</span>
+				</span>
+			</label>
+		</li>
+		
+		<li class="filter-panel__item">
+			<label class="filter" for="usability">
+				<span class="caption-wrap">
+					<input class="filter__input" id="usability" type="checkbox" name="usability" {% if checked_input == 'usability' %} checked {% endif %} data-sort-selector="usability"/>
+					<span class="filter__caption caption">Удобство использования</span>
+				</span>
+			</label>
+		</li>
+		
+		<li class="filter-panel__item">
+			<label class="filter" for="port">
+				<span class="caption-wrap">
+					<input class="filter__input" id="port" type="checkbox" name="port" {% if checked_input == 'port' %} checked {% endif %} data-sort-selector="port"/>
+					<span class="filter__caption caption">Портируемость</span>
+				</span>
+			</label>
+		</li>
+		
+		<li class="filter-panel__item">
+			<label class="filter" for="cost">
+				<span class="caption-wrap">
+					<input class="filter__input" id="cost" type="checkbox" name="cost" {% if checked_input == 'cost' %} checked {% endif %} data-sort-selector="cost"/>
+					<span class="filter__caption caption">Стоимость</span>
+				</span>
+			</label>
+		</li>
+		
+		<li class="filter-panel__item"></li>
+	</ul>
+</div>
+
+<div class="capability-content filtering">
+
+	<div class="item item_hover filtering-item" data-sort-name="cost">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Бесшовное подключение Java-библиотек / SQL-функций</h2>
+		<div class="text">
+			Любую форму в платформе можно не только показать пользователю в интерактивном режиме или распечатать,
+			но и экспортировать в файл любого из наиболее распространенных форматов данных (JSON, XML, CSV, XLS, DBF и т.п.). 
+			Причем эта операция симметрична, и, соответственно, можно, наоборот, импортировать информацию из
+			файла любого из перечисленных форматов обратно в форму. Оба процесса при этом абсолютно декларативны и работают 
+			с теми же понятиями, которые используются при работе с UI, тем самым значительно упрощая взаимодействие с внешними системами.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?id=2">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+
+	<div class="item item_hover filtering-item" data-sort-name="cost">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Открытые исходники</h2>
+		<div class="text">
+			Открытые исходники платформы и 
+			IDE позволяют разработчику самостоятельно изучать 
+			поведение платформы изнутри, создавать pull request'ы, свои сборки,
+			а также лицензировать разрабатываемые решения для использования в 
+			случае жестких требований к безопасности.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=openness">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="cost">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Everything as Code</h2>
+		<div class="text">
+			Все элементы системы, от событий до дизайна форм, 
+			задаются в виде кода на языке lsFusion, хранящегося в обычных текстовых 
+			файлах (без каких-либо общих репозитариев с неизвестной структурой). 
+			Это позволяет использовать при работе с проектами популярные системы контроля версий 
+			(Git, Subversion) и сборки проектов (Maven, встроенные в IDE). Кроме того,
+			такой подход упрощает процесс поддержки / развертывания разработанной системы, так как позволяет,
+			во-первых, при помощи обычного текстового редактора просматривать, и, при необходимости,
+			оперативно изменять логику, а, во-вторых, легко идентифицировать любой элемент в системе, по 
+			его файлу и номеру строки в этом файле.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=safety">
+				<span class="link">
+				<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="easy">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Декларативная работа с внешними форматами</h2>
+		<div class="text">
+			Любую форму в платформе можно не только показать 
+			пользователю в интерактивном режиме или распечатать,
+			но и экспортировать в файл любого из наиболее распространенных 
+			форматов данных (JSON, XML, CSV, XLS, DBF и т.п.). 
+			Причем эта операция симметрична, и, соответственно,
+			можно, наоборот, импортировать информацию из файла любого 
+			из перечисленных форматов обратно в форму. Оба процесса при этом 
+			абсолютно декларативны и работают с теми же понятиями, которые 
+			используются при работе с UI, тем самым значительно упрощая взаимодействие 
+			с внешними системами.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=internationalization">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="easy">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Прозрачная интеграция</h2>
+		<div class="text">
+			Платформа поддерживает обращение к системе через 
+			самый распространенный прикладный протокол общего назначения 
+			(HTTP), при этом интерфейс обращения включает в себя не только 
+			выполнения некоторого действия (с автоматическим разбором параметров),
+			но и выполнение кода на языке lsFusion (по аналогии с обращением к SQL серверам). 
+			Также платформа, на уровне языка, поддерживает обращение к любым внешним системам по протоколу HTTP, а
+			также к SQL-серверам, другим lsFusion системам и т.д. Кроме того сам сервер реализован в 
+			виде Spring bean, что позволяет управлять его циклом жизни при помощи обычного 
+			Spring IoC контейнера. Все вышеперечисленное позволяет использовать 
+			lsFusion не только в качестве полноценной платформы разработки, но и, 
+			при необходимости, в качестве СУБД или даже в качестве Java-библиотеки.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=openness">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="easy">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Эффективное общение клиента с сервером</h2>
+		<div class="text">
+			Общение клиента с сервером на физическом уровне построено таким 
+			образом чтобы минимизировать количество синхронных round-trip обращений 
+			(то есть одно действие пользователя — один запрос-ответ, по возможности асинхронный).
+			Помимо этого в десктоп-клиенте все передаваемые данные архивируются и,
+			при необходимости, шифруются. Также, несмотря на то, что общение
+			десктоп-клиента с сервером реализовано на низком уровне (сетевых протоколов TCP/IP или UDP), в
+			платформе обеспечивается гарантия доставки, то есть в случае если какие-то запросы теряются, 
+			платформа посылает их повторно, причем с гарантией того, что они будут обработаны в правильном
+			порядке. Все вышеперечисленное позволяет платформе эффективно функционировать даже на узких и
+			ненадежных каналах связи, а также каналах связи с большим временем отклика.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=supportability">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="modul">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Одна парадигма работы с UI</h2>
+		<div class="text">
+			В платформе отсутствует разделение 
+			пользовательского интерфейса на интерактивные формы и отчеты. 
+			Любая форма может содержать как первичные, так и вычисляемые данные,
+			и ее можно открыть как в печатном представлении (в виде классического отчета) 
+			так и в интерактивном (с возможностью ввода). Как следствие, пользователь может 
+			в одном интерфейсе не только видеть данные, необходимые для принятия решения, но 
+			и сразу вводить принятое решение непосредственно в систему.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=universalism">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="productivity">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Обращение сервера к клиенту</h2>
+		<div class="text">
+			В платформе отсутствует разделение логики на сервер и клиент,
+			и, соответственно, разработчик в любой момент может запросить 
+			модальное взаимодействие с пользователем. В этом случае платформа 
+			автоматически останавливает процесс выполнения действия, 
+			отправляет запрос пользователю, и, сразу после получения ответа 
+			от него, продолжает выполнение остановленного действия.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=modul">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="productivity">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Абсолютная реактивность</h2>
+		<div class="text">
+			Все вычисляемые данные автоматически обновляются 
+			при изменении данных, которые они используют. 
+			Это правило действует всегда и везде — как при 
+			отображении интерактивных форм, так и
+			просто при обращении к данным внутри 
+			выполняемого действия.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=usability">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="scalability">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>События изменения данных</h2>
+		<div class="text">
+			Платформа позволяет создавать обработки 
+			событий изменения любых (в том числе вычисляемых) данных.
+			Использование этого механизма позволяет значительно повысить 
+			модульность создаваемых решений.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=port">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="scalability">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Динамическая физическая модель</h2>
+		<div class="text">
+			Платформа позволяет в любой момент материализовать 
+			любой из существующих показателей в системе, 
+			добавить новые или удалить существующие таблицы, 
+			а также изменить расположение материализованных 
+			показателей в этих таблицах.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=speed">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="speed modul easy">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Открытая структура БД</h2>
+		<div class="text">
+			Отображение логики в базу данных абсолютно прозрачно,
+			при этом разработчик сам может управлять этим процессом. 
+			Никаких сгенерированных имен или суррогатных таблиц.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=easy">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="speed">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>No ORM, Yes SQL</h2>
+		<div class="text">
+			Если некоторое действие предполагает обработку данных 
+			сразу для множества объектов, платформа пытается по возможности 
+			выполнить эту обработку на сервере БД одним запросом (то есть сразу для всех объектов). 
+			Все формируемые запросы при этом максимально оптимизируются с учетом особенностей 
+			используемого сервера БД.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=cost">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="cost easy">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Асинхронность</h2>
+		<div class="text">
+			Платформа пытается по возможности выполнять все 
+			операции асинхронно (то есть возвращать управление 
+			пользователю не дожидаясь завершения операции). 
+			К примеру, к таким операциям относится большинство
+			операций ввода и обработок локальных событий.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=productivity">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="usability">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Изменения задним числом</h2>
+		<div class="text">
+			Платформа позволяет пользователю изменять любые введенные 
+			ранее данные (например, если была ошибка при вводе), 
+			при этом платформа обновит только те данные которые нужно — 
+			без тысяч смежных сторнирующих операций, долгого перепроведения и глобальных блокировок БД.
+			Помимо этого, платформа позволяет редактировать одни и те же данные (например один и тот же документ)
+			нескольким пользователям одновременно, что может быть критично, если этих данных много, или их нужно вводить очень быстро.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=entirety">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="productivity">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Кроссплатформенность клиента</h2>
+		<div class="text">
+			В платформе поддерживаются одновременно и десктоп и веб клиенты. 
+			Для десктоп-клиента, как и для сервера, поддерживаются любые ОС для которых существуют реализации JVM. Также, 
+			благодаря тому что для расположения компонент используется относительное (а не абсолютное) позиционирование, 
+			их отрисовка в веб-клиенте осуществляется нативно средствами CSS (без использования JavaScript), что значительно 
+			повышает отзывчивость интерфейсов при работе в веб-клиенте. Кроме того, ни десктоп, ни веб-клиент не содержат никакой 
+			прикладной логики, что значительно упрощает их развертывание (то есть можно использовать один и тот же клиент сразу для всех логик).
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=universalism">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="internationalization">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Ограничения любых данных</h2>
+		<div class="text">
+			В платформе существует возможность создавать ограничения значений любых 
+			(в том числе вычисляемых) данных. При этом, все созданные ограничения (как и события) 
+			глобальны, а значит неопытный пользователь или разработчик не сможет 
+			обойти их неправильно проведенной транзакцией.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=usability">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="scalability">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Полиморфизм и агрегации</h2>
+		<div class="text">
+			В платформе поддерживаются механизмы наследования (в том числе множественного) 
+			и полиморфизма (опять-таки, в том числе множественного). 
+			Если механизма наследования по каким либо причинам недостаточно, 
+			в платформе также существует механизм агрегаций, который вместе 
+			с наследованием позволяет реализовывать практически любую полиморфную логику.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=modul">
+				<entirety class="link">
+					<span class="link__text">Сравнить</span>
+				</entirety>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="safety">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>WYSIWYG</h2>
+		<div class="text">
+			В абсолютном большинстве случаев пользователь из коробки 
+			получает возможность редактировать любые данные, которые он видит,
+			делать это сразу для всех видимых объектов (групповая корректировка), 
+			выполнять copy-paste (в том числе, к примеру, из Excel), объединять / отменять / сохранять сделанные изменения и другие
+			WYSIWYG возможности.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=easy">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="entirety">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Метапрограммирование</h2>
+		<div class="text">
+			Хотите создать свой высокоуровневый оператор 
+			или просто не знаете как обобщить логику, но 
+			хотите использовать ее повторно? В платформе 
+			реализована полная поддержка автоматической генерации 
+			кода, причем как со стороны сервера, так и со стороны IDE.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=modul">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="entirety">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Расширения</h2>
+		<div class="text">
+			Техника расширений позволяет разработчику расширять в
+			одном модуле функционал другого модуля (например, изменять формы или классы созданные в другом модуле). 
+			Использование этого механизма позволяет значительно повысить модульность создаваемых решений.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=universalism">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="openness">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Эргономичная IDE</h2>
+		<div class="text">
+			IDE на базе Intellij IDEA с полным арсеналом разработчика - поиск использований, подсветка кода / ошибок, 
+			умное автодополнение, переход к объявлению, структура класса, 
+			переименование элементов, дерево использований, брейкпоинты изменения данных,
+			отладчик и множество других возможностей.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=modul">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="openness">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Один язык работы с данными</h2>
+		<div class="text">
+			В платформе отсутствует объектно-реляционный семантический разрыв — 
+			когда разработчику приходится постоянно выбирать между "быстрыми" 
+			SQL-запросами и кодом на "удобном" императивном языке. И тот и другой подход абстрагированы и 
+			объединены настолько, что грань между ними практически отсутствует. 
+			Разработчик всегда работает с данными в одной парадигме, а за то, как и где вся эта работа 
+			будет выполняться, полностью отвечает сама платформа.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=universalism">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="supportability">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Кластеризация</h2>
+		<div class="text">
+			Сервера приложений не имеют никаких разделяемых данных, 
+			поэтому их количество при необходимости можно легко наращивать. 
+			Кроме того, платформа умеет асинхронно переносить пользовательские 
+			данные с одного сервера БД на другой, что, в свою очередь, 
+			позволяет динамически распределять нагрузку между серверами БД 
+			(к примеру, если данные записываются в базу и нужен ACID, выполняя обработку 
+			на мастерах, а в остальных случаях - на наименее нагруженных слейвах).
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=speed">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="supportability">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Свободная лицензия</h2>
+		<div class="text">
+			Платформа выпускается под лицензией LGPL v3, 
+			позволяющей свободно использовать, распространять,
+			а также модифицировать платформу под свои нужды.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=universalism">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="universalism">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Кроссплатформенность сервера</h2>
+		<div class="text">
+			Поддерживаются любые ОС, для которых существуют реализации JVM, 
+			а также наиболее распространенные реляционные СУБД.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=entirety">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="universalism">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Политика безопасности</h2>
+		<div class="text">
+			Гибкая политика безопасности позволяет определять 
+			ограничения доступа к данным как на уровне форм, 
+			так и на уровне конкретных действий / показателей. 
+			При этом пользователь не только не увидит эти данные, 
+			но и даже не узнает об их существовании.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=entirety">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="internationalization">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Трехзвенная архитектура</h2>
+		<div class="text">
+			Платформа построена таким образом, 
+			что императивная часть логики системы (все что связано с изменением данных) 
+			выполняется на серверах приложений, а декларативная 
+			(все что связано с вычислением данных) - на серверах БД. 
+			Такое разделение упрощает масштабирование разрабатываемой системы, 
+			а также в силу разного характера нагрузки на эти сервера повышает ее 
+			отказоустойчивость (к примеру, использование swap на сервере приложений
+			гораздо опасней, чем его же использование на сервере БД).
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=modul">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="safety">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>CI в ACID из коробки</h2>
+		<div class="text">
+			В платформе реализован корректный откат состояния сервера 
+			приложения на момент начала транзакции из любой операции, 
+			где идет обращение к данным. Это позволяет использовать родные средства 
+			обеспечения целостности реализованные в современных SQL-серверах, что, с
+			одной стороны, значительно уменьшает трудозатраты / вероятность ошибок при разработке системы,
+			работающей в высококонкурентной среде, а, с другой стороны, значительно увеличивает 
+			масштабируемость такой системы (при условии использования версионных СУБД).
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=entirety">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="usability">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Интернационализация</h2>
+		<div class="text">
+			Внутри любого строкового литерала (например заголовка элементов или строковой константы) 
+			платформа позволяет использовать идентификаторы (в фигурных скобках),
+			для которых, в свою очередь, можно задавать разные тексты для разных языков.
+			Соответственно, в момент обращения к этому литералу, платформа автоматически 
+			локализует его в зависимости от языковых настроек пользователя, 
+			действия которого приводят к этом обращению.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=entirety">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="usability">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Развитые средства администрирования</h2>
+		<div class="text">
+			Платформа предоставляет целый набор инструментов администрирования 
+			уже работающей системы: интерпретатор — выполняет код на языке lsFusion, 
+			монитор процессов — получает информацию о текущих процессах с различной 
+			информацией о них (например, время начала вызова, стек, пользователь и т.п.), 
+			планировщик — выполняет действия в заданные моменты времени (в том числе периодически), 
+			профайлер — замеряет производительность всех выполняемых действий для всех / заданных пользователей 
+			(строит граф вызовов, разделение времени между сервером приложений и сервером БД и т.п.), чат — для оповещения / 
+			общения с пользователями внутри системы, а также многочисленные журналы и логи (подключений, ошибок и т.п.)
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=entirety">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="port">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Эргономичный язык</h2>
+		<div class="text">
+			В платформе существует возможность объединять имена элементов в 
+			пространства имен, и при поиске элементов считать имена в одном и
+			том же пространстве имен более приоритетными. Таким образом в 
+			большинстве случаев достаточно указывать только "короткое" имя искомого 
+			элемента, а значит код получается более компактным и читабельным. 
+			Кроме того, для каждого параметра в коде можно задавать его класс и при поиске
+			элементов эти классы также будут учитываться (то есть поддерживается явная типизация). 
+			Последнее, кроме короткого кода, позволяет в том числе получить раннюю диагностику ошибок, 
+			умное автодополнение и ряд других аналогичных возможностей.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=entirety">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="cost">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Настройка системы пользователем</h2>
+		<div class="text">
+			Пользователь может настраивать любые формы, например добавлять пользовательские отборы и 
+			сортировки, добавлять / удалять колонки, изменять их порядок. 
+			Также, на любой форме, пользователь может осуществлять базовую аналитику - 
+			группировать данные, которые он видит, вычислять суммы / максимумы и другие 
+			агрегированные показатели. Помимо настроек пользовательского интерфейса,
+			пользователь также может самостоятельно добавлять логирование, требование 
+			заполненности, уведомление об изменениях любых (в том числе вычисляемых) данных.
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=entirety">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover filtering-item" data-sort-name="port">
+		<div class="icon-wrap">
+			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
+		</div>
+		<h2>Продвинутые интерактивные интерфейсы</h2>
+		<div class="text">
+			При интерактивном взаимодействии с пользователем платформа позволяет 
+			организовывать отображение любых данных не только в виде одиночных объектов
+			и списков, но и в виде деревьев, как плоских ("вложенных" друг в друга списков), 
+			так и рекурсивных (например, классификаторов). Кроме того, если информации слишком много,
+			платформа позволяет объединять различные блоки формы в папки (вкладки). При этом, если данные
+			не видны пользователю, они не читаются / вычисляются (так, к примеру, любые списки являются по 
+			умолчанию динамическими, то есть читается только ограниченное число объектов, а остальные
+			дочитываются по мере изменения текущего объекта в таблице).
+		</div>
+		<div class="btn-wrap">
+			<a class="link tlink__btn" href="#">How-to</a>
+			<a class="link tlink__btn" href="#">Документация</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=productivity">
+				<span class="link">
+					<span class="link__text">Сравнить</span>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+</div>

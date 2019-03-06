@@ -1,0 +1,263 @@
+title = "Главная"
+url = "/"
+layout = "main"
+description = "lsFusion — бесплатная открытая платформа разработки информационных систем на основе одноименного языка пятого поколения"
+meta_title = "Главная"
+meta_description = "Главная страница LsFusion.org"
+is_hidden = 0
+==
+<div class="filter-panel list-active">
+	
+	<div class="filter-panel__current visible-md">
+		<div class="caption">Для всех</div>
+		<div class="link-off">
+			<img alt="off" src="{{ 'assets/images/down-arrow.svg'|theme }}">
+		</div>
+	</div>
+	
+	<ul class="filter-panel__list">
+		<li class="filter-panel__item">
+			<label class="filter filter_checked" for="for_all">
+				<span class="caption-wrap">
+					<input class="filter__input-r" id="for_all" type="radio" name="speed" data-sort-selector="all" checked="checked"/>
+					<span class="filter__caption caption">Для всех</span>
+				</span>
+			</label>
+		</li>
+		<li class="filter-panel__item">
+			<label class="filter" for="developer">
+				<span class="caption-wrap">
+					<input class="filter__input-r" id="developer" type="radio" name="speed" data-sort-selector="develop"/>
+					<span class="filter__caption caption">Разработчикам</span>
+				</span>
+			</label>
+		</li>
+		<li class="filter-panel__item">
+			<label class="filter" for="manager">
+				<span class="caption-wrap">
+					<input class="filter__input-r" id="manager" type="radio" name="speed" data-sort-selector="admin"/>
+					<span class="filter__caption caption">Администраторам</span>
+				</span>
+			</label>
+		</li>
+		<li class="filter-panel__item">
+			<label class="filter" for="user">
+				<span class="caption-wrap">
+					<input class="filter__input-r" id="user" type="radio" name="speed" data-sort-selector="user"/>
+					<span class="filter__caption caption">Пользователям</span>
+				</span>
+			</label>
+		</li>
+		<li class="filter-panel__item">
+			<label class="filter" for="business">
+				<span class="caption-wrap">
+					<input class="filter__input-r" id="business" type="radio" name="speed" data-sort-selector="busi"/>
+					<span class="filter__caption caption">Бизнесу</span>
+				</span>
+			</label>
+		</li>
+	</ul>
+</div>
+  
+ <div class="conseption-content">
+            
+    <div class="item item_hover">
+		<div class="icon-wrap">
+			<svg class="item__icon i i-sky">
+				<use xlink:href="#i-sky"></use>
+			</svg>
+		</div>
+		<h2>Разрабатывайте быстро</h2>
+		<div class="text">Время разработки и внедрения <span data-sort-name="busi">функционала измеряется часами</span>, а не неделями. Быстрее чем когда-либо. Завершенная <span data-sort-name="admin">ERP-система</span> среднего уровня сложности всего в 25K строках кода. Полнофункциональная IDE на базе Intellij IDEA. Идеально для Agile разработки.</div>
+		<div class="btn-wrap">
+			<a class="btn btn_narow__blue" href="/opportunities?checked=speed">Подробнее</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=speed">Сравнить</a>
+		</div>
+	</div>
+	
+    <div class="item item_hover">
+		<div class="icon-wrap">
+			<svg class="item__icon i i-sky">
+				<use xlink:href="#i-sky"></use>
+			</svg>
+		</div>
+		<h2>Разрабатывайте просто</h2>
+		<div class="text">Не нужно знать десятки <span data-sort-name="admin">парадигм и языков</span>, постоянно выбирать между процедурами и запросами, клиентом и сервером, формами и отчетами, <span data-sort-name="admin">OLTP и OLAP</span>. Одна парадигма. Один язык. Разрабатывайте все сразу, устанавливайте одним действием. Порог вхождения ниже чем когда-либо.</div>
+		<div class="btn-wrap">
+			<a class="btn btn_narow__blue" href="/opportunities?checked=easy">Подробнее</a>
+			<a class="btn btn_narow__white" href="/comparison?checked=easy">Сравнить</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover">
+		<div class="icon-wrap">
+			<svg class="item__icon i i-sky">
+				<use xlink:href="#i-sky"></use>
+			</svg>
+		</div>
+		<h2>Любая сложность</h2>
+		<div class="text">От CRUD до ERP. Практически идеальная модульность. <span data-sort-name="busi admin">Разрабатывайте параллельно</span>, используйте повторно, поставляйте только то, что действительно нужно.</div>
+		<div class="btn-wrap">
+			<a class="btn btn_narow__blue" href="/opportunities?checked=usability">Подробнее</a>
+			<a class="btn btn_narow__white" href="/opportunities?checked=usability">Сравнить</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover" data-sort-name="admin">
+		<div class="icon-wrap">
+			<svg class="item__icon i i-sky">
+				<use xlink:href="#i-sky"></use>
+			</svg>
+		</div>
+		<h2>Любой объем данных</h2>
+		<div class="text">
+			Миллиарды записей. Терабайты данных.<span>NoORM, YesSQL</span>. 
+			Множество оптимизаторов на каждом уровне выжмут максимум из существующей инфраструктуры и 
+			обеспечат минимальное время отклика даже на больших объемах данных.
+		</div>
+		<div class="btn-wrap">
+			<a class="btn btn_narow__blue" href="/opportunities?checked=scalability">Подробнее</a>
+			<a class="btn btn_narow__white" href="/opportunities?checked=scalability">Сравнить</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover" data-sort-name="admin">
+		<div class="icon-wrap">
+			<svg class="item__icon i i-sky">
+				<use xlink:href="#i-sky"></use>
+			</svg>
+		</div>
+		<h2>Любое количество пользователей</h2>
+		<div class="text">
+			Максимальная конкурентность. <span>Высокая отказоустойчивость</span> и 
+			масштабируемость. Тысячи одновременных пользователей в одной базе.
+		</div>
+		<div class="btn-wrap">
+			<a class="btn btn_narow__blue" href="/opportunities?checked=scalability">Подробнее</a>
+			<a class="btn btn_narow__white" href="/opportunities?checked=scalability">Сравнить</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover" data-sort-name="admin">
+		<div class="icon-wrap">
+			<svg class="item__icon i i-sky">
+				<use xlink:href="#i-sky"></use>
+			</svg>
+		</div>
+		<h2>Любая инфраструктура</h2>
+		<div class="text">
+			Любая ОС. Любая реляционная СУБД. Веб или десктоп. Любые каналы связи. Сотни одновременных пользователей на 1МБ/с. Cloud-ready.
+		</div>
+		<div class="btn-wrap">
+			<a class="btn btn_narow__blue" href="/opportunities?checked=usability">Подробнее</a>
+			<a class="btn btn_narow__white" href="/opportunities?checked=usability">Сравнить</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover" data-sort-name="admin">
+		<div class="icon-wrap">
+			<svg class="item__icon i i-sky">
+				<use xlink:href="#i-sky"></use>
+			</svg>
+		</div>
+		<h2>Доверяйте системе</h2>
+		<div class="text">
+			ACID из коробки, никаких ручных блокировок и управления транзакциями. 
+			Глобальность всех ограничений и событий. Высокая декларативность. 
+			Данные максимально корректны независимо от состояний гонки, сбоев оборудования или ошибок со стороны разработчика.
+		</div>
+		<div class="btn-wrap">
+			<a class="btn btn_narow__blue" href="/opportunities?checked=safety">Подробнее</a>
+			<a class="btn btn_narow__white" href="/opportunities?checked=safety">Сравнить</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover" data-sort-name="develop">
+		<div class="icon-wrap">
+			<svg class="item__icon i i-sky">
+				<use xlink:href="#i-sky"></use>
+			</svg>
+		</div>
+		<h2>Управляйте системой</h2>
+		<div class="text">
+			<span>Интерпретатор. Монитор процессов. Профайлер. Планировщик. Чат.</span> 
+			Множество журналов и логов. Всегда знайте, что происходит и, при необходимости, оперативно устраняйте проблемы.
+		</div>
+		<div class="btn-wrap">
+			<a class="btn btn_narow__blue" href="/opportunities?checked=universalism">Подробнее</a>
+			<a class="btn btn_narow__white" href="/opportunities?checked=universalism">Сравнить</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover" data-sort-name="develop">
+		<div class="icon-wrap">
+			<svg class="item__icon i i-sky">
+				<use xlink:href="#i-sky"></use>
+			</svg>
+		</div>
+		<h2>Общайтесь с системой</h2>
+		<div class="text">
+			Открытая структура хранения данных. <span>
+			Прозрачные интерфейсы интеграции.</span>
+			Открытые исходники платформы. Построена на самых распространенных в мире технологиях.
+		</div>
+		<div class="btn-wrap">
+			<a class="btn btn_narow__blue" href="/opportunities?checked=internationalization">Подробнее</a>
+			<a class="btn btn_narow__white" href="/opportunities?checked=internationalization">Сравнить</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover" data-sort-name="develop">
+		<div class="icon-wrap">
+			<svg class="item__icon i i-sky">
+				<use xlink:href="#i-sky"></use>
+			</svg>
+		</div>
+		<h2>Владейте системой</h2>
+		<div class="text">
+			LGPL v3 лицензия. Свободное использование и распространение.<span>
+			Никаких ключей и DRM</span>. Разрешение на модификацию платформы. 
+			Защита от патентов. Бесплатно.
+		</div>
+		<div class="btn-wrap">
+			<a class="btn btn_narow__blue" href="/opportunities?checked=port">Подробнее</a>
+			<a class="btn btn_narow__white" href="/opportunities?checked=port">Сравнить</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover" data-sort-name="user">
+		<div class="icon-wrap">
+			<svg class="item__icon i i-sky">
+				<use xlink:href="#i-sky"></use>
+			</svg>
+		</div>
+		<h2>Расширяйте систему</h2>
+		<div class="text">
+			Используйте <span>все пользовательские интерфейсы</span> по максимуму, 
+			без привлечения разработчика. Группируйте, фильтруйте, упорядочивайте, 
+			выгружайте, логируйте, настраивайте, копируйте / вставляйте, применяйте / отменяйте, изменяйте всё, везде и для всех. Как в Excel и даже больше.
+		</div>
+		<div class="btn-wrap">
+			<a class="btn btn_narow__blue" href="/opportunities?checked=cost">Подробнее</a>
+			<a class="btn btn_narow__white" href="/opportunities?checked=cost">Сравнить</a>
+		</div>
+	</div>
+	
+	<div class="item item_hover" data-sort-name="user">
+		<div class="icon-wrap">
+			<svg class="item__icon i i-sky">
+				<use xlink:href="#i-sky"></use>
+			</svg>
+		</div>
+		<h2>Масштабируйте систему</h2>
+		<div class="text">
+			Интернационализация любой строки в одно действие. Гибкая политика безопасности на всех уровнях. 
+			<span>Установка клиента в одно действие и для всех логик сразу. 
+			Встроенное шифрование передаваемых данных.</span> Corporate-ready.
+		</div>
+		<div class="btn-wrap">
+			<a class="btn btn_narow__blue" href="/opportunities?checked=modul">Подробнее</a>
+			<a class="btn btn_narow__white" href="/opportunities?checked=modul">Сравнить</a>
+		</div>
+	</div>
+</div>

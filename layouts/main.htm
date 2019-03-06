@@ -1,0 +1,49 @@
+description = "Main layout"
+==
+<!DOCTYPE html>
+<html>
+
+    {% partial "meta" %}
+
+    <body class="no-js index_page">
+        <div class="page-wrapper">
+            {% partial "svg" %}
+
+            {% partial "header" %}
+
+            <div class="head_title">
+                <div class="container">
+                    <h1 class="heading">
+                        {% if this.page.url == "/opportunities" %}
+                            <small>{{this.page.description}}</small>
+                        {% else %}
+                            {{this.page.description}}
+                        {% endif %}
+                    </h1>
+                </div>
+            </div>
+
+            <main class="main">
+                <div class="container">
+                    {% page %}
+                </div>
+            </main>
+
+            <footer id="footer">
+                {% partial "footer" %}
+            </footer>
+
+            <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+
+            {% scripts %}
+
+            {% if this.page.url == "/opportunities" %}
+                <script type="text/javascript" src="{{ 'assets/js/fusion.js'|theme }}"></script>
+            {% endif %}
+            <script type="text/javascript" src="{{ 'assets/js/main.js'|theme }}"></script>
+
+
+        </div>
+    </body>
+
+</html>
