@@ -8,7 +8,7 @@
 				{% if this.page.url == "/" %}
 					<div class="logo__link">
 				{% else %}
-					<a class="logo__link" href="/">
+					<a class="logo__link" href="./">
 				{% endif %}
 
 					<img alt="logo" src="{{ 'assets/images/i-logo-lsfusion.svg'|theme }}">
@@ -23,9 +23,9 @@
 
 			<div class="inner__head_block hide-below-md">
 
-				<a class="link tlink__btn" href="/support">{% content "header/header_support.txt" %}</a>
+				<a class="link tlink__btn" href="support">{% content "header/header_support.txt" %}</a>
 
-				<a class="btn btn_white" href="/try">
+				<a class="btn btn_white" href="try">
                     <span class="link">
                         <svg class="link__icon i i-learn">
                             <use xlink:href="#i-learn"></use>
@@ -33,7 +33,7 @@
                         <span class="link__text">{% content "header/header_study.txt" %}</span>
                     </span>
 				</a>
-				<a class="btn btn_blue" href="/download">
+				<a class="btn btn_blue" href="download">
                     <span class="link">
                         <span class="link__text">{% content "header/header_install.txt" %}</span>
                     </span>
@@ -64,7 +64,7 @@
 							{% content "header/header_mobile_menu.htm" %}
 						</ul>
 
-						<a class="btn btn_white" href="/try">
+						<a class="btn btn_white" href="try">
                             <span class="link">
                                 <svg class="link__icon i i-learn">
                                     <use xlink:href="#i-learn"></use>
@@ -73,7 +73,7 @@
                             </span>
 						</a>
 
-						<a class="btn btn_blue" href="/download">
+						<a class="btn btn_blue" href="download">
                             <span class="link">
                                 <span class="link__text">{% content "header/header_install.txt" %}</span>
                             </span>
@@ -81,7 +81,7 @@
 
 						<div class="language">
 							<div class="link link_active">Рус</div>
-							<a class="link" href="/en">Eng</a>
+							<a class="link" href="en">Eng</a>
 						</div>
 
 					</div>
@@ -100,7 +100,7 @@
 
 			<!--<div class="language hide-below-md">
 				<div class="link link_active">Рус</div>
-				<a class="link" href="/en">Eng</a>
+				<a class="link" href="en">Eng</a>
 			</div>-->
 
 		</div>
