@@ -31,7 +31,7 @@ function onStart(){
 		<li class="filter-panel__item">
 			<label class="filter filter_checked" for="speed">
 				<span class="caption-wrap">
-					<input class="filter__input" id="speed" type="checkbox"  name="speed" {% if checked_input == 'speed' %} checked {% endif %} data-sort-selector="speed"/>
+					<input class="filter__input" id="speed" type="checkbox"  name="speed" {% if 'speed' in checked_input %} checked {% endif %} data-sort-selector="speed"/>
 					<span class="filter__caption caption">Скорость разработки</span>
 				</span>
 			</label>
@@ -40,7 +40,7 @@ function onStart(){
 		<li class="filter-panel__item">
 			<label class="filter" for="easy">
 				<span class="caption-wrap">
-					<input class="filter__input" id="easy" type="checkbox" name="easy" {% if checked_input == 'easy' %} checked {% endif %} data-sort-selector="easy"/>
+					<input class="filter__input" id="easy" type="checkbox" name="easy" {% if 'easy' in checked_input %} checked {% endif %} data-sort-selector="easy"/>
 					<span class="filter__caption caption">Простота разработки</span>
 				</span>
 			</label>
@@ -49,7 +49,7 @@ function onStart(){
 		<li class="filter-panel__item">
 			<label class="filter" for="modul">
 				<span class="caption-wrap">
-					<input class="filter__input" id="modul" type="checkbox" name="modul" {% if checked_input == 'modul' %} checked {% endif %} data-sort-selector="modul"/>
+					<input class="filter__input" id="modul" type="checkbox" name="modul" {% if 'modul' in checked_input %} checked {% endif %} data-sort-selector="modul"/>
 					<span class="filter__caption caption">Модульность</span>
 				</span>
 			</label>
@@ -58,7 +58,7 @@ function onStart(){
 		<li class="filter-panel__item">
 			<label class="filter" for="productivity">
 				<span class="caption-wrap">
-					<input class="filter__input" id="productivity" type="checkbox" name="productivity" {% if checked_input == 'productivity' %} checked {% endif %} data-sort-selector="productivity"/>
+					<input class="filter__input" id="productivity" type="checkbox" name="productivity" {% if 'productivity' in checked_input %} checked {% endif %} data-sort-selector="productivity"/>
 					<span class="filter__caption caption">Производительность</span>
 				</span>
 			</label>
@@ -67,7 +67,7 @@ function onStart(){
 		<li class="filter-panel__item">
 			<label class="filter" for="scalability">
 				<span class="caption-wrap">
-					<input class="filter__input" id="scalability" type="checkbox" name="scalability" {% if checked_input == 'scalability' %} checked {% endif %} data-sort-selector="scalability"/>
+					<input class="filter__input" id="scalability" type="checkbox" name="scalability" {% if 'scalability' in checked_input %} checked {% endif %} data-sort-selector="scalability"/>
 					<span class="filter__caption caption">Масштабируемость</span>
 				</span>
 			</label>
@@ -76,7 +76,7 @@ function onStart(){
 		<li class="filter-panel__item">
 			<label class="filter" for="entirety">
 				<span class="caption-wrap">
-					<input class="filter__input" id="entirety" type="checkbox" name="entirety" {% if checked_input == 'entirety' %} checked {% endif %} data-sort-selector="entirety"/>
+					<input class="filter__input" id="entirety" type="checkbox" name="entirety" {% if 'entirety' in checked_input %} checked {% endif %} data-sort-selector="entirety"/>
 					<span class="filter__caption caption">Целостность</span>
 				</span>
 			</label>
@@ -85,7 +85,7 @@ function onStart(){
 		<li class="filter-panel__item">
 			<label class="filter" for="openness">
 				<span class="caption-wrap">
-					<input class="filter__input" id="openness" type="checkbox" name="openness" {% if checked_input == 'openness' %} checked {% endif %} data-sort-selector="openness"/>
+					<input class="filter__input" id="openness" type="checkbox" name="openness" {% if 'openness' in checked_input %} checked {% endif %} data-sort-selector="openness"/>
 					<span class="filter__caption caption">Открытость</span>
 				</span>
 			</label>
@@ -94,7 +94,7 @@ function onStart(){
 		<li class="filter-panel__item">
 			<label class="filter" for="supportability">
 				<span class="caption-wrap">
-					<input class="filter__input" id="supportability" type="checkbox" name="supportability" {% if checked_input == 'supportability' %} checked {% endif %} data-sort-selector="supportability"/>
+					<input class="filter__input" id="supportability" type="checkbox" name="supportability" {% if 'supportability' in checked_input %} checked {% endif %} data-sort-selector="supportability"/>
 					<span class="filter__caption caption">Поддерживаемость</span>
 				</span>
 			</label>
@@ -103,7 +103,7 @@ function onStart(){
 		<li class="filter-panel__item">
 			<label class="filter" for="universalism">
 				<span class="caption-wrap">
-					<input class="filter__input" id="universalism" type="checkbox" name="universalism" {% if checked_input == 'universalism' %} checked {% endif %} data-sort-selector="universalism"/>
+					<input class="filter__input" id="universalism" type="checkbox" name="universalism" {% if 'universalism' in checked_input %} checked {% endif %} data-sort-selector="universalism"/>
 					<span class="filter__caption caption">Универсальность</span>
 				</span>
 			</label>
@@ -112,7 +112,7 @@ function onStart(){
 		<li class="filter-panel__item">
 			<label class="filter" for="safety">
 				<span class="caption-wrap">
-					<input class="filter__input" id="safety" type="checkbox" name="safety" {% if checked_input == 'safety' %} checked {% endif %} data-sort-selector="safety"/>
+					<input class="filter__input" id="safety" type="checkbox" name="safety" {% if 'safety' in checked_input %} checked {% endif %} data-sort-selector="safety"/>
 					<span class="filter__caption caption">Безопасность</span>
 				</span>
 			</label>
@@ -121,7 +121,7 @@ function onStart(){
 		<li class="filter-panel__item">
 			<label class="filter" for="internationalization">
 				<span class="caption-wrap">
-					<input class="filter__input" id="internationalization" type="checkbox" name="internationalization" {% if checked_input == 'internationalization' %} checked {% endif %} data-sort-selector="internationalization"/>
+					<input class="filter__input" id="internationalization" type="checkbox" name="internationalization" {% if 'internationalization' in checked_input %} checked {% endif %} data-sort-selector="internationalization"/>
 					<span class="filter__caption caption">I18n</span>
 				</span>
 			</label>
@@ -130,7 +130,7 @@ function onStart(){
 		<li class="filter-panel__item">
 			<label class="filter" for="usability">
 				<span class="caption-wrap">
-					<input class="filter__input" id="usability" type="checkbox" name="usability" {% if checked_input == 'usability' %} checked {% endif %} data-sort-selector="usability"/>
+					<input class="filter__input" id="usability" type="checkbox" name="usability" {% if 'usability' in checked_input %} checked {% endif %} data-sort-selector="usability"/>
 					<span class="filter__caption caption">Удобство использования</span>
 				</span>
 			</label>
@@ -139,7 +139,7 @@ function onStart(){
 		<li class="filter-panel__item">
 			<label class="filter" for="port">
 				<span class="caption-wrap">
-					<input class="filter__input" id="port" type="checkbox" name="port" {% if checked_input == 'port' %} checked {% endif %} data-sort-selector="port"/>
+					<input class="filter__input" id="port" type="checkbox" name="port" {% if 'port' in checked_input %} checked {% endif %} data-sort-selector="port"/>
 					<span class="filter__caption caption">Портируемость</span>
 				</span>
 			</label>
@@ -148,7 +148,7 @@ function onStart(){
 		<li class="filter-panel__item">
 			<label class="filter" for="cost">
 				<span class="caption-wrap">
-					<input class="filter__input" id="cost" type="checkbox" name="cost" {% if checked_input == 'cost' %} checked {% endif %} data-sort-selector="cost"/>
+					<input class="filter__input" id="cost" type="checkbox" name="cost" {% if 'cost' in checked_input %} checked {% endif %} data-sort-selector="cost"/>
 					<span class="filter__caption caption">Стоимость</span>
 				</span>
 			</label>
