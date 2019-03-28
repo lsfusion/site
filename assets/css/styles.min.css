@@ -1795,15 +1795,15 @@ body:before {
 }
 
 .table__cell_plusminus {
-    background: #fff8f8;
-    color: #e70000
+    background: #f4fff3;
+    color: #0fb100
 }
 
 .table__cell_plusminus:before {
     content: '';
     width: 2px;
     height: 20px;
-    background: #e70000;
+    background: #0fb100;
     position: absolute;
     left: 0;
     right: 0;
@@ -1820,7 +1820,7 @@ body:before {
     display: block;
     height: 2px;
     margin: auto;
-    background: #e70000;
+    background: #0fb100;
     -webkit-transform: translateX(-13px) scale(.7);
     transform: translateX(-13px) scale(.7)
 }
@@ -1829,7 +1829,7 @@ body:before {
     content: '';
     width: 12px;
     height: 2px;
-    background: #e70000;
+    background: #0fb100;
     position: absolute;
     left: 0;
     right: 0;
@@ -1844,7 +1844,7 @@ body:before {
     content: '';
     width: 2px;
     height: 12px;
-    background: #e70000;
+    background: #0fb100;
     position: absolute;
     left: 0;
     right: 0;
