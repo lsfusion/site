@@ -1141,9 +1141,9 @@ document.onclick = function (e) {
     //console.log('click', e.target)
 };
 
-var listfilter = document.querySelectorAll('.listfilter-panel');
 var toolt = document.querySelectorAll('.open-tooltip');
 document.addEventListener('click', function (event) {
+    var listfilter = document.querySelectorAll('.listfilter-panel');
     for (var i = 0; i < listfilter.length; i++) {
         var isClickInside = listfilter[i].contains(event.target);
 
@@ -1304,79 +1304,6 @@ var lsFusion = {
             filter[i].style.width = w + 'px';
         }
 
-        var lf = document.querySelectorAll('.listfilter');
-
-        for (var k = 0; k < lf.length; k++) {
-            lf[k].addEventListener('click', activate, !1);
-        }
-
-        if (document.querySelectorAll('.editor-panel')) {
-            var elements = document.querySelectorAll('.editor-panel');
-            Array.prototype.forEach.call(elements, function (el, i) {
-                var editor = CodeMirror.fromTextArea(el, {
-                    mode: "fusion",
-                    theme: 'darcula',
-                    selectionPointer: true
-                });
-            });
-        }
-
-        function activate(e) {
-            var box = Helpers.parents(this, '.plagin-panel'),
-                id = this.attributes.for.value,
-                panels = box[0].querySelectorAll('.editor-panel'),
-                val = e.currentTarget.dataset.value,
-                name = this.querySelectorAll('.caption')[0].innerText;
-            for (var p = 0; p < panels.length; p++) {
-                if (!box[0].querySelectorAll('.CodeMirror')[0]) {
-                    panels[0].innerText = this.dataset.value;
-                    var editor = CodeMirror.fromTextArea(panels[i], {
-                        mode: "fusion",
-                        theme: 'darcula',
-                        selectionPointer: true
-                    });
-                } else {
-                    panels[0].innerText = this.dataset.value;
-                    var editor = panels[i].nextSibling;
-                    editor.remove();
-                    var editor = CodeMirror.fromTextArea(panels[i], {
-                        mode: "fusion",
-                        theme: 'darcula',
-                        selectionPointer: true
-                    });
-                    /*editor.getDoc().setValue("");
-                     editor.clearHistory();*/
-
-                }
-
-                panels[p].classList.remove('active');
-                if (panels[p].id == id) {
-                    panels[p].classList.add('active');
-                }
-            }
-            Helpers.parents(this, '.listfilter-panel')[0].querySelectorAll('.listfilter-panel__current .caption')[0].innerText = name;
-            Helpers.parents(this, '.listfilter-panel')[0].classList.remove('list-active');
-        }
-
-        /*function active() {
-         var box = Helpers.parents(this, '.plagin-panel'),
-         id = this.attributes.for.value,
-         panels = box[0].querySelectorAll('.editor-panel'),
-         results = box[0].querySelectorAll('.plagin-panel__second-box');
-         for (var p = 0; p < panels.length; p++) {
-         panels[p].classList.remove('active');
-         if (panels[p].id == id) {
-         panels[p].classList.add('active');
-         }
-         }
-         for (var r = 0; r < results.length; r++) {
-         results[r].classList.remove('active');
-         if (results[r].dataset.id == id) {
-         results[r].classList.add('active');
-         }
-         }
-         Helpers.parents(this, '.listfilter-panel')[0].classList.remove('list-active');
-         }*/
         var btns_t = document.querySelectorAll('.btn.open-tooltip');
         var btns_close = document.querySelectorAll('.btn.open-tooltip .close');
         for (var i = 0; i < btns_t.length; i++){
@@ -1429,14 +1356,12 @@ var lsFusion = {
                 table = Helpers.find(tab, '.table')[0];
             }
             event.target.classList.add('mode-panel__mode-item_active');
-            for (var i = 0; i < tabs.length; i++) {
-                tabs[i].classList.remove('active');
-                /*tabs[i].style.display = 'none';*/
-            }
+            var activeTab;
             for (var i = 0; i < tabs.length; i++) {
                 var tab = tabs[i];
                 var tab_id = tabs[i].id;
                 if (tab_id == id) {
+                    activeTab = tabs[i];
                     tabs[i].classList.add('active');
                     tabs[i].classList.add('init');
                     /*tabs[i].style.display = 'block';*/

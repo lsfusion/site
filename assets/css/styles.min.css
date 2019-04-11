@@ -1382,15 +1382,16 @@ body:before {
 }
 
 .plagin-panel__plagin-box {
-    margin: 1.875rem;
+    margin: 0.875rem 0 0 0.875rem;
     height: 100%;
-    position: relative
+    position: relative;
+    overflow: hidden;
 }
 
 .plagin-panel__plagin-box .btn_round {
     position: absolute;
-    top: 82%;
-    right: 0
+    top: 80%;
+    right: 2%
 }
 
 .plagin-panel__second-box {
@@ -1408,16 +1409,23 @@ body:before {
 
 .listfilter-panel {
     position: relative;
-    display: inline-block
+    display: inline-block;
+    height: 95%;
+}
+
+.listfilter-scroller {
+    height: 90%;
+    overflow-y: auto;
+    visibility: hidden;
 }
 
 .listfilter-panel.list-active {
     z-index: 10
 }
 
-.listfilter-panel.list-active .listfilter-panel__list {
+.listfilter-panel.list-active .listfilter-scroller {
     opacity: 1;
-    visibility: visible
+    visibility: visible;
 }
 
 .listfilter-panel.list-active .link-off {
@@ -1445,7 +1453,8 @@ body:before {
 }
 
 .listfilter-panel__current .caption {
-    color: #fff
+    color: #fff;
+    overflow: hidden;
 }
 
 .listfilter-panel__current .link-off {
@@ -1460,8 +1469,6 @@ body:before {
 }
 
 .listfilter-panel__list {
-    visibility: hidden;
-    opacity: 0;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1469,8 +1476,6 @@ body:before {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     width: 15rem;
@@ -1490,7 +1495,8 @@ body:before {
     border: none;
     width: 100%;
     cursor: pointer;
-    position: relative
+    position: relative;
+    display: inline-block;
 }
 
 .listfilter-panel .listfilter .caption-wrap-lf {
@@ -1526,27 +1532,11 @@ body:before {
     display: none
 }
 
-.listfilter-panel .listfilter_checked-pl .listfilter__input + .listfilter__caption {
-    font-weight: 700
-}
-
-.listfilter-panel .listfilter_checked-pl .listfilter__input + .listfilter__caption:before {
-    position: absolute;
-    content: '';
-    top: .125rem;
-    left: 12.3125rem;
-    width: .875rem;
-    height: .6875rem;
-    color: #2dc1f7;
-    background: url(../images/checked.svg) no-repeat;
-    background-size: cover
-}
-
 .listfilter-panel .listfilter .listfilter__input:checked + .listfilter__caption {
     font-weight: 700
 }
 
-.listfilter-panel .listfilter .listfilter__input:checked + .listfilter__caption:before {
+.listfilter_check {
     position: absolute;
     content: '';
     top: .6875rem;
@@ -1555,7 +1545,12 @@ body:before {
     height: .6875rem;
     color: #2dc1f7;
     background: url(../images/checked.svg) no-repeat;
-    background-size: cover
+    background-size: cover;
+    display: none;
+}
+
+.listfilter-panel .listfilter .listfilter__input:checked ~ .listfilter_check {
+    display: block;
 }
 
 .table {
@@ -1979,7 +1974,6 @@ body:before {
 
 .CodeMirror {
     font-family: monospace;
-    height: 290px;
     color: #000;
     direction: ltr
 }
@@ -2227,20 +2221,51 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 .CodeMirror-vscrollbar {
     right: 0;
     top: 0;
-    overflow-x: hidden;
-    overflow-y: scroll
+    overflow: hidden;
+    width: 8px;
+    scrollbar-width: thin; /*firefox*/
 }
 
 .CodeMirror-hscrollbar {
     bottom: 0;
     left: 0;
-    overflow-y: hidden;
-    overflow-x: scroll
+    overflow: hidden;
+    height: 8px;
+    scrollbar-width: thin; /*firefox*/
+}
+
+.CodeMirror-hscrollbar-auto {
+    overflow-x: auto;
+}
+
+.CodeMirror-vscrollbar-auto {
+    overflow-y: auto;
+}
+
+.CodeMirror-vscrollbar::-webkit-scrollbar-track, .CodeMirror-hscrollbar::-webkit-scrollbar-track {
+    border-radius: 4px;
+    background-color: #343E41;
+}
+
+.CodeMirror-vscrollbar::-webkit-scrollbar {
+    width: 8px;
+    background-color: #343E41;
+}
+
+.CodeMirror-hscrollbar::-webkit-scrollbar {
+    height: 8px;
+    background-color: #343E41;
+}
+
+.CodeMirror-vscrollbar::-webkit-scrollbar-thumb, .CodeMirror-hscrollbar::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #d6d6d6;
 }
 
 .CodeMirror-scrollbar-filler {
     right: 0;
-    bottom: 0
+    bottom: 0;
+    visibility: hidden;
 }
 
 .CodeMirror-gutter-filler {
@@ -2568,7 +2593,8 @@ span.CodeMirror-selectedtext {
     position: absolute;
     font-size: 18px;
     width: 100%;
-    top: 60px
+    top: 60px;
+    bottom: 0;
 }
 
 .code-area {
@@ -3530,7 +3556,8 @@ header {
     width: 3.75rem;
     height: 3.75rem;
     background-color: #2dc1f7;
-    border: 1px solid #2dc1f7
+    border: 1px solid #2dc1f7;
+    z-index: 6;
 }
 
 .btn_round img {

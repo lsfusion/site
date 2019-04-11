@@ -188,7 +188,7 @@ function onStart()
 		xhr.open("POST", "https://tryonline.lsfusion.org/exec?action=Main.getExamples");
 		xhr.setRequestHeader("Content-Type", "text/json");
 
-		var data = '{mode: 3}';
+		var data = '{mode: 0}';
 		xhr.send(data);
 
 		xhr.addEventListener("readystatechange", function () {
@@ -337,59 +337,6 @@ function onStart()
 	<div class="plagin-panel hide-devices">
 		<div class="plagin-panel__panel-item plagin-panel__panel-item_first-box">
 			<div class="plagin-panel__plagin-box">
-				<div class="listfilter-panel">
-					<div class="listfilter-panel__current">
-						<div class="caption">Export from DepartmentStore</div>
-						<div class="link-off">
-							<img alt="off" src="{{ 'assets/images/arrow-white.svg'|theme }}">
-						</div>
-					</div>
-
-					<ul class="listfilter-panel__list">
-						<li class="listfilter-panel__item">
-							<label
-								class="listfilter"
-								for="text_1"
-								data-value="run() {EXPORT FROM name(DepartmentStore s);}"
-							>
-								<input class="listfilter__input" id="text_1" type="radio" name="text_1" value="text_1" checked="checked"/>
-								<span class="listfilter__caption caption">Export from DepartmentStore</span>
-							</label>
-						</li>
-						<li class="listfilter-panel__item">
-							<label
-								class="listfilter"
-								for="text_2"
-								data-value="function HelloWorld() { console.log(&quot;Hello world12&quot;); }"
-							>
-								<input class="listfilter__input" id="text_2" type="radio" value="text_2" name="text_1"/>
-								<span class="listfilter__caption caption">Text 2</span>
-							</label>
-						</li>
-						<li class="listfilter-panel__item">
-							<label
-								class="listfilter"
-								for="text_3"
-								data-value="function HelloWorld() { console.log(&quot;Hello world13&quot;); }"
-							>
-								<input class="listfilter__input" id="text_3" type="radio" value="text_3" name="text_1"/>
-								<span class="listfilter__caption caption">Text 3</span>
-							</label>
-						</li>
-					</ul>
-
-				</div>
-				<textarea class="editor-panel active" id="text_1">run() {EXPORT FROM name(DepartmentStore s);}</textarea>
-				<!--<textarea class="editor-panel active" id="text_1">run() {EXPORT FROM name(DepartmentStore s);}-->
-				<!--</textarea>-->
-				<!--<textarea class="editor-panel" id="text_2">function HelloWorld() {-->
-	<!--console.log('Hello world12');-->
-<!--}-->
-				<!--</textarea>-->
-				<!--<textarea class="editor-panel" id="text_3">function HelloWorld() {-->
-	<!--console.log('Hello world13');-->
-<!--}-->
-				<!--</textarea>-->
 				<a class="btn btn_round" href="javascript:void(0);" onclick="pullServerRequestDBMSMode(this);">
 					<img alt="arrow" src="{{ 'assets/images/arrow.svg'|theme }}">
 				</a>
@@ -399,95 +346,17 @@ function onStart()
 			<div class="plagin-panel__text-box text">
 				Сервер приложений выполняется в виртуальной Java машине (JVM), что позволяет подключить к нему любую из многочисленных существующих Java-библиотек. Для этого достаточно создать свое действие на Java, зарегистрировать его в платформе и использовать, как если бы оно было встроенным или реализованным на языке платформы. Аналогичным образом можно бесшовно подключать пользовательские SQL-функции используемого сервера БД.
 			</div>
-			<textarea class="plagin-panel__second-box active" data-id="text_1">Hello world</textarea>
-			<textarea class="plagin-panel__second-box" data-id="text_2">Hello world2</textarea>
-			<textarea class="plagin-panel__second-box" data-id="text_3">Hello world3</textarea>
+			<textarea class="plagin-panel__second-box active" data-id="textarea_1">Hello world</textarea>
+			<textarea class="plagin-panel__second-box" data-id="textarea_2">Hello world2</textarea>
+			<textarea class="plagin-panel__second-box" data-id="textarea_3">Hello world3</textarea>
 		</div>
 	</div>
 </div>
+
 <div class="mode-content hide-devices" id="tab_2">
 	<div class="plagin-panel hide-devices">
 		<div class="plagin-panel__panel-item plagin-panel__panel-item_first-box">
 			<div class="plagin-panel__plagin-box">
-				<div class="listfilter-panel">
-					<div class="listfilter-panel__current">
-						<div class="caption">Стартовать сервер</div>
-						<div class="link-off">
-							<img alt="off" src="{{ 'assets/images/arrow-white.svg'|theme }}">
-						</div>
-					</div>
-
-					<ul class="listfilter-panel__list">
-						<li class="listfilter-panel__item">
-							<label
-								class="listfilter"
-								for="input_4"
-								data-value="{ code = &quot;MODULE Main; FORM HelloWorld; &quot; }"
-							>
-								<input class="listfilter__input" id="input_4" type="radio" value="start" name="text_2" checked="checked"/>
-								<span class="listfilter__caption caption">Стартовать сервер</span>
-							</label>
-						</li>
-						<li class="listfilter-panel__item">
-							<label
-								class="listfilter"
-								for="input_5"
-								data-value="function HelloWorld() { console.log(&quot;Hello world14&quot;); }"
-							>
-								<input class="listfilter__input" id="input_5" type="radio" value="restart" name="text_2"/>
-								<span class="listfilter__caption caption">Перестартовать сервер</span>
-							</label>
-						</li>
-						<li class="listfilter-panel__item">
-							<label
-								class="listfilter"
-								for="input_6"
-								data-value="function HelloWorld() { console.log(&quot;Hello world15&quot;); }"
-							>
-								<input class="listfilter__input" id="input_6" type="radio" value="stop" name="text_2"/>
-								<span class="listfilter__caption caption">Остановить сервер</span>
-							</label>
-						</li>
-						<li class="listfilter-panel__item">
-							<label
-								class="listfilter"
-								for="input_7"
-								data-value="function HelloWorld() { console.log(&quot;Hello world16&quot;); }"
-							>
-								<input class="listfilter__input" id="input_7" type="radio" value="getLog" name="text_2"/>
-								<span class="listfilter__caption caption">Получить лог с сервера</span>
-							</label>
-						</li>
-						<li class="listfilter-panel__item">
-							<label
-								class="listfilter"
-								for="input_8"
-								data-value="function HelloWorld() { console.log(&quot;Hello world17&quot;); }"
-							>
-								<input class="listfilter__input" id="input_8" type="radio" value="getExample" name="text_2"/>
-								<span class="listfilter__caption caption">Получить примеры</span>
-							</label>
-						</li>
-					</ul>
-
-				</div>
-				<textarea class="editor-panel active" id="input_4">{ code = "MODULE Main; FORM HelloWorld; " }</textarea>
-				<!--<textarea class="editor-panel" id="input_5">function HelloWorld() {-->
-	<!--console.log('Hello world12');-->
-<!--}-->
-				<!--</textarea>-->
-				<!--<textarea class="editor-panel" id="input_6">function HelloWorld() {-->
-	<!--console.log('Hello world13');-->
-<!--}-->
-				<!--</textarea>-->
-				<!--<textarea class="editor-panel" id="input_7">function HelloWorld() {-->
-	<!--console.log('Hello world12');-->
-<!--}-->
-				<!--</textarea>-->
-				<!--<textarea class="editor-panel" id="input_8">function HelloWorld() {-->
-	<!--console.log('Hello world13');-->
-<!--}-->
-				<!--</textarea>-->
 				<a class="btn btn_round" href="javascript:void(0);" onclick="pullServerRequest(this);">
 					<img alt="arrow" src="{{ 'assets/images/arrow.svg'|theme }}">
 				</a>
@@ -497,15 +366,181 @@ function onStart()
 			<div class="plagin-panel__text-box text">
 				Сервер приложений выполняется в виртуальной Java машине (JVM), что позволяет подключить к нему любую из многочисленных существующих Java-библиотек. Для этого достаточно создать свое действие на Java, зарегистрировать его в платформе и использовать, как если бы оно было встроенным или реализованным на языке платформы. Аналогичным образом можно бесшовно подключать пользовательские SQL-функции используемого сервера БД.
 			</div>
-			<textarea class="plagin-panel__second-box active" data-id="input_4">Hello world</textarea>
-			<textarea class="plagin-panel__second-box" data-id="input_5">Hello world2</textarea>
-			<textarea class="plagin-panel__second-box" data-id="input_6">Hello world3</textarea>
-			<textarea class="plagin-panel__second-box" data-id="input_7">Hello world2</textarea>
-			<textarea class="plagin-panel__second-box" data-id="input_8">Hello world3</textarea>
+			<textarea class="plagin-panel__second-box active" data-id="textarea_4">Hello world</textarea>
+			<textarea class="plagin-panel__second-box" data-id="textarea_5">Hello world2</textarea>
+			<textarea class="plagin-panel__second-box" data-id="textarea_6">Hello world3</textarea>
+			<textarea class="plagin-panel__second-box" data-id="textarea_7">Hello world2</textarea>
+			<textarea class="plagin-panel__second-box" data-id="textarea_8">Hello world3</textarea>
 		</div>
 	</div>
 </div>
 
+<script>
+	window.onload = loadExamples();
+
+	function loadExamples() {
+		var tabs = document.querySelectorAll('.mode-content');
+		for (t = 0; t < tabs.length; t++) {
+			var currentTab = tabs[t];
+
+			var xhr = new XMLHttpRequest();
+			xhr.withCredentials = true;
+
+			xhr.open("POST", "https://tryonline.lsfusion.org/exec?action=Main.getExamples");
+			xhr.setRequestHeader("Content-Type", "application/json");
+
+			var data = '{mode: ' + t + '}';
+			xhr.send(data);
+
+			xhr.addEventListener("readystatechange", function(currentTab, tab) {return function() {
+				if (
+						this.readyState === 4
+				) {
+					try {
+						var json = JSON.parse(this.responseText);
+					} catch (e) {
+						console.log(e);
+					}
+					var list = document.createElement("ul");
+					list.classList.add("listfilter-panel__list");
+					for (i in json) {
+						var listItem = document.createElement("li");
+						listItem.classList.add("listfilter-panel__item");
+						var label = document.createElement("label");
+						label.classList.add("listfilter");
+						var listItemID = "input_" + tab + '_' + i;
+						label.setAttribute("for", listItemID);
+						label.setAttribute("data-value", json[i].text);
+
+						var input = document.createElement("input");
+						input.classList.add("listfilter__input");
+						input.id = listItemID;
+						input.type = "radio";
+						// input.name = "text_" + i;
+						input.name = "radioMode_" + tab;
+						input.value = "text_" + i;
+						if (i == 0) {
+							input.setAttribute("checked", "checked");
+						}
+						label.appendChild(input);
+						label.addEventListener('click', activate, !1);
+
+						var span = document.createElement("span");
+						span.classList.add("listfilter__caption");
+						span.classList.add("caption");
+						label.appendChild(span);
+
+						span.innerText = json[i].caption;
+						var checkdiv = document.createElement("div");
+						checkdiv.classList.add("listfilter_check");
+						label.appendChild(checkdiv);
+
+						listItem.appendChild(label);
+						list.appendChild(listItem);
+					}
+					var listFilterCurrent = document.createElement("div");
+					listFilterCurrent.classList.add("listfilter-panel__current");
+					listFilterCurrent.addEventListener('click', addClassActive, false);
+
+					var captionDiv = document.createElement("div");
+					captionDiv.classList.add("caption");
+					if (json.length > 0) {
+						captionDiv.innerText = json[0].caption;
+					}
+					listFilterCurrent.appendChild(captionDiv);
+
+					var linkOffDiv = document.createElement("div");
+					linkOffDiv.classList.add("link-off");
+					listFilterCurrent.appendChild(linkOffDiv);
+
+					var img = document.createElement("img");
+					img.alt = "off";
+					img.src = "{{ 'assets/images/arrow-white.svg'|theme }}";
+					linkOffDiv.appendChild(img);
+
+					var listFilter = document.createElement("div");
+					listFilter.classList.add("listfilter-panel");
+					listFilter.appendChild(listFilterCurrent);
+
+					var listScroller = document.createElement("div");
+					listScroller.classList.add("listfilter-scroller");
+					listScroller.appendChild(list);
+					listFilter.appendChild(listScroller);
+
+					var textarea = document.createElement("textarea");
+					textarea.classList.add('editor-panel', 'active');
+					textarea.id = 'textarea_' + t;
+
+					var plaginBox = currentTab.querySelector(".plagin-panel__plagin-box");
+					var button = plaginBox.firstChild;
+					plaginBox.insertBefore(listFilter, button);
+					plaginBox.insertBefore(textarea, button);
+
+					if (json.length > 0) {
+						textarea.innerHTML = json[0].text;
+						// textarea.innerText = json[0].text;
+						var editor = textarea.nextSibling;
+						if (editor) {
+							editor.remove();
+						}
+						
+						codeMirrorFromTextarea(currentTab, textarea);
+					}
+				}
+			}}(currentTab, t))
+		}
+	}
+	
+	function codeMirrorFromTextarea(parent, textArea) {
+		CodeMirror.fromTextArea(textArea, {
+			mode: "fusion",
+			theme: 'darcula',
+			selectionPointer: true
+		});
+
+		parent.querySelector('.CodeMirror').addEventListener("mouseover", function(event) {
+			parent.querySelector('.CodeMirror-hscrollbar').classList.add('CodeMirror-hscrollbar-auto');
+			parent.querySelector('.CodeMirror-vscrollbar').classList.add('CodeMirror-vscrollbar-auto');
+		});
+		parent.querySelector('.CodeMirror').addEventListener("mouseout", function(event) {
+			parent.querySelector('.CodeMirror-hscrollbar').classList.remove('CodeMirror-hscrollbar-auto');
+			parent.querySelector('.CodeMirror-vscrollbar').classList.remove('CodeMirror-vscrollbar-auto');
+		});
+	}
+
+	function addClassActive() {
+		var menu = Helpers.parents(this, '.listfilter-panel')[0];
+		if (menu.classList.contains('list-active')) {
+			menu.classList.remove('list-active')
+		} else {
+			menu.classList.add('list-active')
+		}
+	}
+
+	function activate(e) {
+		var box = Helpers.parents(this, '.plagin-panel'),
+				id = this.attributes.for.value,
+				panels = box[0].querySelectorAll('.editor-panel'),
+				val = e.currentTarget.dataset.value,
+				name = this.querySelectorAll('.caption')[0].innerText;
+
+		if (box[0].querySelectorAll('.CodeMirror')[0]) {
+			var editor = panels[0].nextSibling;
+			editor.remove();
+		}
+		panels[0].innerHTML = this.dataset.value;
+		codeMirrorFromTextarea(box[0], panels[0]);
+		
+		for (var p = 0; p < panels.length; p++) {
+			panels[p].classList.remove('active');
+			if (panels[p].id == id) {
+				panels[p].classList.add('active');
+			}
+		}
+		Helpers.parents(this, '.listfilter-panel')[0].querySelectorAll('.listfilter-panel__current .caption')[0].innerText = name;
+		Helpers.parents(this, '.listfilter-panel')[0].classList.remove('list-active');
+	}
+</script>
 
 <!--<div class="show-devices">-->
 	<!--<p class="device-text">Доступно только в десктопной версии</p>-->
