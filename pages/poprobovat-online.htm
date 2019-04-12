@@ -21,6 +21,8 @@ function onStart()
 ==
 <script>
 
+	var server = 'https://tryonline.lsfusion.org';
+
 	var start_server = false,
 		serverStartReturn,
 		lastServerReturn,
@@ -87,7 +89,7 @@ function onStart()
 		var xhr = new XMLHttpRequest();
 		xhr.withCredentials = true;
 
-		xhr.open("POST", "https://tryonline.lsfusion.org/exec?action=Main.startServer");
+		xhr.open("POST", server + "/exec?action=Main.startServer");
 		xhr.setRequestHeader("Content-Type", "text/json");
 
 		xhr.send(_data);
@@ -104,7 +106,7 @@ function onStart()
 		var xhr = new XMLHttpRequest();
 		xhr.withCredentials = true;
 
-		xhr.open("POST", "https://tryonline.lsfusion.org/exec?action=Main.stopServer");
+		xhr.open("POST", server + "/exec?action=Main.stopServer");
 		xhr.setRequestHeader("Content-Type", "text/json");
 
 		var data = _data + window.serverStartReturn;
@@ -126,7 +128,7 @@ function onStart()
 		var xhr = new XMLHttpRequest();
 		xhr.withCredentials = true;
 
-		xhr.open("POST", "https://tryonline.lsfusion.org/exec?action=Main.restartServer");
+		xhr.open("POST", server + "/exec?action=Main.restartServer");
 		xhr.setRequestHeader("Content-Type", "text/json");
 
 		var data = _data + window.serverStartReturn;
@@ -153,7 +155,7 @@ function onStart()
 			var xhr = new XMLHttpRequest();
 			xhr.withCredentials = true;
 
-			xhr.open("POST", "https://tryonline.lsfusion.org/exec?action=Main.getServerLog");
+			xhr.open("POST", server + "/exec?action=Main.getServerLog");
 			xhr.setRequestHeader("Content-Type", "text/json");
 
 			var data = _data + window.serverStartReturn + window.lastServerReturn;
@@ -357,7 +359,7 @@ function onStart()
 			var xhr = new XMLHttpRequest();
 			xhr.withCredentials = true;
 
-			xhr.open("POST", "https://tryonline.lsfusion.org/exec?action=Main.getExamples");
+			xhr.open("POST", server + "/exec?action=Main.getExamples");
 			xhr.setRequestHeader("Content-Type", "application/json");
 
 			var data = '{mode: ' + t + '}';
