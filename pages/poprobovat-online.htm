@@ -176,34 +176,6 @@ function onStart()
 		}
 	}
 
-	function getExampleServer(_data, _id, _date) {
-		console.log('func getExampleServer');
-
-		window.prevExampleServerResult = '';
-		window.startTime = _date;
-
-		var xhr = new XMLHttpRequest();
-		xhr.withCredentials = true;
-
-		xhr.open("POST", "https://tryonline.lsfusion.org/exec?action=Main.getExamples");
-		xhr.setRequestHeader("Content-Type", "text/json");
-
-		var data = '{mode: 0}';
-		xhr.send(data);
-
-		xhr.addEventListener("readystatechange", function () {
-			if (
-				this.readyState === 4 &&
-				_id
-			) {
-				document.querySelector('textarea[data-id="'+ _id +'"]').value = '';
-				document.querySelector('textarea[data-id="'+ _id +'"]').value = this.responseText;
-
-				window.prevExampleServerResult = this.responseText;
-			}
-		});
-	}
-
 	function pullServerRequest(_this, _action) {
 		console.log('func pullServerRequest');
 
@@ -274,7 +246,6 @@ function onStart()
 						window.start_server = true;
 					}
 					restartServer(data, id);
-					getExampleServer(data,id, date.getTime());
 				} else if (window.prevExampleServerResult !== '') {
 					document.querySelector('textarea[data-id="'+ id +'"]').value = '';
 					document.querySelector('textarea[data-id="'+ id +'"]').value = window.prevExampleServerResult;
