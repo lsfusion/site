@@ -21,7 +21,11 @@ function onStart()
 ==
 <script>
 
-	var server = 'https://tryonline.lsfusion.org';
+	//var server = 'http://localhost:8888';
+    var server = 'https://tryonline.lsfusion.org';
+
+	//var demoServer = 'http://localhost:8888';
+	var demoServer = 'http://demo.lsfusion.org/erp';
 
 	var start_server = false,
 		serverStartReturn,
@@ -49,7 +53,7 @@ function onStart()
 			window.start_server
 		) {
 			console.log('func isActiveTab');
-			pullServerRequest('', 'stop');
+			//pullServerRequest('', 'stop');
 		}
 	}
 
@@ -70,7 +74,7 @@ function onStart()
 		var xhr = new XMLHttpRequest();
 		xhr.withCredentials = true;
 
-		xhr.open("POST", "http://demo.lsfusion.org/erp/eval");
+		xhr.open("POST", demoServer + "/eval");
 		xhr.setRequestHeader("Content-Type", "text/plain");
 
 		xhr.send(data);
@@ -232,27 +236,6 @@ function onStart()
 					window.timerIdIsActiveTab = setInterval(isActiveTab, 1000);
 				}
 				break;
-			case 'getExample':
-				var date = new Date();
-
-				if (!window.startTime) {
-					window.startTime = date.getTime();
-				}
-
-				if (
-					(date.getTime() - window.startTime) > 299999 ||
-					(date.getTime() - window.startTime) === 0
-				) {
-					if (window.start_server !== true) {
-						window.serverStartReturn = startServer(data);
-						window.start_server = true;
-					}
-					restartServer(data, id);
-				} else if (window.prevExampleServerResult !== '') {
-					document.querySelector('textarea[data-id="'+ id +'"]').value = '';
-					document.querySelector('textarea[data-id="'+ id +'"]').value = window.prevExampleServerResult;
-				}
-				break;
 		}
 
 		console.log('start_server = ' + window.start_server);
@@ -299,10 +282,10 @@ function onStart()
 <div class="mode-panel hide-devices">
 	<ul class="mode-panel__mode-list">
 		<li class="mode-panel__mode-li">
-			<a class="link mode-panel__mode-item mode-panel__mode-item_active" href="#tab_1">Mode A</a>
+			<a class="link mode-panel__mode-item mode-panel__mode-item_active" href="#tab_1">Режим СУБД</a>
 		</li>
 		<li class="mode-panel__mode-li">
-			<a class="link mode-panel__mode-item" href="#tab_2">Mode B</a>
+			<a class="link mode-panel__mode-item" href="#tab_2">Режим платформы</a>
 		</li>
 	</ul>
 </div>
@@ -521,10 +504,10 @@ function onStart()
 <!--<div class="mode-panel hide-devices">-->
 	<!--<ul class="mode-panel__mode-list">-->
 		<!--<li class="mode-panel__mode-li">-->
-			<!--<a class="link mode-panel__mode-item mode-panel__mode-item_active" href="#tab_1">Mode A</a>-->
+			<!--<a class="link mode-panel__mode-item mode-panel__mode-item_active" href="#tab_1">Режим СУБД</a>-->
 		<!--</li>-->
 		<!--<li class="mode-panel__mode-li">-->
-			<!--<a class="link mode-panel__mode-item" href="#tab_2">Mode B</a>-->
+			<!--<a class="link mode-panel__mode-item" href="#tab_2">Режим платформы</a>-->
 		<!--</li>-->
 	<!--</ul>-->
 <!--</div>-->
