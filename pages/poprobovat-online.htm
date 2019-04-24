@@ -61,15 +61,9 @@ function onStart()
 
 	var timerIdGetLogServer;
 
-	function pullServerRequestDBMSMode(_this) {
-		var data = _this.parentNode.querySelector('.editor-panel.active').value;
-
-		for (var i = 0; i < _this.parentNode.getElementsByClassName('listfilter__input').length; i++) {
-			if (_this.parentNode.getElementsByClassName('listfilter__input')[i].matches('input[checked="checked"]')) {
-				var data_id = _this.parentNode.getElementsByClassName('listfilter__input')[i].id;
-			}
-		}
-
+	function pullServerRequestDBMSMode() {
+		var activeTab = document.querySelector('.mode-content.active');
+		var resultArea = activeTab.querySelector('.plagin-panel__second-box');
 
 		var xhr = new XMLHttpRequest();
 		xhr.withCredentials = true;
@@ -77,12 +71,12 @@ function onStart()
 		xhr.open("POST", demoServer + "/eval");
 		xhr.setRequestHeader("Content-Type", "text/plain");
 
+		var data = 'code';
 		xhr.send(data);
 
 		xhr.addEventListener("readystatechange", function () {
 			if (this.readyState === 4) {
-				document.querySelector('textarea[data-id="'+ data_id +'"]').value = '';
-				document.querySelector('textarea[data-id="'+ data_id +'"]').value = this.responseText;
+				resultArea.value = this.responseText;
 			}
 		});
 
@@ -293,7 +287,7 @@ function onStart()
 	<div class="plagin-panel hide-devices">
 		<div class="plagin-panel__panel-item plagin-panel__panel-item_first-box">
 			<div class="plagin-panel__plagin-box">
-				<a class="btn btn_round" href="javascript:void(0);" onclick="pullServerRequestDBMSMode(this);">
+				<a class="btn btn_round" href="javascript:void(0);" onclick="pullServerRequestDBMSMode();">
 					<img alt="arrow" src="{{ 'assets/images/arrow.svg'|theme }}">
 				</a>
 			</div>
@@ -302,9 +296,7 @@ function onStart()
 			<div class="plagin-panel__text-box text">
 				Сервер приложений выполняется в виртуальной Java машине (JVM), что позволяет подключить к нему любую из многочисленных существующих Java-библиотек. Для этого достаточно создать свое действие на Java, зарегистрировать его в платформе и использовать, как если бы оно было встроенным или реализованным на языке платформы. Аналогичным образом можно бесшовно подключать пользовательские SQL-функции используемого сервера БД.
 			</div>
-			<textarea class="plagin-panel__second-box active" data-id="textarea_1">Hello world</textarea>
-			<textarea class="plagin-panel__second-box" data-id="textarea_2">Hello world2</textarea>
-			<textarea class="plagin-panel__second-box" data-id="textarea_3">Hello world3</textarea>
+			<textarea class="plagin-panel__second-box active"></textarea>
 		</div>
 	</div>
 </div>
@@ -364,13 +356,10 @@ function onStart()
 						listItem.classList.add("listfilter-panel__item");
 						var label = document.createElement("label");
 						label.classList.add("listfilter");
-						var listItemID = "input_" + tab + '_' + i;
-						label.setAttribute("for", listItemID);
 						label.setAttribute("data-value", json[i].text);
 
 						var input = document.createElement("input");
 						input.classList.add("listfilter__input");
-						input.id = listItemID;
 						input.type = "radio";
 						// input.name = "text_" + i;
 						input.name = "radioMode_" + tab;
