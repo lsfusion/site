@@ -1395,11 +1395,12 @@ body:before {
 }
 
 .plagin-panel__second-box {
-    height: 14.0625rem;
+    height: 16.3125rem;
     background: #373d3f;
     color: #fff;
-    font-size: .875rem;
-    padding: 1.5625rem;
+    font-size: .7rem;
+    font-family: Consolas,monospace;
+    padding: 0.875rem 0 0 0.875rem;
     display: block;
     resize: none;
     cursor: default;
