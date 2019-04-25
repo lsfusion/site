@@ -1400,11 +1400,33 @@ body:before {
     color: #fff;
     font-size: .875rem;
     padding: 1.5625rem;
-    display: none
+    display: block;
+    resize: none;
+    cursor: default;
+    overflow: hidden;
+    white-space: pre;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin; /*firefox*/
 }
 
-.plagin-panel__second-box.active {
-    display: block
+.plagin-panel__second-box::-webkit-scrollbar-track {
+    border-radius: 4px;
+    background-color: #343E41;
+}
+
+.plagin-panel__second-box::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: #343E41;
+}
+
+.plagin-panel__second-box::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #d6d6d6;
+}
+
+.plagin-panel__second-box::-webkit-scrollbar-corner {
+    visibility: hidden;
 }
 
 .listfilter-panel {
@@ -2699,10 +2721,6 @@ body, html {
 .mode-panel__mode-list {
     position: relative;
     z-index: 10
-}
-
-.plagin-panel__second-box {
-    resize: none
 }
 
 .table__row.table__row_line {
