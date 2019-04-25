@@ -110,7 +110,7 @@ function onStart()
 				window.serverStartReturn = JSON.parse(this.responseText).server;
 				window.getLogServerScheduler = window.setInterval(function() {
 					getLogServer(resultArea); //включаем получение логов
-				}, 1000);
+				}, 100);
 
 				return this.responseText;
 			}
@@ -122,8 +122,8 @@ function onStart()
         stopServer();
         window.start_server = false;
         window.clearInterval(window.timerIdIsActiveTab);
-        //выключаем получение логов через 5 секунд, чтобы получить сообщение об остановке
-        //setTimeout(function() { window.clearInterval(window.getLogServerScheduler); }, 5000);
+        //выключаем получение логов
+        window.clearInterval(window.getLogServerScheduler);
     }
 
 	function stopServer() {
@@ -188,6 +188,7 @@ function onStart()
 					let response = JSON.parse(this.responseText);
 					if(response != null && response.text != null) {
 						resultArea.value = oldTextareaValue + response.text;
+						resultArea.scrollTop = resultArea.scrollHeight;
 						window.lastServerReturn = response.answer;
 					}
 				}
