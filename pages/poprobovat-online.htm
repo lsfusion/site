@@ -22,21 +22,21 @@ function onStart()
 <script>
 
 	//var server = 'http://localhost:8888';
-    var server = 'https://tryonline.lsfusion.org';
+	var server = 'https://tryonline.lsfusion.org';
 
 	//var demoServer = 'http://localhost:8888';
 	var demoServer = 'http://demo.lsfusion.org/erp';
 
-	var start_server = false,
-		serverStartReturn,
-		lastServerReturn,
-		countServerLog = -1,
-		startTime,
-		prevExampleServerResult;
+	// var start_server = false,
+	// 		serverStartReturn,
+	// 		lastServerReturn,
+	// 		countServerLog = -1,
+	// 		startTime,
+	// 		prevExampleServerResult;
 
 	window.onbeforeunload = function() {
 		if (window.start_server) {
-			pullServerRequest('', 'stop');
+			stopServerAction();
 			return "Данные не сохранены. Точно перейти?";
 		}
 	};
@@ -57,9 +57,9 @@ function onStart()
 		}
 	}
 
-	var timerIdIsActiveTab = setInterval(isActiveTab, 1000);
+	//var timerIdIsActiveTab = setInterval(isActiveTab, 1000);
 
-	var timerIdGetLogServer;
+	//var timerIdGetLogServer;
 
 	function pullServerRequestDBMSMode() {
 		var activeTab = document.querySelector('.mode-content.active');
@@ -82,8 +82,21 @@ function onStart()
 
 	}
 
-	function startServer(_data) {
+    //start server
+	function startServerAction(data, resultArea) {
+        window.start_server = true;
+        window.timerIdIsActiveTab = setInterval(isActiveTab, 1000);
+
+        let request = btoa(unescape(encodeURIComponent(JSON.stringify({'code': data}))));
+        startServer(request, resultArea);
+    }
+
+	function startServer(_data, resultArea) {
 		console.log('func startServer');
+
+		resultArea.value = '';
+		window.lastServerReturn = 0;
+
 		var xhr = new XMLHttpRequest();
 		xhr.withCredentials = true;
 
@@ -94,12 +107,26 @@ function onStart()
 
 		xhr.addEventListener("readystatechange", function () {
 			if (this.readyState === 4) {
+				window.serverStartReturn = JSON.parse(this.responseText).server;
+				window.getLogServerScheduler = window.setInterval(function() {
+					getLogServer(resultArea); //включаем получение логов
+				}, 1000);
+
 				return this.responseText;
 			}
 		});
 	}
 
-	function stopServer(_data, _id) {
+    //stop server
+	function stopServerAction() {
+        stopServer();
+        window.start_server = false;
+        window.clearInterval(window.timerIdIsActiveTab);
+        //выключаем получение логов через 5 секунд, чтобы получить сообщение об остановке
+        //setTimeout(function() { window.clearInterval(window.getLogServerScheduler); }, 5000);
+    }
+
+	function stopServer() {
 		console.log('func stopServer');
 		var xhr = new XMLHttpRequest();
 		xhr.withCredentials = true;
@@ -107,16 +134,12 @@ function onStart()
 		xhr.open("POST", server + "/exec?action=Main.stopServer");
 		xhr.setRequestHeader("Content-Type", "text/json");
 
-		var data = _data + window.serverStartReturn;
-		xhr.send(data);
+        let request = btoa(unescape(encodeURIComponent(JSON.stringify({'server': window.serverStartReturn}))));
+		xhr.send(request);
 
 		xhr.addEventListener("readystatechange", function () {
-			if (
-				this.readyState === 4 &&
-				_id
-			) {
-				document.querySelector('textarea[data-id="'+ _id +'"]').value = '';
-				document.querySelector('textarea[data-id="'+ _id +'"]').value = this.responseText;
+			if (this.readyState === 4) {
+				return this.responseText;
 			}
 		});
 	}
@@ -142,12 +165,12 @@ function onStart()
 		});
 	}
 
-	function getLogServer(_data, _id) {
-		if (
-			window.countServerLog > 0 &&
-			document.hidden !== true &&
-			window.start_server !== false
-		) {
+	function getLogServer(resultArea) {
+		// if (
+		// 		window.countServerLog > 0 &&
+		// 		document.hidden !== true &&
+		// 		window.start_server !== false
+		// ) {
 			console.log('func getLogServer');
 
 			var xhr = new XMLHttpRequest();
@@ -156,85 +179,35 @@ function onStart()
 			xhr.open("POST", server + "/exec?action=Main.getServerLog");
 			xhr.setRequestHeader("Content-Type", "text/json");
 
-			var data = _data + window.serverStartReturn + window.lastServerReturn;
-			xhr.send(data);
+			let request = btoa(unescape(encodeURIComponent(JSON.stringify({'server': window.serverStartReturn, 'lastAnswer': window.lastServerReturn}))));
+			xhr.send(JSON.stringify(request));
 
 			xhr.addEventListener("readystatechange", function () {
 				if (this.readyState === 4) {
-					if (
-						window.countServerLog == 1 &&
-						_id
-					) {
-						var oldTextareaValue = document.querySelector('textarea[data-id="'+ _id +'"]').value;
-						document.querySelector('textarea[data-id="'+ _id +'"]').value = oldTextareaValue + this.responseText;
+					let oldTextareaValue = resultArea.value;
+					let response = JSON.parse(this.responseText);
+					if(response != null && response.text != null) {
+						resultArea.value = oldTextareaValue + response.text;
+						window.lastServerReturn = response.answer;
 					}
-					window.lastServerReturn = '';
-					window.lastServerReturn = this.responseText;
-					window.countServerLog = 0;
 				}
 			});
-		}
+		//}
 	}
 
-	function pullServerRequest(_this, _action) {
+	function pullServerRequest(_this) {
 		console.log('func pullServerRequest');
-
-		if (!_action) {
-			for (var i = 0; i < _this.parentNode.getElementsByClassName('listfilter__input').length; i++) {
-				if (_this.parentNode.getElementsByClassName('listfilter__input')[i].matches('input[checked="checked"]')) {
-					var action = _this.parentNode.getElementsByClassName('listfilter__input')[i].value;
-					var id = _this.parentNode.getElementsByClassName('listfilter__input')[i].id;
-				}
-			}
-			var data = _this.parentNode.querySelector('.editor-panel.active').value;
-		} else {
-			var action = _action;
-			var data = '';
-			var id = '';
+		if (window.start_server) {
+			stopServerAction();
 		}
 
-		switch (action) {
-			case 'start':
-				window.start_server = true;
-				window.serverStartReturn = startServer(data);
-				window.timerIdIsActiveTab = setInterval(isActiveTab, 1000);
-				break;
-			case 'stop':
-				if (window.start_server !== false) {
-					restartServer(data, id);
-				} else {
-					window.serverStartReturn = startServer(data);
-				}
-				stopServer(data);
-				clearInterval(window.timerIdIsActiveTab);
-				clearInterval(window.timerIdGetLogServer);
-				window.start_server = false;
-				window.countServerLog = -1;
-				break;
-			case 'restart':
-				if (window.start_server !== true) {
-					window.serverStartReturn = startServer(data);
-					window.start_server = true;
-				}
-				restartServer(data, id);
-				window.timerIdIsActiveTab = setInterval(isActiveTab, 1000);
-				break;
-			case 'getLog':
-				if (document.hidden !== true) {
-					if (window.start_server !== true) {
-						window.serverStartReturn = startServer(data);
-						window.start_server = true;
-					}
-					window.countServerLog = 1;
-					window.timerIdGetLogServer = setInterval(getLogServer, 1500, data, id);
-					window.timerIdIsActiveTab = setInterval(isActiveTab, 1000);
-				}
-				break;
-		}
+		let activeTab = document.querySelector('.mode-content.active');
+		let resultArea = activeTab.querySelector('.plagin-panel__second-box');
+		let data = _this.parentNode.querySelector('.editor-panel.active').value;
+
+		startServerAction(data, resultArea);
 
 		console.log('start_server = ' + window.start_server);
-		console.log('action = ' + action);
-
 
 		// xxx
 		// var data = "run() {EXPORT FROM name(DepartmentStore s);}";
@@ -314,11 +287,7 @@ function onStart()
 			<div class="plagin-panel__text-box text">
 				Сервер приложений выполняется в виртуальной Java машине (JVM), что позволяет подключить к нему любую из многочисленных существующих Java-библиотек. Для этого достаточно создать свое действие на Java, зарегистрировать его в платформе и использовать, как если бы оно было встроенным или реализованным на языке платформы. Аналогичным образом можно бесшовно подключать пользовательские SQL-функции используемого сервера БД.
 			</div>
-			<textarea class="plagin-panel__second-box active" data-id="textarea_4">Hello world</textarea>
-			<textarea class="plagin-panel__second-box" data-id="textarea_5">Hello world2</textarea>
-			<textarea class="plagin-panel__second-box" data-id="textarea_6">Hello world3</textarea>
-			<textarea class="plagin-panel__second-box" data-id="textarea_7">Hello world2</textarea>
-			<textarea class="plagin-panel__second-box" data-id="textarea_8">Hello world3</textarea>
+			<textarea class="plagin-panel__second-box active"></textarea>
 		</div>
 	</div>
 </div>
