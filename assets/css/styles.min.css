@@ -1401,6 +1401,12 @@ body:before {
     right: 2%
 }
 
+.plagin-panel__plagin-box .btn_restart {
+    position: absolute;
+    top: 80%;
+    right: 2%
+}
+
 .plagin-panel__second-box {
     height: 23.3125rem;
     background: #373d3f;
@@ -3590,6 +3596,21 @@ header {
     width: .875rem;
     height: 1.25rem;
     margin: 0 -5px 0 0
+}
+
+.btn_restart {
+    border-radius: 50%;
+    width: 3.75rem;
+    height: 3.75rem;
+    background-color: #2dc1f7;
+    border: 1px solid #2dc1f7;
+    z-index: 6;
+}
+
+.btn_restart img {
+    width: 3rem;
+    height: 3rem;
+    margin: 5px -5px 0 0
 }
 
 .btn .link {

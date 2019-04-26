@@ -69,13 +69,13 @@ function onStart()
 		var activeTab = document.getElementById('tab_db');
 		var resultArea = activeTab.querySelector('.plagin-panel__second-box');
 		var code = activeTab.querySelector('.CodeMirror').CodeMirror.getValue();
-		
+
 		var xhr = new XMLHttpRequest();
 		xhr.withCredentials = true;
 		xhr.open("POST", demoServer + "/eval");
 		xhr.setRequestHeader("Content-Type", "text/plain");
 		xhr.send(code);
-		
+
 		xhr.addEventListener("readystatechange", function () {
 			if (this.readyState === 4) {
 				resultArea.value = this.responseText;
@@ -84,7 +84,7 @@ function onStart()
 
 	}
 
-	function startServer(data, resultArea) {
+	function startServer(code, resultArea) {
 		console.log('func startServer');
 
 		resultArea.value = '';
@@ -96,7 +96,7 @@ function onStart()
 		xhr.open("POST", server + "/exec?action=Main.startServer");
 		xhr.setRequestHeader("Content-Type", "text/json");
 
-		let request = btoa(unescape(encodeURIComponent(JSON.stringify({'code': data}))));
+		let request = btoa(unescape(encodeURIComponent(JSON.stringify({'code': code}))));
 		xhr.send(request);
 
 		xhr.addEventListener("readystatechange", function () {
@@ -129,7 +129,7 @@ function onStart()
 		});
 	}
 
-	function restartServer(data, resultArea) {
+	function restartServer(code, resultArea) {
 		console.log('func restartServer');
 		var xhr = new XMLHttpRequest();
 		xhr.withCredentials = true;
@@ -137,7 +137,7 @@ function onStart()
 		xhr.open("POST", server + "/exec?action=Main.restartServer");
 		xhr.setRequestHeader("Content-Type", "text/json");
 
-		let request = btoa(unescape(encodeURIComponent(JSON.stringify({'server': window.serverStartReturn, 'code': data}))));
+		let request = btoa(unescape(encodeURIComponent(JSON.stringify({'server': window.serverStartReturn, 'code': code}))));
 		xhr.send(request);
 
 		xhr.addEventListener("readystatechange", function () {
@@ -150,34 +150,30 @@ function onStart()
 	}
 
 	function getLogServer(resultArea) {
-		// if (
-		// 		window.countServerLog > 0 &&
-		// 		document.hidden !== true &&
-		// 		window.start_server !== false
-		// ) {
-			console.log('func getLogServer');
+		console.log('func getLogServer');
 
-			var xhr = new XMLHttpRequest();
-			xhr.withCredentials = true;
+		var xhr = new XMLHttpRequest();
+		xhr.withCredentials = true;
 
-			xhr.open("POST", server + "/exec?action=Main.getServerLog");
-			xhr.setRequestHeader("Content-Type", "text/json");
+		xhr.open("POST", server + "/exec?action=Main.getServerLog");
+		xhr.setRequestHeader("Content-Type", "text/json");
 
-			let request = btoa(unescape(encodeURIComponent(JSON.stringify({'server': window.serverStartReturn, 'lastAnswer': window.lastServerReturn}))));
-			xhr.send(JSON.stringify(request));
+		let request = btoa(unescape(encodeURIComponent(JSON.stringify({'server': window.serverStartReturn, 'lastAnswer': window.lastServerReturn}))));
+		xhr.send(JSON.stringify(request));
 
-			xhr.addEventListener("readystatechange", function () {
-				if (this.readyState === 4) {
-					let oldTextareaValue = resultArea.value;
-					let response = JSON.parse(this.responseText);
-					if(response != null && response.text != null) {
-						resultArea.value = oldTextareaValue + response.text;
-						resultArea.scrollTop = resultArea.scrollHeight;
-						window.lastServerReturn = response.answer;
-					}
+		xhr.addEventListener("readystatechange", function () {
+			if (this.readyState === 4) {
+				let oldTextareaValue = resultArea.value;
+				let response = JSON.parse(this.responseText);
+				if(response != null && response.text != null) {
+					resultArea.value = oldTextareaValue + response.text;
+					resultArea.scrollTop = resultArea.scrollHeight;
+					window.lastServerReturn = response.answer;
+				} else if (oldTextareaValue === '') {
+					resultArea.value = 'Server is starting...\n';
 				}
-			});
-		//}
+			}
+		});
 	}
 
 	function pullServerRequest(_this) {
@@ -185,14 +181,18 @@ function onStart()
 
 		let activeTab = document.querySelector('.mode-content.active');
 		let resultArea = activeTab.querySelector('.plagin-panel__second-box');
-		let data = _this.parentNode.querySelector('.editor-panel.active').value;
+		let code = activeTab.querySelector('.CodeMirror').CodeMirror.getValue();
 
 		if (window.start_server) {
-			restartServer(data, resultArea);
+			if(window.lastServerReturn > 0) {
+				restartServer(code, resultArea);
+			}
 		} else {
 			window.start_server = true;
 			window.timerIdIsActiveTab = setInterval(isActiveTab, 1000);
-			startServer(data, resultArea);
+			startServer(code, resultArea);
+			document.getElementById("startPlatformButton").style.display="none";
+			document.getElementById("restartPlatformButton").style.display="block";
 		}
 
 		console.log('start_server = ' + window.start_server);
@@ -240,7 +240,7 @@ function onStart()
 			<a class="link mode-panel__mode-item mode-panel__mode-item_active" href="#tab_db">Режим СУБД</a>
 		</li>
 		<li class="mode-panel__mode-li">
-			<a class="link mode-panel__mode-item" href="#tab_platform">Режим платформы</a>
+			<a class="link mode-panel__mode-item" href="#tab_platform">Режим Платформа</a>
 		</li>
 	</ul>
 </div>
@@ -266,8 +266,11 @@ function onStart()
 	<div class="plagin-panel hide-devices">
 		<div class="plagin-panel__panel-item plagin-panel__left-item plagin-panel__panel-item_first-box">
 			<div class="plagin-panel__plagin-box">
-				<a class="btn btn_round" href="javascript:void(0);" onclick="pullServerRequest(this);">
-					<img alt="arrow" src="{{ 'assets/images/arrow.svg'|theme }}">
+                <a class="btn btn_round" href="javascript:void(0);" id="startPlatformButton" onclick="pullServerRequest(this);">
+                    <img alt="arrow" src="{{ 'assets/images/arrow.svg'|theme }} ">
+                </a>
+				<a class="btn btn_restart" href="javascript:void(0);" id="restartPlatformButton" style="display:none" onclick="pullServerRequest(this);">
+					<img alt="arrow" src="{{ 'assets/images/arrow-restart.svg'|theme }}">
 				</a>
 			</div>
 		</div>
@@ -282,16 +285,16 @@ function onStart()
 
 <script>
 	window.onload = onLoad();
-	
+
 	function onLoad() {
 		var textareas = document.querySelectorAll('.plagin-panel__second-box');
 		for (i = 0; i < textareas.length; i++) {
 			addResultTextareasListeners(textareas[i]);
 		}
-		
+
 		loadExamples();
-	} 
-	
+	}
+
 	function addResultTextareasListeners(textarea) {
 		textarea.addEventListener("mouseover", function(event) {
 			textarea.style.overflow = 'auto';
@@ -406,14 +409,14 @@ function onStart()
 						if (editor) {
 							editor.remove();
 						}
-						
+
 						codeMirrorFromTextarea(currentTab, textarea);
 					}
 				}
 			}}(currentTab, t))
 		}
 	}
-	
+
 	function codeMirrorFromTextarea(parent, textArea) {
 		CodeMirror.fromTextArea(textArea, {
 			mode: "fusion",
@@ -453,7 +456,7 @@ function onStart()
 		}
 		panels[0].innerHTML = this.dataset.value;
 		codeMirrorFromTextarea(box[0], panels[0]);
-		
+
 		for (var p = 0; p < panels.length; p++) {
 			panels[p].classList.remove('active');
 			if (panels[p].id == id) {
@@ -474,7 +477,7 @@ function onStart()
 			<!--<a class="link mode-panel__mode-item mode-panel__mode-item_active" href="#tab_1">Режим СУБД</a>-->
 		<!--</li>-->
 		<!--<li class="mode-panel__mode-li">-->
-			<!--<a class="link mode-panel__mode-item" href="#tab_2">Режим платформы</a>-->
+			<!--<a class="link mode-panel__mode-item" href="#tab_2">Режим Платформа</a>-->
 		<!--</li>-->
 	<!--</ul>-->
 <!--</div>-->
