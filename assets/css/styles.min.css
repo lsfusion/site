@@ -1373,8 +1373,15 @@ body:before {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    width: 47%;
-    height: 25rem
+    height: 29rem
+}
+
+.plagin-panel__left-item {
+    width: 56%;
+}
+
+.plagin-panel__right-item {
+    width: 40%;
 }
 
 .plagin-panel__panel-item_first-box {
@@ -1390,12 +1397,12 @@ body:before {
 
 .plagin-panel__plagin-box .btn_round {
     position: absolute;
-    top: 80%;
+    top: 83%;
     right: 2%
 }
 
 .plagin-panel__second-box {
-    height: 16.3125rem;
+    height: 23.3125rem;
     background: #373d3f;
     color: #fff;
     font-size: .7rem;
