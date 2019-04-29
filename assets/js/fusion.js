@@ -1,88 +1,69 @@
-CodeMirror.defineMode("fusion", function(config, parserConfig) {
-    function words(str) {
-        var obj = {}, words = str.split(" ");
-        for (var i = 0; i < words.length; ++i) {
-            obj[words[i]] = true;
-        }
-        return obj;
-    }
+var keywords = 'BOOLEAN BPISTRING BPSTRING COLOR CSVFILE CSVLINK DATE DATETIME DOUBLE ' + 
+    'EXCELFILE EXCELLINK FILE HTMLFILE HTMLLINK IMAGEFILE IMAGELINK INTEGER ' +
+    'ISTRING JSONFILE JSONLINK LINK LONG NUMERIC PDFFILE PDFLINK RAWFILE RAWLINK ' +
+    'RICHTEXT STRING TABLEFILE TABLELINK TEXT TIME WORDFILE WORDLINK XMLFILE XMLLINK YEAR ' +
 
-    var types = words("INTEGER DOUBLE LONG BOOLEAN DATE DATETIME TEXT STRING ISTRING VARISTRING VARSTRING TIME");
-    var keywords = words("ABSTRACT ACTION ACTIVE ACTIVATE ADDFORM AFTER " +
-    "AGGR ALL AND APPEND APPLY AS ASON ASSIGN ASYNCUPDATE ATTACH " +
-    "ATTR AUTO AUTOREFRESH AUTOSET BACKGROUND BCC BEFORE BODY BOTTOM BREAK BY CANCEL CANONICALNAME " +
-    "CASE CATCH CC CENTER CHANGE CHANGECLASS CHANGED CHANGEWYS CHARSET CHECK " +
-    "CHECKED CLASS CLIENT CLOSE COLOR COLUMNS COMPLEX CONCAT CONFIRM CONNECTION CONSTRAINT " +
-    "CONTAINERH CONTAINERV CONTEXTFILTER CSV CSVFILE CSVLINK CUSTOM CYCLES DATA DBF DEFAULT DEFAULTCOMPARE DELAY DELETE " +
-    "DESC DESIGN DIALOG DO DOC DOCKED DOCKEDMODAL DOCX DRAWROOT " +
-    "DROP DROPCHANGED DROPSET ECHO EDIT EDITABLE EDITFORM EDITKEY " +
-    "ELSE EMAIL END EQUAL EVAL EVENTID EVENTS EXCELFILE EXCELLINK " +
-    "EXCEPTLAST EXCLUSIVE EXEC EXPORT EXTEND EXTERNAL FALSE FIELDS FILE FILTER FILTERGROUP " +
-    "FILTERS FINALLY FIRST FIXED FIXEDCHARWIDTH FOCUS FOLDER FOOTER FOR FORCE FOREGROUND " +
-    "FORM FORMS FORMULA FROM FULL FULLSCREEN GET GOAFTER GRID GROUP GROUPCHANGE HALIGN HEADER " +
-    "HIDE HIDESCROLLBARS HIDETITLE HINTNOUPDATE HINTTABLE HORIZONTAL " +
-    "HTML HTMLFILE HTMLLINK HTTP IF IMAGE IMAGEFILE IMAGELINK IMPORT IMPOSSIBLE IN INCREMENT INDEX " +
-    "INDEXED INIT INITFILTER INTERNAL INLINE INPUT IS JAVA JOIN JSON JSONFILE JSONLINK KEYPRESS LAST LEFT LENGTH LIKE LINK LIMIT " +
-    "LIST LOADFILE LOCAL LOGGABLE LSF MANAGESESSION MAX MAXCHARWIDTH " +
-    "MEMO MESSAGE META MIN MINCHARWIDTH MODAL MODULE MOVE MS MULTI NAGGR NAME NAMESPACE " +
-    "NAVIGATOR NESTED NEW NEWEXECUTOR NEWSESSION NEWSQL NEWTHREAD NO NOCANCEL NOESCAPE NOHEADER NOHINT NONULL NODEFAULT NOT NOWAIT NULL NUMERIC OBJECT " +
-    "OBJECTS OK ON OPEN OPTIMISTICASYNC OR ORDER OVERRIDE PAGESIZE " +
-    "PANEL PARENT PARTITION PASSWORD PDF PDFFILE POST RAWFILE PDFLINK RAWLINK PERIOD MATERIALIZED PG POSITION " +
-    "PREFCHARWIDTH PREV PRINT PRIORITY PROPERTIES PROPERTY " +
-    "PROPORTION PUT QUERYOK QUERYCLOSE QUICKFILTER READ READONLY READONLYIF RECURSION REFLECTION REGEXP REMOVE " +
-    "REPORT REPORTFILES REQUEST REQUIRE RESOLVE RETURN RGB RICHTEXT RIGHT ROOT " +
-    "ROUND RTF SCHEDULE SCROLL SEEK SELECTOR SESSION SET SETCHANGED SHORTCUT SHOW SHOWDROP " +
-    "SHOWIF SINGLE SHEET SPLITH SPLITV SQL START STEP STRETCH STRICT STRUCT SUBJECT " +
-    "SUM TAB TABBED TABLE TAG TEXTHALIGN TEXTVALIGN THEN THREADS TIME TO DRAW " +
-    "TOOLBAR TOP TREE TRUE TRY UNGROUP UPDATE VALIGN VALUE " +
-    "VERTICAL VIEW WHEN WHERE WHILE WINDOW WORDFILE WORDLINK WRITE XLS XLSX XML XMLFILE XMLLINK XOR YES");
+    'ABSTRACT ACTION ACTIVATE ACTIVE AFTER AGGR ALL AND APPEND APPLY AS ASK ASON ' +
+    'ASYNCUPDATE ATTACH ATTR AUTOREFRESH AUTOSET BACKGROUND BCC BEFORE BODY ' +
+    'BODYURL BOTTOM BOX BREAK BY CANCEL CANONICALNAME CASE CATCH CC CENTER CHANGE ' +
+    'CHANGEABLE CHANGECLASS CHANGED CHANGEKEY CHANGEWYS CHARSET CHARWIDTH CHECK ' +
+    'CHECKED CLASS CLASSCHOOSER CLIENT CLOSE COLUMNS COMPLEX CONCAT CONFIRM ' +
+    'CONNECTION CONSTRAINT CONSTRAINTFILTER CONTAINERH CONTAINERV CONTEXTMENU ' +
+    'COOKIES COOKIESTO CSV CUSTOM CYCLES DATA DBF DEFAULT DEFAULTCOMPARE DELAY ' +
+    'DELETE DESC DESIGN DIALOG DO DOC DOCKED DOCX DRAW DRAWROOT DRILLDOWN DROP ' +
+    'DROPCHANGED DROPPED ECHO EDIT ELSE EMAIL END EQUAL ESCAPE EVAL EVENTID EVENTS ' +
+    'EXCEPTLAST EXCLUSIVE EXEC EXPORT EXTEND EXTERNAL EXTID EXTKEY FALSE FIELDS ' +
+    'FILTER FILTERGROUP FILTERGROUPS FILTERS FINALLY FIRST FIXED FLEX FLOAT FOLDER ' +
+    'FOOTER FOR FOREGROUND FORM FORMEXTID FORMS FORMULA FROM FULL GET GLOBAL ' +
+    'GOAFTER GRID GRIDBOX GROUP GROUPCHANGE HALIGN HEADER HEADERS HEADERSTO HIDE ' +
+    'HIDESCROLLBARS HIDETITLE HINTNOUPDATE HINTTABLE HORIZONTAL HTML HTTP IF IMAGE ' +
+    'IMPORT IMPOSSIBLE IN INDEX INDEXED INIT INLINE INPUT INTERNAL IS JAVA JOIN ' +
+    'JSON KEYPRESS LAST LEFT LIKE LIMIT LIST LOCAL LOGGABLE LSF MANAGESESSION ' +
+    'MATERIALIZED MAX MEMO MENU MESSAGE META MIN MODULE MOVE MS MULTI NAGGR NAME ' +
+    'NAMESPACE NATIVE NAVIGATOR NESTED NESTEDSESSION NEW NEWEDIT NEWEXECUTOR ' +
+    'NEWSESSION NEWSQL NEWTHREAD NO NOCANCEL NOCHANGE NOCONSTRAINTFILTER NODEFAULT ' +
+    'NOESCAPE NOFLEX NOHEADER NOHINT NOINLINE NOMANAGESESSION NONULL NOPREVIEW NOT ' +
+    'NOWAIT NULL OBJECT OBJECTS OK ON OPTIMISTICASYNC OR ORDER OVERRIDE PAGESIZE ' +
+    'PANEL PARAMS PARENT PARTITION PASSWORD PDF PERIOD PG POSITION POST PREV ' +
+    'PREVIEW PRINT PRIORITY PROPERTIES PROPERTY PROPORTION PUT QUERYCLOSE QUERYOK ' +
+    'QUICKFILTER READ READONLY READONLYIF RECURSION REFLECTION REGEXP REMOVE ' +
+    'REPORT REPORTFILES REQUEST REQUIRE RESOLVE RETURN RGB RIGHT ROOT ROUND RTF ' +
+    'SCHEDULE SCROLL SEEK SELECTOR SERIALIZABLE SET SETCHANGED SETDROPPED SHEET ' +
+    'SHOW SHOWDEP SHOWIF SHOWTYPE SINGLE SPLITH SPLITV SQL START STEP STRETCH ' +
+    'STRICT STRUCT SUBJECT SUBREPORT SUM TAB TABBED TABLE TAG TEXTHALIGN ' +
+    'TEXTVALIGN THEN THREADS TO TOOLBAR TOOLBARBOX TOOLBARLEFT TOOLBARRIGHT ' +
+    'TOOLBARSYSTEM TOP TREE TRUE TRY UNGROUP USERFILTER VALIGN VALUE VERTICAL VIEW ' +
+    'WAIT WHEN WHERE WHILE WINDOW WRITE XLS XLSX XML XOR YES YESNO';
 
-    var isOperatorChar = /[+\-*&%=<>!?|@#]/;
+var keyword_regex = new RegExp('\\b' + keywords.split(/\s+/).join('\\b|\\b') + '\\b');
 
-    return {
-        token: function (stream, state) {
-            if (stream.eatSpace()) {
-                return null;
-            }
+CodeMirror.defineSimpleMode('fusion', { 
+    start: [
+        { regex: keyword_regex, token: 'keyword' },
 
-            var ch = stream.next();
-            if (ch == "'") {
-                var escaped = false, next;
-                while ((next = stream.next()) != null) {
-                    if (next == ch && !escaped) {
-                        return "string";
-                    }
-                    escaped = !escaped && next == "\\";
-                }
-                return "string";
-            } else if (/[\[\]{}\(\),;\:\.]/.test(ch)) {
-                return "bracket";
-            } else if (/\d/.test(ch)) {
-                stream.match(/^\d*(\.\d+)?/);
-                return "number";
-            } else if (ch == "/") {
-                if (stream.eat("/")) {
-                    stream.skipToEnd();
-                    return "comment";
-                }
-                return "operator";
-            } else if (ch == "$") {
-                stream.eatWhile(/[\d]/);
-                return "attribute";
-            } else if (isOperatorChar.test(ch)) {
-                stream.eatWhile(isOperatorChar);
-                return "operator";
-            } else {
-                stream.eatWhile(/[\w]/);
-                var word = stream.current();
-                var istype = types.propertyIsEnumerable(word) && types[word];
+        { regex: /\b\d+[.]\d*[dD]\b/, token: 'number' }, // double literal
+        { regex: /\b\d+[.]\d*\b/, token: 'number' }, // numeric literal
+        { regex: /\b\d+[Ll]?\b/, token: 'number' }, // int literal 
+        { regex: /\b\d\d\d\d[_]\d\d[_]\d\d[_]\d\d[:]\d\d\b/, token: 'number' }, // datetime literal
+        { regex: /\b\d\d\d\d[_]\d\d[_]\d\d\b/, token: 'number' }, // date literal
+        { regex: /\b\d\d[:]\d\d\b/, token: 'number' }, // time literal 
+        { regex: /#[0-9A-Fa-f]{6}\b/, token: 'number' }, // color literal
 
-                if (istype) {
-                    return "type";
-                }
-                var iskeyword = keywords.propertyIsEnumerable(word) && keywords[word];
-                return iskeyword ? "keyword" : "variable";
-            }
-        }
-    };
+        { regex: /###?/, token: 'meta' },
+        { regex: /@\w+([.]\w+)?\s*/, token: 'meta' },
+
+        { regex: /[']/, token: 'string', next: 'string_mode' }, 
+        { regex: /\/\//, token: 'comment', next: 'comment_mode' },
+        { regex: /\b[a-zA-Z][_a-zA-Z0-9]*\b/, token: 'variable' }
+    ],
+
+    string_mode: [
+        { regex: /[^\n\r\\']/, token: 'string' },
+        { regex: /\\[rnt\\{}]/, token: 'string'},
+        { regex: /[']/, token: 'string', next: 'start'}
+    ],
+
+    comment_mode: [
+        { regex: /.*$/, token: 'comment', next: 'start' },
+    ]
 });
