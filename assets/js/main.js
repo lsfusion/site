@@ -1346,28 +1346,25 @@ var lsFusion = {
 
         function change(event) {
             event.preventDefault();
-            var id = event.target.hash.substring(1),
-                tab = document.getElementById(id);
+            var activeTabId = event.target.hash.substring(1),
+                activeTab = document.getElementById(activeTabId);
             for (var t = 0; t < tabs_btn.length; t++) {
                 var btn = tabs_btn[t];
                 btn.classList.remove('mode-panel__mode-item_active');
             }
-            if (tab.querySelectorAll('.table').length > 0) {
-                table = Helpers.find(tab, '.table')[0];
+            if (activeTab.querySelectorAll('.table').length > 0) {
+                table = Helpers.find(activeTab, '.table')[0];
             }
             event.target.classList.add('mode-panel__mode-item_active');
-            var activeTab;
             for (var i = 0; i < tabs.length; i++) {
                 var tab = tabs[i];
-                var tab_id = tabs[i].id;
-                if (tab_id == id) {
-                    activeTab = tabs[i];
-                    tabs[i].classList.add('active');
-                    tabs[i].classList.add('init');
-                    /*tabs[i].style.display = 'block';*/
+                var tab_id = tab.id;
+                if (tab_id == activeTabId) {
+                    tab.classList.add('active');
+                    tab.classList.add('init');
 
                     if (table) {
-                        var table = tabs[i].querySelectorAll('.table')[0];
+                        var table = tab.querySelector('.table');
                         lsFusion.lablebreak(tab);
                         setTimeout(lsFusion.table.colheight(table), 50);
                         setTimeout(lsFusion.table.fixhead(table), 50);
@@ -1375,17 +1372,14 @@ var lsFusion = {
                         setTimeout(lsFusion.table.fixcorner(table), 150);
                         lsFusion.table.filter(table);
                     }
-                    if (tabs[i].querySelectorAll('.filter').length > 0) {
-                        var filter = tabs[i].querySelectorAll('.filter');
-                        for (var i = 0; i < filter.length; i++) {
-                            filter[i].style.width = 'auto';
-                            var w = filter[i].getBoundingClientRect().width;
-                            filter[i].style.width = w + 'px';
-                        }
+                    var filter = tab.querySelectorAll('.filter');
+                    for (var f = 0; f < filter.length; f++) {
+                        filter[f].style.width = 'auto';
+                        var w = filter[f].getBoundingClientRect().width;
+                        filter[f].style.width = w + 'px';
                     }
                 } else {
-                    tabs[i].classList.remove('active');
-                    /*tabs[i].style.display = 'none'*/
+                    tab.classList.remove('active');
                 }
             }
         }
