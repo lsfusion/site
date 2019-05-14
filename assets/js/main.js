@@ -2015,27 +2015,25 @@ var lsFusion = {
         target: function () {
             var id = window.location.search.split('=')[1];
 
-            var target = document.querySelectorAll('[data-id="'+id+'"]');
-            for (var i=0; i < target.length; i++){
-                target[i].classList.add('highlight');
-                var table = Helpers.parents(target[i], '.table__wrapp');
-                table[0].classList.add('disable');
-                srollTo(target[0])
-            }
-
+            var target = document.querySelector('[data-id="'+id+'"]');
+            target.classList.add('highlight');
+            var table = Helpers.parents(target, '.table__wrapp');
+            table[0].classList.add('disable');
+            srollTo(target);
 
             var call;
 
             function srollTo(el) {
                 target = el;
-                var offset = target.getBoundingClientRect().top + window.scrollY - 200;
-
+                var offset = target.getBoundingClientRect().top + window.scrollY - 100;
+                var maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
+                
                 call = setInterval(function(){
-                    if ((parseInt(offset - document.documentElement.scrollTop)) > 20) {
-                        document.documentElement.scrollTop += 10
+                    if ((parseInt(offset - document.documentElement.scrollTop)) > 100 && document.documentElement.scrollTop < maxScrollTop) {
+                        document.documentElement.scrollTop += 100
                     }
-                    else if ((parseInt(offset - document.documentElement.scrollTop)) < -20) {
-                        document.documentElement.scrollTop -= 10
+                    else if ((parseInt(offset - document.documentElement.scrollTop)) < -100) {
+                        document.documentElement.scrollTop -= 100
                     }
                     else {
                         clearInterval(call)
@@ -2043,13 +2041,10 @@ var lsFusion = {
                 }, 10);
             }
             setTimeout(function(){
-                var target = document.querySelectorAll('[data-id="'+id+'"]');
-
-                for (var i=0; i < target.length; i++){
-                    target[i].classList.remove('highlight');
-                    var table = Helpers.parents(target[i], '.table__wrapp');
-                    table[0].classList.remove('disable');
-                }
+                var target = document.querySelector('[data-id="'+id+'"]');
+                target.classList.remove('highlight');
+                var table = Helpers.parents(target, '.table__wrapp');
+                table[0].classList.remove('disable');
             }, 3000);
 
 
