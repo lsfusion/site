@@ -59,7 +59,7 @@ CodeMirror.defineSimpleMode('fusion', {
 
     string_mode: [
         { regex: /[^\n\r\\']/, token: 'string' },
-        { regex: /\\[rnt\\{}]/, token: 'string'},
+        { regex: /\\[rnt\\{}']/, token: 'string'},
         { regex: /[']/, token: 'string', next: 'start'}
     ],
 
