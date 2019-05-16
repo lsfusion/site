@@ -5,23 +5,23 @@
 			<div class="link-off"><img alt="off" src="{{ 'assets/images/down-arrow.svg'|theme }}"></div>
 		</div>
 		<ul class="filter-panel__list">
-			<li class="filter-panel__item">
+			<li class="filter-panel__item" onchange="filterChanged(this)">
 				<label class="filter filter_checked" for="all"><span class="caption-wrap"><input class="filter__input-r" id="all" type="radio" name="speed" checked="checked"/><span class="filter__caption caption">Всем</span></span>
 				</label>
 			</li>
-			<li class="filter-panel__item">
+			<li class="filter-panel__item" onchange="filterChanged(this)">
 				<label class="filter" for="develop"><span class="caption-wrap"><input class="filter__input-r" id="develop" type="radio" name="speed"/><span class="filter__caption caption">Разработчикам</span></span>
 				</label>
 			</li>
-			<li class="filter-panel__item">
+			<li class="filter-panel__item" onchange="filterChanged(this)">
 				<label class="filter" for="admin"><span class="caption-wrap"><input class="filter__input-r" id="admin" type="radio" name="speed"/><span class="filter__caption caption">Администраторам</span></span>
 				</label>
 			</li>
-			<li class="filter-panel__item">
+			<li class="filter-panel__item" onchange="filterChanged(this)">
 				<label class="filter" for="user"><span class="caption-wrap"><input class="filter__input-r" id="user" type="radio" name="speed"/><span class="filter__caption caption">Пользователям</span></span>
 				</label>
 			</li>
-			<li class="filter-panel__item">
+			<li class="filter-panel__item" onchange="filterChanged(this)">
 				<label class="filter" for="busi"><span class="caption-wrap"><input class="filter__input-r" id="busi" type="radio" name="speed"/><span class="filter__caption caption">Бизнесу</span></span>
 				</label>
 			</li>
@@ -324,3 +324,16 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	function filterChanged(_this) {
+		var menu = _this.closest(".filter-panel");
+		if (menu.classList.contains('list-active')) {
+			menu.classList.remove('list-active')
+		} else {
+			menu.classList.add('list-active');
+		}
+
+		menu.querySelector(".filter-panel__current .caption").innerText = _this.querySelector(".filter__caption").innerText;
+	}
+</script>

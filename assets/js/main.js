@@ -1151,11 +1151,20 @@ document.addEventListener('click', function (event) {
             listfilter[i].classList.remove('list-active');
         }
     }
-    for (var i = 0; i < toolt.length; i++) {
+    for (i = 0; i < toolt.length; i++) {
         var isClickInside = toolt[i].contains(event.target);
 
         if (!isClickInside ) {
             toolt[i].querySelector('.tooltip').classList.remove('opened');
+        }
+    }
+    
+    var mainListFilters = document.querySelectorAll('.filter-panel');
+    for (i = 0; i < mainListFilters.length; i++) {
+        if (!mainListFilters[i].contains(event.target) ) {
+            if (!mainListFilters[i].classList.contains('list-active')) {
+                mainListFilters[i].classList.add('list-active');
+            }
         }
     }
 });
@@ -2015,11 +2024,20 @@ var lsFusion = {
         target: function () {
             var id = window.location.search.split('=')[1];
 
-            var target = document.querySelector('[data-id="'+id+'"]');
-            target.classList.add('highlight');
-            var table = Helpers.parents(target, '.table__wrapp');
-            table[0].classList.add('disable');
-            srollTo(target);
+            if (id != null) {
+                var target = document.querySelector('[data-id="' + id + '"]');
+                target.classList.add('highlight');
+                var table = Helpers.parents(target, '.table__wrapp');
+                table[0].classList.add('disable');
+                srollTo(target);
+
+                setTimeout(function () {
+                    var target = document.querySelector('[data-id="' + id + '"]');
+                    target.classList.remove('highlight');
+                    var table = Helpers.parents(target, '.table__wrapp');
+                    table[0].classList.remove('disable');
+                }, 3000);
+            }
 
             var call;
 
@@ -2040,14 +2058,6 @@ var lsFusion = {
                     }
                 }, 10);
             }
-            setTimeout(function(){
-                var target = document.querySelector('[data-id="'+id+'"]');
-                target.classList.remove('highlight');
-                var table = Helpers.parents(target, '.table__wrapp');
-                table[0].classList.remove('disable');
-            }, 3000);
-
-
         }
     }
 }
