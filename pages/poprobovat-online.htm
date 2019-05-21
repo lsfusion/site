@@ -130,6 +130,8 @@ function onStart()
 		});
 	}
 
+	rmiStarted = false;
+
 	function restartServer(code, resultArea) {
 		console.log('func restartServer');
 		var xhr = new XMLHttpRequest();
@@ -143,6 +145,7 @@ function onStart()
 
 		xhr.addEventListener("readystatechange", function () {
 			if (this.readyState === 4) {
+				rmiStarted = false;
 				resultArea.value = '';
 				window.lastServerReturn = 0;
 				return this.responseText;
@@ -168,6 +171,15 @@ function onStart()
 				let response = JSON.parse(this.responseText);
 				if(response != null && response.text != null) {
 					resultArea.value = oldTextareaValue + response.text;
+
+					if(!rmiStarted) {
+                        let match = /.*Starting\sRMI\sManager\s\(port\s:\s(\d+)\).*/g.exec(resultArea.value);
+                        if (match) {
+                            window.open(server + '/?port=' + match[1], '_blank');
+							rmiStarted = true;
+                        }
+                    }
+
 					resultArea.scrollTop = resultArea.scrollHeight;
 					window.lastServerReturn = response.answer;
 				} else if (oldTextareaValue === '') {
