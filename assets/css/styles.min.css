@@ -2000,14 +2000,6 @@ body:before {
     -webkit-overflow-scrolling: touch
 }
 
-.table__row.table__row_line > .table__cell:nth-child(1):hover .info .info-box {
-    display: block
-}
-
-.table__row.table__row_line > .table__cell:nth-child(1):hover img {
-    opacity: 1
-}
-
 .CodeMirror {
     font-family: monospace;
     color: #000;
@@ -3366,7 +3358,6 @@ header {
 .info .info-box {
     display: none;
     position: absolute;
-    bottom: 1.3125rem;
     left: -7.875rem;
     padding: 1.25rem;
     width: 15rem;
@@ -3388,10 +3379,6 @@ header {
 .info:hover img {
     color: #373d3f;
     opacity: 1
-}
-
-.info:hover .info-box {
-    display: block
 }
 
 .item {
