@@ -2208,39 +2208,43 @@
 	function onLoad() {
 		var icons = document.querySelectorAll('.info');
 		for (var i = 0; i < icons.length; i++) {
-			var icon = icons[i];
-			
-			icon.addEventListener('mouseover', function(event) {
-                var image = event.currentTarget;
-                var table = image.closest('.table__wrapp');
-                var header = table.querySelector('.table__head');
-				var headerCloned = table.querySelector('.th_cloned');
-                var tooltip = image.closest('.info').querySelector('.info-box');
-                var headerRect = header.getBoundingClientRect();
-                var imageRect = image.getBoundingClientRect();
-
-                tooltip.style.display = 'block';
-                
-                var drawBottom = true;
-				if (headerCloned.classList.contains('fix')) { // is visible
-                    drawBottom = imageRect.y < header.offsetHeight + tooltip.offsetHeight;
-                } else {
-                    drawBottom = headerRect.y + header.offsetHeight > imageRect.y - tooltip.offsetHeight;
-                }
-                
-                if (drawBottom) {
-                    tooltip.style.removeProperty('bottom');
-                    tooltip.style.top = '1.3125rem';
-                } else {
-                    tooltip.style.removeProperty('top');
-                    tooltip.style.bottom = '1.3125rem';
-                }
-            });
-			
-			icon.addEventListener('mouseout', function (event) {
-				var image = event.currentTarget;
-                image.closest('.info').querySelector('.info-box').style.display = 'none';
-			}, false);
+			addIconMouseListeners(icons[i]);
 		}
+	}
+	
+	function addIconMouseListeners(icon) {
+		icon.addEventListener('mouseover', function(event) {
+			var image = event.currentTarget;
+			var table = image.closest('.table__wrapp');
+			var header = table.querySelector('.table__head');
+			var headerCloned = table.querySelector('.th_cloned');
+			var tooltip = image.closest('.info').querySelector('.info-box');
+			var headerRect = header.getBoundingClientRect();
+			var imageRect = image.getBoundingClientRect();
+
+			tooltip.style.display = 'block';
+
+			var drawBottom = true;
+			if (headerCloned.classList.contains('fix')) { // is visible
+				drawBottom = imageRect.y < header.offsetHeight + tooltip.offsetHeight;
+			} else {
+				drawBottom = headerRect.y + header.offsetHeight > imageRect.y - tooltip.offsetHeight;
+			}
+
+			if (drawBottom) {
+				tooltip.style.removeProperty('bottom');
+				tooltip.style.top = '1.3125rem';
+				// tooltip.style.zIndex = '1000';
+			} else {
+				tooltip.style.removeProperty('top');
+				tooltip.style.bottom = '1.3125rem';
+				// tooltip.style.zIndex = '1000';
+			}
+		});
+
+		icon.addEventListener('mouseout', function (event) {
+			var image = event.currentTarget;
+			image.closest('.info').querySelector('.info-box').style.display = 'none';
+		}, false);
 	}
 </script>

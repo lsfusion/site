@@ -1941,6 +1941,11 @@ var lsFusion = {
                     tr.append(td);
 
                 }
+                var icons = tc_clone.querySelectorAll('.info');
+                for (var j = 0; j < icons.length; j++) {
+                    addIconMouseListeners(icons[j]);
+                }
+                
                 table.append(tc_clone);
                 tooltips();
 
