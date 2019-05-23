@@ -1709,7 +1709,6 @@ body:before {
     top: 0;
     left: 0;
     margin: auto;
-    z-index: 50;
     background: #fff;
     opacity: 0;
     visibility: hidden
@@ -1989,7 +1988,6 @@ body:before {
     right: .375rem;
     bottom: .375rem;
     color: #272c2e;
-    z-index: 40
 }
 
 .table__wrapp {
@@ -3352,7 +3350,6 @@ header {
     width: .6875rem;
     height: .6875rem;
     position: relative;
-    z-index: 10
 }
 
 .info .info-box {
@@ -3368,7 +3365,8 @@ header {
     font-size: .75rem;
     line-height: 1rem;
     -webkit-transition: .2s;
-    transition: .2s
+    transition: .2s;
+    z-index: 50;
 }
 
 .info img {

@@ -2225,7 +2225,7 @@
 			tooltip.style.display = 'block';
 
 			var drawBottom = true;
-			if (headerCloned.classList.contains('fix')) { // is visible
+			if (headerCloned != null && headerCloned.classList.contains('fix')) { // is visible
 				drawBottom = imageRect.y < header.offsetHeight + tooltip.offsetHeight;
 			} else {
 				drawBottom = headerRect.y + header.offsetHeight > imageRect.y - tooltip.offsetHeight;
