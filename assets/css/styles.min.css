@@ -1483,7 +1483,7 @@ body:before {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    width: 15rem;
+    width: 20rem;
     padding: .5625rem .9375rem;
     cursor: pointer
 }
@@ -1514,7 +1514,7 @@ body:before {
     flex-direction: column;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    width: 15rem;
+    width: 20rem;
     padding: .5rem .9375rem;
     background: #fff;
     -webkit-transition: .2s;
@@ -1576,7 +1576,7 @@ body:before {
     position: absolute;
     content: '';
     top: .6875rem;
-    left: 12.3125rem;
+    left: 17.3125rem;
     width: .875rem;
     height: .6875rem;
     color: #2dc1f7;
