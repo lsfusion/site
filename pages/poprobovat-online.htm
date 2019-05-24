@@ -126,12 +126,14 @@ function onStart()
 		xhr.addEventListener("readystatechange", function () {
 			if (this.readyState === 4) {
 				window.start_server = false;
+				rmiPort = null;
+				document.getElementById("openTabButton").style.display="none";
 				return this.responseText;
 			}
 		});
 	}
 
-	rmiStarted = false;
+	let rmiPort = null;
 
 	function restartServer(code, resultArea) {
 		console.log('func restartServer');
@@ -146,7 +148,6 @@ function onStart()
 
 		xhr.addEventListener("readystatechange", function () {
 			if (this.readyState === 4) {
-				rmiStarted = false;
 				resultArea.value = '';
 				window.lastServerReturn = 0;
 				return this.responseText;
@@ -173,11 +174,12 @@ function onStart()
 				if(response != null && response.text != null) {
 					resultArea.value = oldTextareaValue + response.text;
 
-					if(!rmiStarted) {
-                        let match = /.*Starting\sRMI\sManager\s\(port\s:\s(\d+)\).*/g.exec(resultArea.value);
+					if(rmiPort == null) {
+                        let match = /.*Exporting\sRMI\sLogics\sobject\s\(port:\s(\d+)\).*/g.exec(resultArea.value);
                         if (match) {
-                            window.open(server + '/?port=' + match[1], '_blank');
-							rmiStarted = true;
+                        	rmiPort = match[1];
+                            window.open(server + '/?port=' + rmiPort, '_blank');
+							showOpenTabButton();
                         }
                     }
 
@@ -222,6 +224,13 @@ function onStart()
 		document.getElementById("startPlatformButton").style.display=start ? "none" : "block";
 		document.getElementById("restartPlatformButton").style.display= start ? "block" : "none";
 		document.getElementById("stopPlatformButton").style.display=start ? "block" : "none";
+		document.getElementById("openTabButton").style.display=start && rmiPort != null ? "block" : "none";
+	}
+
+	function showOpenTabButton() {
+		document.getElementById("openTabButton").style.display="block";
+		document.getElementById("openTabButton").href=server + "/?port=" + rmiPort;
+		document.getElementById("openTabButton").target="_blank";
 	}
 
 </script>
@@ -269,6 +278,9 @@ function onStart()
 				</a>
 				<a class="btn btn_stop" href="javascript:void(0);" id="stopPlatformButton" style="display:none" onclick="stopServerRequest();">
 					<img alt="stop" src="{{ 'assets/images/stop.svg'|theme }}">
+				</a>
+				<a class="btn btn_open" id="openTabButton" style="display:none">
+					<img alt="stop" src="{{ 'assets/images/open.svg'|theme }}">
 				</a>
 			</div>
 		</div>
