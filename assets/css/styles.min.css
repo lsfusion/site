@@ -3064,10 +3064,6 @@ header {
     margin-bottom: 2.5rem
 }
 
-.mobile-menu__box .mob-menu-list li:last-child {
-    margin-bottom: 5rem
-}
-
 .mobile-menu__box .mob-menu-list li .menu-link {
     text-decoration: none;
     font-size: 20px;
