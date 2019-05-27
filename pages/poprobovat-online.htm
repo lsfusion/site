@@ -22,18 +22,14 @@ function onStart()
 ==
 <script>
 
-	//var server = 'http://localhost:8888';
-	var server = 'https://tryonline.lsfusion.org';
+	//let server = 'http://localhost:8888';
+	let server = 'https://tryonline.lsfusion.org';
 
-	//var demoServer = 'http://localhost:8888';
-	var demoServer = 'https://demo.lsfusion.org/mm';
+	//let demoServer = 'http://localhost:8888';
+	let demoServer = 'https://demo.lsfusion.org/mm';
 
-	// var start_server = false,
-	// 		serverStartReturn,
-	// 		lastServerReturn,
-	// 		countServerLog = -1,
-	// 		startTime,
-	// 		prevExampleServerResult;
+	let rmiPort = null;
+	let rmiStarted = false;
 
 	window.onbeforeunload = function() {
 		if (window.start_server) {
@@ -53,13 +49,13 @@ function onStart()
 		// 		return "Данные не сохранены. Точно перейти?";
 		// 	};
 		// }
-		if (
-			document.hidden &&
-			window.start_server
-		) {
-			console.log('func isActiveTab');
-			//pullServerRequest('', 'stop');
-		}
+		// if (
+		// 	document.hidden &&
+		// 	window.start_server
+		// ) {
+		// 	console.log('func isActiveTab');
+		//pullServerRequest('', 'stop');
+		// }
 	}
 
 	//var timerIdIsActiveTab = setInterval(isActiveTab, 1000);
@@ -68,7 +64,6 @@ function onStart()
 
 	function pullServerRequestDBMSMode() {
 		var activeTab = document.getElementById('tab_db');
-		var resultArea = activeTab.querySelector('.plagin-panel__second-box');
 		var code = activeTab.querySelector('.CodeMirror').CodeMirror.getValue();
 
 		var xhr = new XMLHttpRequest();
@@ -79,16 +74,15 @@ function onStart()
 
 		xhr.addEventListener("readystatechange", function () {
 			if (this.readyState === 4) {
-				resultArea.value = this.responseText;
+				getResultArea().value = this.responseText;
 			}
 		});
 
 	}
 
-	function startServer(code, resultArea) {
+	function startServer(code) {
 		console.log('func startServer');
 
-		resultArea.value = '';
 		window.lastServerReturn = 0;
 
 		var xhr = new XMLHttpRequest();
@@ -102,8 +96,11 @@ function onStart()
 
 		xhr.addEventListener("readystatechange", function () {
 			if (this.readyState === 4) {
-				window.serverStartReturn = JSON.parse(this.responseText).server;
-				window.getLogServerScheduler = window.setInterval(function() {
+				let resultArea = getResultArea();
+				let response = JSON.parse(this.responseText);
+				rmiPort = response.port;
+				window.serverStartReturn = response.server;
+				window.getLogServerScheduler = window.setInterval(function () {
 					getLogServer(resultArea); //включаем получение логов
 				}, 100);
 
@@ -126,14 +123,13 @@ function onStart()
 		xhr.addEventListener("readystatechange", function () {
 			if (this.readyState === 4) {
 				window.start_server = false;
+				getResultArea().value = '';
 				return this.responseText;
 			}
 		});
 	}
 
-	let rmiPort = null;
-
-	function restartServer(code, resultArea, mode) {
+	function restartServer(code, mode) {
 		console.log('func restartServer');
 		var xhr = new XMLHttpRequest();
 		xhr.withCredentials = true;
@@ -146,11 +142,16 @@ function onStart()
 
 		xhr.addEventListener("readystatechange", function () {
 			if (this.readyState === 4) {
-				resultArea.value = '';
+				getResultArea().value = '';
 				window.lastServerReturn = 0;
 				return this.responseText;
 			}
 		});
+	}
+
+	function getResultArea() {
+		let activeTab = document.querySelector('.mode-content.active');
+		return activeTab.querySelector('.plagin-panel__second-box');
 	}
 
 	function getLogServer(resultArea) {
@@ -172,18 +173,18 @@ function onStart()
 				if(response != null && response.text != null) {
 					resultArea.value = oldTextareaValue + response.text;
 
-					if(rmiPort == null) {
+					if(!rmiStarted) {
                         let match = /.*Exporting\sRMI\sLogics\sobject\s\(port:\s(\d+)\).*/g.exec(resultArea.value);
                         if (match) {
-                        	rmiPort = match[1];
-                            window.open(server + '/?port=' + rmiPort, '_blank');
+                        	window.open(server + '/?port=' + rmiPort, '_blank');
 							showOpenTabButton();
+							rmiStarted = true;
                         }
                     }
 
 					resultArea.scrollTop = resultArea.scrollHeight;
 					window.lastServerReturn = response.answer;
-				} else if (oldTextareaValue === '') {
+				} else if (window.start_server && oldTextareaValue === '') {
 					resultArea.value = 'Server is starting...\n';
 				}
 			}
@@ -194,23 +195,26 @@ function onStart()
 		console.log('func startServerRequest');
 
 		let activeTab = document.querySelector('.mode-content.active');
-		let resultArea = activeTab.querySelector('.plagin-panel__second-box');
 		let code = activeTab.querySelector('.CodeMirror').CodeMirror.getValue();
 
 		if (window.start_server) {
-			if(window.lastServerReturn > 0) {
-				restartServer(code, resultArea, 0);
+			if (window.lastServerReturn > 0) {
+				restartServer(code, 0);
 			}
 		} else {
 			window.start_server = true;
 			window.timerIdIsActiveTab = setInterval(isActiveTab, 1000);
-			if(rmiPort != null) {
-				restartServer(code, resultArea, 1);
+			if (rmiStarted) {
+				restartServer(code, 1);
 			} else {
-				startServer(code, resultArea);
+				startServer(code);
 			}
 			updateButtonsVisibility(true);
 		}
+	}
+
+	function removeFocusButtonOpen() {
+		document.getElementById("openTabButton").blur();
 	}
 
 	function stopServerRequest() {
@@ -226,7 +230,7 @@ function onStart()
 		document.getElementById("startPlatformButton").style.display=start ? "none" : "block";
 		document.getElementById("restartPlatformButton").style.display= start ? "block" : "none";
 		document.getElementById("stopPlatformButton").style.display=start ? "block" : "none";
-		document.getElementById("openTabButton").style.display=start && rmiPort != null ? "block" : "none";
+		document.getElementById("openTabButton").style.display=start && rmiStarted ? "block" : "none";
 	}
 
 	function showOpenTabButton() {
@@ -278,11 +282,11 @@ function onStart()
 				<a class="btn btn_stop" href="javascript:void(0);" id="stopPlatformButton" style="display:none" onclick="stopServerRequest();">
 					<img alt="stop" src="{{ 'assets/images/stop.svg'|theme }}">
 				</a>
-				<a class="btn btn_restart" href="javascript:void(0);" id="restartPlatformButton" style="display:none" onclick="startServerRequest();">
+				<a class="btn btn_restart" id="restartPlatformButton" style="display:none" onclick="startServerRequest();">
 					<img alt="arrow" src="{{ 'assets/images/arrow-restart.svg'|theme }}">
 				</a>
-				<a class="btn btn_open" id="openTabButton" style="display:none">
-					<img alt="stop" src="{{ 'assets/images/open.png'|theme }}">
+				<a class="btn btn_open" id="openTabButton" style="display:none" onclick="removeFocusButtonOpen();">
+					<img alt="open" src="{{ 'assets/images/open.png'|theme }}">
 				</a>
 			</div>
 		</div>
