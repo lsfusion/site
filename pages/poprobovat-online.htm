@@ -59,17 +59,11 @@ function onStart()
 
 	//var timerIdIsActiveTab = setInterval(isActiveTab, 1000);
 
-	//var timerIdGetLogServer;
-
 	function pullServerRequestDBMSMode() {
 		var activeTab = document.getElementById('tab_db');
 		var code = activeTab.querySelector('.CodeMirror').CodeMirror.getValue();
 
-		var xhr = new XMLHttpRequest();
-		xhr.withCredentials = true;
-		xhr.open("POST", demoServer + "/eval");
-		xhr.setRequestHeader("Content-Type", "text/plain; charset=UTF-8");
-		xhr.send(code);
+		let xhr = sendRequest(demoServer + "/eval", code);
 
 		xhr.addEventListener("readystatechange", function () {
 			if (this.readyState === 4) {
@@ -82,14 +76,7 @@ function onStart()
 	function startServer(code) {
 		window.lastServerReturn = 0;
 
-		var xhr = new XMLHttpRequest();
-		xhr.withCredentials = true;
-
-		xhr.open("POST", server + "/exec?action=Main.startServer");
-		xhr.setRequestHeader("Content-Type", "text/json; charset=UTF-8");
-
-		let request = btoa(unescape(encodeURIComponent(JSON.stringify({'code': code}))));
-		xhr.send(request);
+		let xhr = sendRequest(server + "/exec?action=Main.startServer", {'code': code});
 
 		xhr.addEventListener("readystatechange", function () {
 			if (this.readyState === 4) {
@@ -104,14 +91,8 @@ function onStart()
 
 	function stopServer() {
 		console.log('func stopServer');
-		var xhr = new XMLHttpRequest();
-		xhr.withCredentials = true;
 
-		xhr.open("POST", server + "/exec?action=Main.stopServer");
-		xhr.setRequestHeader("Content-Type", "text/json; charset=UTF-8");
-
-        let request = btoa(unescape(encodeURIComponent(JSON.stringify({'server': window.serverStartReturn}))));
-		xhr.send(request);
+		let xhr = sendRequest(server + "/exec?action=Main.stopServer", {'server': window.serverStartReturn});
 
 		stopLogServerScheduler();
 		getResultArea().value = '';
@@ -127,41 +108,15 @@ function onStart()
 		});
 	}
 
-	function restartServer(code) {
-		var xhr = new XMLHttpRequest();
-		xhr.withCredentials = true;
-
-		xhr.open("POST", server + "/exec?action=Main.restartServer");
-		xhr.setRequestHeader("Content-Type", "text/json; charset=UTF-8");
-
-		let request = btoa(unescape(encodeURIComponent(JSON.stringify({'server': window.serverStartReturn, 'code': code}))));
-		xhr.send(request);
-
-		xhr.addEventListener("readystatechange", function () {
-			if (this.readyState === 4) {
-				getResultArea().value = '';
-				window.lastServerReturn = 0;
-				return this.responseText;
-			}
-		});
-	}
-
 	function getResultArea() {
 		let activeTab = document.querySelector('.mode-content.active');
 		return activeTab.querySelector('.plagin-panel__second-box');
 	}
 
-	function getLogServer(resultArea) {
-		console.log('func getLogServer');
+	function getServerLog(resultArea) {
+		console.log('func getServerLog');
 
-		var xhr = new XMLHttpRequest();
-		xhr.withCredentials = true;
-
-		xhr.open("POST", server + "/exec?action=Main.getServerLog");
-		xhr.setRequestHeader("Content-Type", "text/json; charset=UTF-8");
-
-		let request = btoa(unescape(encodeURIComponent(JSON.stringify({'server': window.serverStartReturn, 'lastAnswer': window.lastServerReturn}))));
-		xhr.send(JSON.stringify(request));
+		let xhr = sendRequest(server + "/exec?action=Main.getServerLog", {'server': window.serverStartReturn, 'lastAnswer': window.lastServerReturn});
 
 		xhr.addEventListener("readystatechange", function () {
 			if (this.readyState === 4) {
@@ -208,25 +163,33 @@ function onStart()
 		let code = activeTab.querySelector('.CodeMirror').CodeMirror.getValue();
 		if (window.start_server) {
 			if (window.lastServerReturn > 0) {
-				restartServer(code);
+				let xhr = sendRequest(server + "/exec?action=Main.restartServer", {'server': window.serverStartReturn, 'code': code});
+
+				xhr.addEventListener("readystatechange", function () {
+					if (this.readyState === 4) {
+						getResultArea().value = '';
+						window.lastServerReturn = 0;
+						return this.responseText;
+					}
+				});
 			}
 		}
 	}
 
 	function startLogServerScheduler() {
 		//включаем получение логов
-		if(window.getLogServerScheduler == null) {
+		if(window.getServerLogScheduler == null) {
 			let resultArea = getResultArea();
-			window.getLogServerScheduler = window.setInterval(function () {
-				getLogServer(resultArea);
+			window.getServerLogScheduler = window.setInterval(function () {
+				getServerLog(resultArea);
 			}, 100);
 		}
 	}
 
 	function stopLogServerScheduler() {
 		//выключаем получение логов
-		window.clearInterval(window.getLogServerScheduler);
-		window.getLogServerScheduler = null;
+		window.clearInterval(window.getServerLogScheduler);
+		window.getServerLogScheduler = null;
 	}
 
 	function removeFocusButtonOpen() {
@@ -239,6 +202,15 @@ function onStart()
 				stopServer();
 			}
 		}
+	}
+
+	function sendRequest(url, request) {
+		var xhr = new XMLHttpRequest();
+		xhr.withCredentials = true;
+		xhr.open("POST", url);
+		xhr.setRequestHeader("Content-Type", "text/json; charset=UTF-8");
+		xhr.send(btoa(unescape(encodeURIComponent(JSON.stringify(request)))));
+		return xhr;
 	}
 
 	function updateButtonsVisibility(start) {
@@ -340,14 +312,7 @@ function onStart()
 		for (t = 0; t < tabs.length; t++) {
 			var currentTab = tabs[t];
 
-			var xhr = new XMLHttpRequest();
-			xhr.withCredentials = true;
-
-			xhr.open("POST", server + "/exec?action=Main.getExamples");
-			xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-
-			var data = '{mode: ' + t + '}';
-			xhr.send(data);
+			let xhr = sendRequest(server + "/exec?action=Main.getExamples", {'mode': t});
 
 			xhr.addEventListener("readystatechange", function(currentTab, tab) {return function() {
 				if (
