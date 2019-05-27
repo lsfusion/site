@@ -37,7 +37,7 @@ function onStart()
 
 	window.onbeforeunload = function() {
 		if (window.start_server) {
-			stopServer();
+			stopServer(0);
 			window.start_server = false;
 			window.clearInterval(window.timerIdIsActiveTab);
 			//выключаем получение логов
@@ -112,7 +112,7 @@ function onStart()
 		});
 	}
 
-	function stopServer() {
+	function stopServer(mode) {
 		console.log('func stopServer');
 		var xhr = new XMLHttpRequest();
 		xhr.withCredentials = true;
@@ -120,14 +120,12 @@ function onStart()
 		xhr.open("POST", server + "/exec?action=Main.stopServer");
 		xhr.setRequestHeader("Content-Type", "text/json; charset=UTF-8");
 
-        let request = btoa(unescape(encodeURIComponent(JSON.stringify({'server': window.serverStartReturn}))));
+        let request = btoa(unescape(encodeURIComponent(JSON.stringify({'server': window.serverStartReturn, 'mode': mode}))));
 		xhr.send(request);
 
 		xhr.addEventListener("readystatechange", function () {
 			if (this.readyState === 4) {
 				window.start_server = false;
-				rmiPort = null;
-				document.getElementById("openTabButton").style.display="none";
 				return this.responseText;
 			}
 		});
@@ -135,7 +133,7 @@ function onStart()
 
 	let rmiPort = null;
 
-	function restartServer(code, resultArea) {
+	function restartServer(code, resultArea, mode) {
 		console.log('func restartServer');
 		var xhr = new XMLHttpRequest();
 		xhr.withCredentials = true;
@@ -143,7 +141,7 @@ function onStart()
 		xhr.open("POST", server + "/exec?action=Main.restartServer");
 		xhr.setRequestHeader("Content-Type", "text/json; charset=UTF-8");
 
-		let request = btoa(unescape(encodeURIComponent(JSON.stringify({'server': window.serverStartReturn, 'code': code}))));
+		let request = btoa(unescape(encodeURIComponent(JSON.stringify({'server': window.serverStartReturn, 'code': code, 'mode': mode}))));
 		xhr.send(request);
 
 		xhr.addEventListener("readystatechange", function () {
@@ -201,12 +199,16 @@ function onStart()
 
 		if (window.start_server) {
 			if(window.lastServerReturn > 0) {
-				restartServer(code, resultArea);
+				restartServer(code, resultArea, 0);
 			}
 		} else {
 			window.start_server = true;
 			window.timerIdIsActiveTab = setInterval(isActiveTab, 1000);
-			startServer(code, resultArea);
+			if(rmiPort != null) {
+				restartServer(code, resultArea, 1);
+			} else {
+				startServer(code, resultArea);
+			}
 			updateButtonsVisibility(true);
 		}
 	}
@@ -214,7 +216,7 @@ function onStart()
 	function stopServerRequest() {
 		if (window.start_server) {
 			if(window.lastServerReturn > 0) {
-				stopServer();
+				stopServer(1);
 				updateButtonsVisibility(false);
 			}
 		}
@@ -273,11 +275,11 @@ function onStart()
                 <a class="btn btn_round" href="javascript:void(0);" id="startPlatformButton" style="display:block" onclick="startServerRequest();">
                     <img alt="arrow" src="{{ 'assets/images/arrow.svg'|theme }} ">
                 </a>
-				<a class="btn btn_restart" href="javascript:void(0);" id="restartPlatformButton" style="display:none" onclick="startServerRequest();">
-					<img alt="arrow" src="{{ 'assets/images/arrow-restart.svg'|theme }}">
-				</a>
 				<a class="btn btn_stop" href="javascript:void(0);" id="stopPlatformButton" style="display:none" onclick="stopServerRequest();">
 					<img alt="stop" src="{{ 'assets/images/stop.svg'|theme }}">
+				</a>
+				<a class="btn btn_restart" href="javascript:void(0);" id="restartPlatformButton" style="display:none" onclick="startServerRequest();">
+					<img alt="arrow" src="{{ 'assets/images/arrow-restart.svg'|theme }}">
 				</a>
 				<a class="btn btn_open" id="openTabButton" style="display:none">
 					<img alt="stop" src="{{ 'assets/images/open.svg'|theme }}">

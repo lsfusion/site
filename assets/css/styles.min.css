@@ -1401,13 +1401,13 @@ body:before {
     right: 2%
 }
 
-.plagin-panel__plagin-box .btn_restart {
+.plagin-panel__plagin-box .btn_stop {
     position: absolute;
     top: 83%;
     right: 2%
 }
 
-.plagin-panel__plagin-box .btn_stop {
+.plagin-panel__plagin-box .btn_restart {
     position: absolute;
     top: 83%;
     right: 12%
@@ -3591,21 +3591,6 @@ header {
     margin: 20px -5px 0 0
 }
 
-.btn_restart {
-    border-radius: 50%;
-    width: 3.75rem;
-    height: 3.75rem;
-    background-color: #2dc1f7;
-    border: 1px solid #2dc1f7;
-    z-index: 6;
-}
-
-.btn_restart img {
-    width: 2rem;
-    height: 2rem;
-    margin: 14px 0 0 0
-}
-
 .btn_stop {
     border-radius: 50%;
     width: 3.75rem;
@@ -3616,6 +3601,21 @@ header {
 }
 
 .btn_stop img {
+    width: 2rem;
+    height: 2rem;
+    margin: 14px 0 0 0
+}
+
+.btn_restart {
+    border-radius: 50%;
+    width: 3.75rem;
+    height: 3.75rem;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    z-index: 6;
+}
+
+.btn_restart img {
     width: 2rem;
     height: 2rem;
     margin: 14px 0 0 0
