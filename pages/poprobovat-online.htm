@@ -33,11 +33,10 @@ function onStart()
 
 	window.onbeforeunload = function() {
 		if (window.start_server) {
-			stopServer(0);
+			stopServer();
 			window.start_server = false;
 			window.clearInterval(window.timerIdIsActiveTab);
-			//выключаем получение логов
-			window.clearInterval(window.getLogServerScheduler);
+			stopLogServerScheduler();
 			return "Данные не сохранены. Точно перейти?";
 		}
 	};
@@ -81,8 +80,6 @@ function onStart()
 	}
 
 	function startServer(code) {
-		console.log('func startServer');
-
 		window.lastServerReturn = 0;
 
 		var xhr = new XMLHttpRequest();
@@ -96,20 +93,16 @@ function onStart()
 
 		xhr.addEventListener("readystatechange", function () {
 			if (this.readyState === 4) {
-				let resultArea = getResultArea();
 				let response = JSON.parse(this.responseText);
 				rmiPort = response.port;
 				window.serverStartReturn = response.server;
-				window.getLogServerScheduler = window.setInterval(function () {
-					getLogServer(resultArea); //включаем получение логов
-				}, 100);
-
+				startLogServerScheduler();
 				return this.responseText;
 			}
 		});
 	}
 
-	function stopServer(mode) {
+	function stopServer() {
 		console.log('func stopServer');
 		var xhr = new XMLHttpRequest();
 		xhr.withCredentials = true;
@@ -117,27 +110,31 @@ function onStart()
 		xhr.open("POST", server + "/exec?action=Main.stopServer");
 		xhr.setRequestHeader("Content-Type", "text/json; charset=UTF-8");
 
-        let request = btoa(unescape(encodeURIComponent(JSON.stringify({'server': window.serverStartReturn, 'mode': mode}))));
+        let request = btoa(unescape(encodeURIComponent(JSON.stringify({'server': window.serverStartReturn}))));
 		xhr.send(request);
+
+		stopLogServerScheduler();
+		getResultArea().value = '';
+
+		window.start_server = false;
+		rmiStarted = false;
+		updateButtonsVisibility(false);
 
 		xhr.addEventListener("readystatechange", function () {
 			if (this.readyState === 4) {
-				window.start_server = false;
-				getResultArea().value = '';
 				return this.responseText;
 			}
 		});
 	}
 
-	function restartServer(code, mode) {
-		console.log('func restartServer');
+	function restartServer(code) {
 		var xhr = new XMLHttpRequest();
 		xhr.withCredentials = true;
 
 		xhr.open("POST", server + "/exec?action=Main.restartServer");
 		xhr.setRequestHeader("Content-Type", "text/json; charset=UTF-8");
 
-		let request = btoa(unescape(encodeURIComponent(JSON.stringify({'server': window.serverStartReturn, 'code': code, 'mode': mode}))));
+		let request = btoa(unescape(encodeURIComponent(JSON.stringify({'server': window.serverStartReturn, 'code': code}))));
 		xhr.send(request);
 
 		xhr.addEventListener("readystatechange", function () {
@@ -192,25 +189,44 @@ function onStart()
 	}
 
 	function startServerRequest() {
-		console.log('func startServerRequest');
+		console.log('func startServer');
 
 		let activeTab = document.querySelector('.mode-content.active');
 		let code = activeTab.querySelector('.CodeMirror').CodeMirror.getValue();
 
-		if (window.start_server) {
-			if (window.lastServerReturn > 0) {
-				restartServer(code, 0);
-			}
-		} else {
+		if (!window.start_server) {
 			window.start_server = true;
 			window.timerIdIsActiveTab = setInterval(isActiveTab, 1000);
-			if (rmiStarted) {
-				restartServer(code, 1);
-			} else {
-				startServer(code);
-			}
+			startServer(code);
 			updateButtonsVisibility(true);
 		}
+	}
+
+	function restartServerRequest() {
+		console.log('func restartServer');
+		let activeTab = document.querySelector('.mode-content.active');
+		let code = activeTab.querySelector('.CodeMirror').CodeMirror.getValue();
+		if (window.start_server) {
+			if (window.lastServerReturn > 0) {
+				restartServer(code);
+			}
+		}
+	}
+
+	function startLogServerScheduler() {
+		//включаем получение логов
+		if(window.getLogServerScheduler == null) {
+			let resultArea = getResultArea();
+			window.getLogServerScheduler = window.setInterval(function () {
+				getLogServer(resultArea);
+			}, 100);
+		}
+	}
+
+	function stopLogServerScheduler() {
+		//выключаем получение логов
+		window.clearInterval(window.getLogServerScheduler);
+		window.getLogServerScheduler = null;
 	}
 
 	function removeFocusButtonOpen() {
@@ -220,8 +236,7 @@ function onStart()
 	function stopServerRequest() {
 		if (window.start_server) {
 			if(window.lastServerReturn > 0) {
-				stopServer(1);
-				updateButtonsVisibility(false);
+				stopServer();
 			}
 		}
 	}
@@ -282,7 +297,7 @@ function onStart()
 				<a class="btn btn_stop" href="javascript:void(0);" id="stopPlatformButton" style="display:none" onclick="stopServerRequest();">
 					<img alt="stop" src="{{ 'assets/images/stop.svg'|theme }}">
 				</a>
-				<a class="btn btn_restart" id="restartPlatformButton" style="display:none" onclick="startServerRequest();">
+				<a class="btn btn_restart" id="restartPlatformButton" style="display:none" onclick="restartServerRequest();">
 					<img alt="arrow" src="{{ 'assets/images/arrow-restart.svg'|theme }}">
 				</a>
 				<a class="btn btn_open" id="openTabButton" style="display:none" onclick="removeFocusButtonOpen();">
