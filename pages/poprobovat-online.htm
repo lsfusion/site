@@ -63,11 +63,29 @@ function onStart()
 		var activeTab = document.getElementById('tab_db');
 		var code = activeTab.querySelector('.CodeMirror').CodeMirror.getValue();
 
-		let xhr = sendRequest(demoServer + "/eval", code);
+		let xhr = sendRequest(demoServer + "/eval", code, 'arraybuffer');
 
 		xhr.addEventListener("readystatechange", function () {
 			if (this.readyState === 4) {
-				getResultArea().value = this.responseText;
+				var contentType = this.getResponseHeader('Content-Type');
+				
+				if (contentType.startsWith('application/json')) {
+                    getResultArea().value = JSON.stringify(JSON.parse(new TextDecoder('utf-8').decode(this.response)), null, 2);	
+				} else if (contentType.startsWith('application/') && !contentType.startsWith('application/xml')) {
+					var blob = new Blob([this.response], { type: contentType });
+					var link = document.createElement('a');
+					link.href = window.URL.createObjectURL(blob);
+					link.download = 'response';
+
+					document.body.appendChild(link);
+
+                    getResultArea().value = '';
+					link.click();
+
+					document.body.removeChild(link);
+				} else {
+                    getResultArea().value = new TextDecoder('utf-8').decode(this.response);
+				}
 			}
 		});
 
@@ -76,7 +94,7 @@ function onStart()
 	function startServer(code) {
 		window.lastServerReturn = 0;
 
-		let xhr = sendRequest(server + "/exec?action=Main.startServer", {'code': code});
+		let xhr = sendEscapedRequest(server + "/exec?action=Main.startServer", {'code': code});
 
 		xhr.addEventListener("readystatechange", function () {
 			if (this.readyState === 4) {
@@ -92,7 +110,7 @@ function onStart()
 	function stopServer() {
 		console.log('func stopServer');
 
-		let xhr = sendRequest(server + "/exec?action=Main.stopServer", {'server': window.serverStartReturn});
+		let xhr = sendEscapedRequest(server + "/exec?action=Main.stopServer", {'server': window.serverStartReturn});
 
 		stopLogServerScheduler();
 		getResultArea().value = '';
@@ -116,7 +134,7 @@ function onStart()
 	function getServerLog(resultArea) {
 		console.log('func getServerLog');
 
-		let xhr = sendRequest(server + "/exec?action=Main.getServerLog", {'server': window.serverStartReturn, 'lastAnswer': window.lastServerReturn});
+		let xhr = sendEscapedRequest(server + "/exec?action=Main.getServerLog", {'server': window.serverStartReturn, 'lastAnswer': window.lastServerReturn});
 
 		xhr.addEventListener("readystatechange", function () {
 			if (this.readyState === 4) {
@@ -163,7 +181,7 @@ function onStart()
 		let code = activeTab.querySelector('.CodeMirror').CodeMirror.getValue();
 		if (window.start_server) {
 			if (window.lastServerReturn > 0) {
-				let xhr = sendRequest(server + "/exec?action=Main.restartServer", {'server': window.serverStartReturn, 'code': code});
+				let xhr = sendEscapedRequest(server + "/exec?action=Main.restartServer", {'server': window.serverStartReturn, 'code': code});
 
 				xhr.addEventListener("readystatechange", function () {
 					if (this.readyState === 4) {
@@ -203,13 +221,20 @@ function onStart()
 			}
 		}
 	}
+	
+	function sendEscapedRequest(url, request) {
+	    return sendRequest(url, btoa(unescape(encodeURIComponent(JSON.stringify(request)))));
+    }
 
-	function sendRequest(url, request) {
+	function sendRequest(url, request, responseType) {
 		var xhr = new XMLHttpRequest();
 		xhr.withCredentials = true;
 		xhr.open("POST", url);
 		xhr.setRequestHeader("Content-Type", "text/json; charset=UTF-8");
-		xhr.send(btoa(unescape(encodeURIComponent(JSON.stringify(request)))));
+		if (responseType != null) {
+            xhr.responseType = responseType;
+        }
+		xhr.send(request);
 		return xhr;
 	}
 
@@ -309,10 +334,10 @@ function onStart()
 
 	function loadExamples() {
 		var tabs = document.querySelectorAll('.mode-content');
-		for (t = 0; t < tabs.length; t++) {
+		for (var t = 0; t < tabs.length; t++) {
 			var currentTab = tabs[t];
 
-			let xhr = sendRequest(server + "/exec?action=Main.getExamples", {'mode': t});
+			let xhr = sendEscapedRequest(server + "/exec?action=Main.getExamples", {'mode': t});
 
 			xhr.addEventListener("readystatechange", function(currentTab, tab) {return function() {
 				if (
