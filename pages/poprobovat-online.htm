@@ -63,7 +63,7 @@ function onStart()
 		var activeTab = document.getElementById('tab_db');
 		var code = activeTab.querySelector('.CodeMirror').CodeMirror.getValue();
 
-		let xhr = sendRequest(demoServer + "/eval", code, 'arraybuffer');
+		let xhr = sendRequest(demoServer + "/eval", code, "text/plain; charset=UTF-8", 'arraybuffer');
 
 		xhr.addEventListener("readystatechange", function () {
 			if (this.readyState === 4) {
@@ -223,14 +223,14 @@ function onStart()
 	}
 	
 	function sendEscapedRequest(url, request) {
-	    return sendRequest(url, btoa(unescape(encodeURIComponent(JSON.stringify(request)))));
+	    return sendRequest(url, btoa(unescape(encodeURIComponent(JSON.stringify(request)))), "text/json; charset=UTF-8");
     }
 
-	function sendRequest(url, request, responseType) {
+	function sendRequest(url, request, requestContentType, responseType) {
 		var xhr = new XMLHttpRequest();
 		xhr.withCredentials = true;
 		xhr.open("POST", url);
-		xhr.setRequestHeader("Content-Type", "text/json; charset=UTF-8");
+		xhr.setRequestHeader("Content-Type", requestContentType);
 		if (responseType != null) {
             xhr.responseType = responseType;
         }
