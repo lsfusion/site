@@ -216,9 +216,7 @@ function onStart()
 
 	function stopServerRequest() {
 		if (window.start_server) {
-			if(window.lastServerReturn > 0) {
-				stopServer();
-			}
+			stopServer();
 		}
 	}
 	
@@ -348,90 +346,93 @@ function onStart()
 					} catch (e) {
 						console.log(e);
 					}
-					var list = document.createElement("ul");
-					list.classList.add("listfilter-panel__list");
-					for (i in json) {
-						var listItem = document.createElement("li");
-						listItem.classList.add("listfilter-panel__item");
-						var label = document.createElement("label");
-						label.classList.add("listfilter");
-						var listItemID = "input_" + tab + '_' + i;
-						label.setAttribute("for", listItemID);
-						label.setAttribute("data-value", json[i].text);
 
-						var input = document.createElement("input");
-						input.classList.add("listfilter__input");
-						input.id = listItemID;
-						input.type = "radio";
-						// input.name = "text_" + i;
-						input.name = "radioMode_" + tab;
-						input.value = "text_" + i;
-						if (i == 0) {
-							input.setAttribute("checked", "checked");
+					if(json != null) {
+						var list = document.createElement("ul");
+						list.classList.add("listfilter-panel__list");
+						for (i in json) {
+							var listItem = document.createElement("li");
+							listItem.classList.add("listfilter-panel__item");
+							var label = document.createElement("label");
+							label.classList.add("listfilter");
+							var listItemID = "input_" + tab + '_' + i;
+							label.setAttribute("for", listItemID);
+							label.setAttribute("data-value", json[i].text);
+
+							var input = document.createElement("input");
+							input.classList.add("listfilter__input");
+							input.id = listItemID;
+							input.type = "radio";
+							// input.name = "text_" + i;
+							input.name = "radioMode_" + tab;
+							input.value = "text_" + i;
+							if (i == 0) {
+								input.setAttribute("checked", "checked");
+							}
+							label.appendChild(input);
+							label.addEventListener('click', activate, !1);
+
+							var span = document.createElement("span");
+							span.classList.add("listfilter__caption");
+							span.classList.add("caption");
+							label.appendChild(span);
+
+							span.innerText = json[i].caption;
+							var checkdiv = document.createElement("div");
+							checkdiv.classList.add("listfilter_check");
+							label.appendChild(checkdiv);
+
+							listItem.appendChild(label);
+							list.appendChild(listItem);
 						}
-						label.appendChild(input);
-						label.addEventListener('click', activate, !1);
+						var listFilterCurrent = document.createElement("div");
+						listFilterCurrent.classList.add("listfilter-panel__current");
+						listFilterCurrent.addEventListener('click', addClassActive, false);
 
-						var span = document.createElement("span");
-						span.classList.add("listfilter__caption");
-						span.classList.add("caption");
-						label.appendChild(span);
-
-						span.innerText = json[i].caption;
-						var checkdiv = document.createElement("div");
-						checkdiv.classList.add("listfilter_check");
-						label.appendChild(checkdiv);
-
-						listItem.appendChild(label);
-						list.appendChild(listItem);
-					}
-					var listFilterCurrent = document.createElement("div");
-					listFilterCurrent.classList.add("listfilter-panel__current");
-					listFilterCurrent.addEventListener('click', addClassActive, false);
-
-					var captionDiv = document.createElement("div");
-					captionDiv.classList.add("caption");
-					if (json.length > 0) {
-						captionDiv.innerText = json[0].caption;
-					}
-					listFilterCurrent.appendChild(captionDiv);
-
-					var linkOffDiv = document.createElement("div");
-					linkOffDiv.classList.add("link-off");
-					listFilterCurrent.appendChild(linkOffDiv);
-
-					var img = document.createElement("img");
-					img.alt = "off";
-					img.src = "{{ 'assets/images/arrow-white.svg'|theme }}";
-					linkOffDiv.appendChild(img);
-
-					var listFilter = document.createElement("div");
-					listFilter.classList.add("listfilter-panel");
-					listFilter.appendChild(listFilterCurrent);
-
-					var listScroller = document.createElement("div");
-					listScroller.classList.add("listfilter-scroller");
-					listScroller.appendChild(list);
-					listFilter.appendChild(listScroller);
-
-					var textarea = document.createElement("textarea");
-					textarea.classList.add('editor-panel', 'active');
-					textarea.id = 'textarea_' + t;
-
-					var plaginBox = currentTab.querySelector(".plagin-panel__plagin-box");
-					var button = plaginBox.firstChild;
-					plaginBox.insertBefore(listFilter, button);
-					plaginBox.insertBefore(textarea, button);
-
-					if (json.length > 0) {
-						textarea.innerHTML = json[0].text;
-						// textarea.innerText = json[0].text;
-						var editor = textarea.nextSibling;
-						if (editor) {
-							editor.remove();
+						var captionDiv = document.createElement("div");
+						captionDiv.classList.add("caption");
+						if (json.length > 0) {
+							captionDiv.innerText = json[0].caption;
 						}
+						listFilterCurrent.appendChild(captionDiv);
 
-						codeMirrorFromTextarea(currentTab, textarea);
+						var linkOffDiv = document.createElement("div");
+						linkOffDiv.classList.add("link-off");
+						listFilterCurrent.appendChild(linkOffDiv);
+
+						var img = document.createElement("img");
+						img.alt = "off";
+						img.src = "{{ 'assets/images/arrow-white.svg'|theme }}";
+						linkOffDiv.appendChild(img);
+
+						var listFilter = document.createElement("div");
+						listFilter.classList.add("listfilter-panel");
+						listFilter.appendChild(listFilterCurrent);
+
+						var listScroller = document.createElement("div");
+						listScroller.classList.add("listfilter-scroller");
+						listScroller.appendChild(list);
+						listFilter.appendChild(listScroller);
+
+						var textarea = document.createElement("textarea");
+						textarea.classList.add('editor-panel', 'active');
+						textarea.id = 'textarea_' + t;
+
+						var plaginBox = currentTab.querySelector(".plagin-panel__plagin-box");
+						var button = plaginBox.firstChild;
+						plaginBox.insertBefore(listFilter, button);
+						plaginBox.insertBefore(textarea, button);
+
+						if (json.length > 0) {
+							textarea.innerHTML = json[0].text;
+							// textarea.innerText = json[0].text;
+							var editor = textarea.nextSibling;
+							if (editor) {
+								editor.remove();
+							}
+
+							codeMirrorFromTextarea(currentTab, textarea);
+						}
 					}
 				}
 			}}(currentTab, t))
