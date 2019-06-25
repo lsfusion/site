@@ -132,6 +132,7 @@ function onStart()
 	}
 
 	function getServerLog(resultArea) {
+		window.isRunning = true;
 		console.log('func getServerLog');
 
 		let xhr = sendEscapedRequest(server + "/exec?action=Main.getServerLog", {'server': window.serverStartReturn, 'lastAnswer': window.lastServerReturn});
@@ -158,6 +159,7 @@ function onStart()
 					resultArea.value = 'Server is starting...\n';
 				}
 			}
+			window.isRunning = false;
 		});
 	}
 
@@ -199,7 +201,9 @@ function onStart()
 		if(window.getServerLogScheduler == null) {
 			let resultArea = getResultArea();
 			window.getServerLogScheduler = window.setInterval(function () {
-				getServerLog(resultArea);
+				if(!window.isRunning) {
+					getServerLog(resultArea);
+				}
 			}, 100);
 		}
 	}
