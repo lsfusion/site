@@ -1382,6 +1382,8 @@ body:before {
 
 .plagin-panel__right-item {
     width: 40%;
+    display: flex;
+    align-items: stretch;
 }
 
 .plagin-panel__panel-item_first-box {
@@ -1420,7 +1422,7 @@ body:before {
 }
 
 .plagin-panel__second-box {
-    height: 23.3125rem;
+    height: 16.3125rem;
     background: #373d3f;
     color: #fff;
     font-size: .7rem;

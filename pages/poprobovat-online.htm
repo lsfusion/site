@@ -278,7 +278,7 @@ function onStart()
 			</div>
 		</div>
 		<div class="plagin-panel__panel-item plagin-panel__right-item">
-			<div class="plagin-panel__text-box text">
+			<div class="text">
 				В режиме СУБД введенный код выполняется на <a href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=46367376#id-%D0%9E%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD%D0%B4%D0%B5%D0%BC%D0%BE-mm">демо-сервере УМП</a> при помощи <a href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=51216539#id-%D0%9E%D0%B1%D1%80%D0%B0%D1%89%D0%B5%D0%BD%D0%B8%D0%B5%D0%B8%D0%B7%D0%B2%D0%BD%D0%B5%D1%88%D0%BD%D0%B5%D0%B9%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B-http">HTTP запроса</a>. В нижнее окно выводится <a href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=51216539#id-%D0%9E%D0%B1%D1%80%D0%B0%D1%89%D0%B5%D0%BD%D0%B8%D0%B5%D0%B8%D0%B7%D0%B2%D0%BD%D0%B5%D1%88%D0%BD%D0%B5%D0%B9%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B-httpresult">результат</a> этого запроса. В этом режиме запрещено выполнять инструкции изменяющие глобальную логику системы - запрещено создавать <a href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=688155">события</a>, и все элементы, которые их используют (<a href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=3538950">ограничения</a>, <a href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=2031628">классы</a> и <a href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=4161551">агрегации</a>), а также элементы физической модели (в частности <a href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=688175">таблицы</a>, <a href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=688177">индексы</a> и <a href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=35520998">материализации</a>). Все первичные свойства в этом режиме считаются <a href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=688168#id-%D0%9F%D0%B5%D1%80%D0%B2%D0%B8%D1%87%D0%BD%D1%8B%D0%B5%D1%81%D0%B2%D0%BE%D0%B9%D1%81%D1%82%D0%B2%D0%B0(DATA)-local">локальными</a>. Также в этом режиме не поддерживаются <a href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=1573071">интерактивные представления</a>.
 			</div>
 			<textarea readonly class="plagin-panel__second-box"></textarea>
@@ -305,7 +305,7 @@ function onStart()
 			</div>
 		</div>
 		<div class="plagin-panel__panel-item plagin-panel__right-item">
-			<div class="plagin-panel__text-box text">
+			<div class="text">
 				В режиме платформы введенный код считается единственным прикладным <a href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=1146882">модулем</a> запускаемого сервера. Сервер приложений стартует на первом свободном <a href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=65241244#id-%D0%9F%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D1%8B%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA%D0%B0-accessapp">порту</a> в некотором диапазоне. В нижнее окно выводится лог стандартного вывода (<a href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=60555482#id-%D0%96%D1%83%D1%80%D0%BD%D0%B0%D0%BB%D1%8B%D0%B8%D0%BB%D0%BE%D0%B3%D0%B8-stdout">stdout</a>) этого сервера. После первого запуска сервера автоматически открывается новая вкладка браузера с пользовательским интерфейсом этого сервера. Все перезапуски считаются изменением логики с момента предыдущего запуска. В отличии от режима СУБД, в этом режиме нет никаких ограничений, однако он требует дополнительное время на запуск сервера. Для уменьшения этого времени сервер запускается в <a href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=65241244#id-%D0%9F%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D1%8B%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA%D0%B0-lightstart">облегченном</a> режиме. 
 			</div>
 			<textarea readonly class="plagin-panel__second-box"></textarea>
@@ -493,141 +493,3 @@ function onStart()
 		Helpers.parents(this, '.listfilter-panel')[0].classList.remove('list-active');
 	}
 </script>
-
-<!--<div class="show-devices">-->
-	<!--<p class="device-text">Доступно только в десктопной версии</p>-->
-<!--</div>-->
-<!--<div class="mode-panel hide-devices">-->
-	<!--<ul class="mode-panel__mode-list">-->
-		<!--<li class="mode-panel__mode-li">-->
-			<!--<a class="link mode-panel__mode-item mode-panel__mode-item_active" href="#tab_1">Режим СУБД</a>-->
-		<!--</li>-->
-		<!--<li class="mode-panel__mode-li">-->
-			<!--<a class="link mode-panel__mode-item" href="#tab_2">Режим Платформа</a>-->
-		<!--</li>-->
-	<!--</ul>-->
-<!--</div>-->
-
-<!--<div class="mode-content hide-devices active" id="tab_1">-->
-	<!--<div class="plagin-panel hide-devices">-->
-		<!--<div class="plagin-panel__panel-item plagin-panel__panel-item_first-box">-->
-			<!--<div class="plagin-panel__plagin-box">-->
-				<!--<div class="listfilter-panel">-->
-					<!--<div class="listfilter-panel__current">-->
-						<!--<div class="caption">EXPORT FROM name</div>-->
-						<!--<div class="link-off">-->
-							<!--<img alt="off" src="{{ 'assets/images/arrow-white.svg'|theme }}">-->
-						<!--</div>-->
-					<!--</div>-->
-					<!--<ul class="listfilter-panel__list">-->
-						<!--<li class="listfilter-panel__item">-->
-							<!--<label class="listfilter" for="text_1">-->
-								<!--<input class="listfilter__input" id="text_1" type="radio" name="text_1" checked="checked"/>-->
-								<!--<span class="listfilter__caption caption">EXPORT FROM name</span>-->
-							<!--</label>-->
-						<!--</li>-->
-						<!--<li class="listfilter-panel__item">-->
-							<!--<label class="listfilter" for="text_2">-->
-								<!--<input class="listfilter__input" id="text_2" type="radio" name="text_1"/>-->
-								<!--<span class="listfilter__caption caption">Text 2</span>-->
-							<!--</label>-->
-						<!--</li>-->
-						<!--<li class="listfilter-panel__item">-->
-							<!--<label class="listfilter" for="text_3">-->
-								<!--<input class="listfilter__input" id="text_3" type="radio" name="text_1"/>-->
-								<!--<span class="listfilter__caption caption">Text 3</span>-->
-							<!--</label>-->
-						<!--</li>-->
-					<!--</ul>-->
-				<!--</div>-->
-<!--<textarea class="editor-panel active" id="text_1">run() {-->
-	<!--EXPORT FROM name(DepartmentStore s);-->
-<!--}</textarea>-->
-                  <!--<textarea class="editor-panel" id="text_2">function HelloWorld() {-->
-  <!--console.log('Hello world12');-->
-<!--}</textarea>-->
-<!--<textarea class="editor-panel" id="text_3">function HelloWorld() {-->
-  <!--console.log('Hello world13');-->
-<!--}</textarea>-->
-				<!--<a class="btn btn_round" href="#" onclick="pullServerRequest(this);">-->
-					<!--<img alt="arrow" src="{{ 'assets/images/arrow.svg'|theme }}" />-->
-				<!--</a>-->
-			<!--</div>-->
-		<!--</div>-->
-
-		<!--<div class="plagin-panel__panel-item">-->
-			<!--<div class="plagin-panel__text-box text">-->
-				<!--Сервер приложений выполняется в виртуальной Java машине (JVM),-->
-				<!--что позволяет подключить к нему любую из многочисленных существующих Java-библиотек.-->
-				<!--Для этого достаточно создать свое действие на Java, зарегистрировать его в платформе и-->
-				<!--использовать, как если бы оно было встроенным или реализованным на языке платформы.-->
-				<!--Аналогичным образом можно бесшовно подключать пользовательские SQL-функции используемого сервера БД.-->
-			<!--</div>-->
-			<!--<textarea class="plagin-panel__second-box active" data-id="text_1"></textarea>-->
-			<!--<textarea class="plagin-panel__second-box" data-id="text_2"></textarea>-->
-			<!--<textarea class="plagin-panel__second-box" data-id="text_3"></textarea>-->
-		<!--</div>-->
-	<!--</div>-->
-<!--</div>-->
-
-<!--<div class="mode-content hide-devices" id="tab_2">-->
-	<!--<div class="plagin-panel hide-devices">-->
-		<!--<div class="plagin-panel__panel-item plagin-panel__panel-item_first-box">-->
-			<!--<div class="plagin-panel__plagin-box">-->
-				<!--<div class="listfilter-panel">-->
-					<!--<div class="listfilter-panel__current">-->
-						<!--<div class="caption">Hello world</div>-->
-						<!--<div class="link-off">-->
-							<!--<img alt="off" src="{{ 'assets/images/arrow-white.svg'|theme }}">-->
-						<!--</div>-->
-					<!--</div>-->
-					<!--<ul class="listfilter-panel__list">-->
-						<!--<li class="listfilter-panel__item">-->
-							<!--<label class="listfilter" for="text_5">-->
-								<!--<input class="listfilter__input" id="text_5" type="radio" name="text_5" checked="checked"/>-->
-								<!--<span class="listfilter__caption caption">Hello world</span>-->
-							<!--</label>-->
-						<!--</li>-->
-						<!--<li class="listfilter-panel__item">-->
-							<!--<label class="listfilter" for="text_6">-->
-								<!--<input class="listfilter__input" id="text_6" type="radio" name="text_6"/>-->
-								<!--<span class="listfilter__caption caption">Text 2</span>-->
-							<!--</label>-->
-						<!--</li>-->
-						<!--<li class="listfilter-panel__item">-->
-							<!--<label class="listfilter" for="text_7">-->
-								<!--<input class="listfilter__input" id="text_7" type="radio" name="text_7"/>-->
-								<!--<span class="listfilter__caption caption">Text 3</span>-->
-							<!--</label>-->
-						<!--</li>-->
-					<!--</ul>-->
-				<!--</div>-->
-<!--<textarea class="editor-panel active" id="text_5">function HelloWorld() {-->
-  <!--console.log('Hello world11');-->
-<!--}</textarea>-->
-                  <!--<textarea class="editor-panel" id="text_6">function HelloWorld() {-->
-  <!--console.log('Hello world12');-->
-<!--}</textarea>-->
-<!--<textarea class="editor-panel" id="text_7">function HelloWorld() {-->
-  <!--console.log('Hello world13');-->
-<!--}</textarea>-->
-				<!--<a class="btn btn_round" href="#">-->
-					<!--<img alt="arrow" src="{{ 'assets/images/arrow.svg'|theme }}" />-->
-				<!--</a>-->
-			<!--</div>-->
-		<!--</div>-->
-
-		<!--<div class="plagin-panel__panel-item">-->
-			<!--<div class="plagin-panel__text-box text">-->
-				<!--Сервер приложений выполняется в виртуальной Java машине (JVM),-->
-				<!--что позволяет подключить к нему любую из многочисленных существующих Java-библиотек.-->
-				<!--Для этого достаточно создать свое действие на Java, зарегистрировать его в платформе и-->
-				<!--использовать, как если бы оно было встроенным или реализованным на языке платформы.-->
-				<!--Аналогичным образом можно бесшовно подключать пользовательские SQL-функции используемого сервера БД.-->
-			<!--</div>-->
-			<!--<textarea class="plagin-panel__second-box active" data-id="text_5">Hello world</textarea>-->
-			<!--<textarea class="plagin-panel__second-box" data-id="text_6">Hello world2</textarea>-->
-			<!--<textarea class="plagin-panel__second-box" data-id="text_7">Hello world3</textarea>-->
-		<!--</div>-->
-	<!--</div>-->
-<!--</div>-->
