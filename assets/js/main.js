@@ -1454,20 +1454,20 @@ var lsFusion = {
             }
         }
 
-        var fps = document.getElementsByClassName('listfilter-panel__current');
-
-        for (var k = 0; k < fps.length; k++) {
-            fps[k].addEventListener('click', addClassActive2, false);
-        }
-
-        function addClassActive2() {
-            var menu = Helpers.parents(this, '.listfilter-panel')[0];
-            if (menu.classList.contains('list-active')) {
-                menu.classList.remove('list-active')
-            } else {
-                menu.classList.add('list-active')
-            }
-        }
+        // var fps = document.getElementsByClassName('listfilter-panel__current');
+        //
+        // for (var k = 0; k < fps.length; k++) {
+        //     fps[k].addEventListener('click', addClassActive2, false);
+        // }
+        //
+        // function addClassActive2() {
+        //     var menu = Helpers.parents(this, '.listfilter-panel')[0];
+        //     if (menu.classList.contains('list-active')) {
+        //         menu.classList.remove('list-active')
+        //     } else {
+        //         menu.classList.add('list-active')
+        //     }
+        // }
     },
     lablebreak: function (tab) {
         var filter = document.querySelectorAll('.filter');
