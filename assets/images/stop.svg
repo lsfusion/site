@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Svg Vector Icons : http://www.onlinewebfonts.com/icon -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" 
-	id="Stop Square" viewbox="0 0 599 599" width="600" height="600">
-	<rect id="stop" fill="#FFFFFF" x="66" y="66" width="472" height="472" />
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
+<metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
+<g><g fill="#2dc1f7" transform="translate(0.000000,511.000000) scale(0.100000,-0.100000)"><path d="M771.7,4330.7L100,3659.1l1770.7-1770.7L3641.4,117.6L1870.7-1653.1L100-3423.8l680.8-677.8l677.8-680.8l1770.7,1770.7L5000-1240.9l1770.7-1770.7l1770.7-1770.7l677.8,680.8l680.8,677.8L8129.3-1653.1L6358.6,117.6l1764.6,1764.6C9091,2850,9884.7,3659.1,9884.7,3674.3c0,39.7-1288.4,1328-1328,1328c-15.3,0-824.3-793.8-1792.1-1761.6L5000,1476.2L3235.4,3240.8c-967.8,967.8-1767.7,1761.6-1776.8,1761.6C1449.4,5002.4,1141.1,4700.1,771.7,4330.7z"/></g></g>
 </svg>

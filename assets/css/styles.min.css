@@ -1403,13 +1403,13 @@ body:before {
     right: 2%
 }
 
-.plagin-panel__plagin-box .btn_stop {
+.plagin-panel__plagin-box .btn_restart {
     position: absolute;
     top: 86%;
     right: 2%
 }
 
-.plagin-panel__plagin-box .btn_restart {
+.plagin-panel__plagin-box .btn_stop {
     position: absolute;
     top: 86%;
     right: 10%
@@ -3593,7 +3593,7 @@ header {
     margin: 14px -5px 0 0
 }
 
-.btn_stop {
+.btn_restart {
     border-radius: 50%;
     width: 3rem;
     height: 3rem;
@@ -3602,13 +3602,13 @@ header {
     z-index: 6;
 }
 
-.btn_stop img {
+.btn_restart img {
     width: 1.5rem;
     height: 1.5rem;
     margin: 12px 0 0 0
 }
 
-.btn_restart {
+.btn_stop {
     border-radius: 50%;
     width: 3rem;
     height: 3rem;
@@ -3617,7 +3617,7 @@ header {
     z-index: 6;
 }
 
-.btn_restart img {
+.btn_stop img {
     width: 1.5rem;
     height: 1.5rem;
     margin: 12px 0 0 0
