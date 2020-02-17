@@ -21,8 +21,9 @@ host    <your-db-name>      all             ::1/128                 trust
 - Ensure Apache HTTP server (httpd) is installed.
 - Add directory for your October CMS in its public folder. For example: `/var/www/myoctober`.
 - Configure Apache's directory root to `/var/www/myoctober`:
-```DocumentRoot "/var/www/site"
-<Directory "/var/www/site">
+```
+DocumentRoot "/var/www/myoctober"
+<Directory "/var/www/myoctober">
     AllowOverride All
     Require all granted
 </Directory>
