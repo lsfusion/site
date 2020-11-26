@@ -1,9 +1,9 @@
 title = "Возможности"
 url = "/opportunities"
 layout = "main"
-description = "Использование механизмов инкрементальных вычислений, комбинаторного, реактивного и событийного программирования, возможность записи и итерирования по всем значениям функций, множественные наследование и полиморфизм, отказ от инкапсуляции и ряд других принципиально новых идей позволяет на порядок повысить скорость и качество разработки, а также быстродействие создаваемых систем по сравнению с традиционными подходами."
-meta_title = "Возможности"
-meta_description = "Возможности LsFusion.org"
+description = "Incremental computing, combinatorial, reactive, and event-based programming, the ability to write and iterate over all function values, multiple inheritance and polymorphism, no encapsulation, and lots of other fundamentally new ideas greatly improve the development speed, quality, and performance of created systems compared to traditional approaches."
+meta_title = "Features"
+meta_description = "Features lsFusion.org"
 is_hidden = 0
 
 [viewBag]
@@ -20,7 +20,7 @@ function onStart(){
 <div class="filter-panel list-active">
 
 	<div class="filter-panel__current visible-md">
-		<div class="caption">Скорость разработки</div>
+		<div class="caption">DEVELOPMENT SPEED</div>
 		<div class="link-off">
 			<img alt="off" src="{{ 'assets/images/down-arrow.svg'|theme }}" />
 		</div>
@@ -32,7 +32,7 @@ function onStart(){
 			<label class="filter filter_checked" for="speed">
 				<span class="caption-wrap">
 					<input class="filter__input" id="speed" type="checkbox"  name="speed" {% if 'speed' in checked_input %} checked {% endif %} data-sort-selector="speed"/>
-					<span class="filter__caption caption">Скорость разработки</span>
+					<span class="filter__caption caption">DEVELOPMENT SPEED</span>
 				</span>
 			</label>
 		</li>
@@ -41,7 +41,7 @@ function onStart(){
 			<label class="filter" for="easy">
 				<span class="caption-wrap">
 					<input class="filter__input" id="easy" type="checkbox" name="easy" {% if 'easy' in checked_input %} checked {% endif %} data-sort-selector="easy"/>
-					<span class="filter__caption caption">Простота разработки</span>
+					<span class="filter__caption caption">EASE OF DEVELOPMENT</span>
 				</span>
 			</label>
 		</li>
@@ -50,7 +50,7 @@ function onStart(){
 			<label class="filter" for="modul">
 				<span class="caption-wrap">
 					<input class="filter__input" id="modul" type="checkbox" name="modul" {% if 'modul' in checked_input %} checked {% endif %} data-sort-selector="modul"/>
-					<span class="filter__caption caption">Модульность</span>
+					<span class="filter__caption caption">MODULARITY</span>
 				</span>
 			</label>
 		</li>
@@ -59,7 +59,7 @@ function onStart(){
 			<label class="filter" for="productivity">
 				<span class="caption-wrap">
 					<input class="filter__input" id="productivity" type="checkbox" name="productivity" {% if 'productivity' in checked_input %} checked {% endif %} data-sort-selector="productivity"/>
-					<span class="filter__caption caption">Производительность</span>
+					<span class="filter__caption caption">PERFORMANCE</span>
 				</span>
 			</label>
 		</li>
@@ -68,7 +68,7 @@ function onStart(){
 			<label class="filter" for="scalability">
 				<span class="caption-wrap">
 					<input class="filter__input" id="scalability" type="checkbox" name="scalability" {% if 'scalability' in checked_input %} checked {% endif %} data-sort-selector="scalability"/>
-					<span class="filter__caption caption">Масштабируемость</span>
+					<span class="filter__caption caption">SCALABILITY</span>
 				</span>
 			</label>
 		</li>
@@ -77,7 +77,7 @@ function onStart(){
 			<label class="filter" for="entirety">
 				<span class="caption-wrap">
 					<input class="filter__input" id="entirety" type="checkbox" name="entirety" {% if 'entirety' in checked_input %} checked {% endif %} data-sort-selector="entirety"/>
-					<span class="filter__caption caption">Целостность</span>
+					<span class="filter__caption caption">INTEGRITY</span>
 				</span>
 			</label>
 		</li>
@@ -86,7 +86,7 @@ function onStart(){
 			<label class="filter" for="openness">
 				<span class="caption-wrap">
 					<input class="filter__input" id="openness" type="checkbox" name="openness" {% if 'openness' in checked_input %} checked {% endif %} data-sort-selector="openness"/>
-					<span class="filter__caption caption">Открытость</span>
+					<span class="filter__caption caption">OPENNESS</span>
 				</span>
 			</label>
 		</li>
@@ -95,7 +95,7 @@ function onStart(){
 			<label class="filter" for="supportability">
 				<span class="caption-wrap">
 					<input class="filter__input" id="supportability" type="checkbox" name="supportability" {% if 'supportability' in checked_input %} checked {% endif %} data-sort-selector="supportability"/>
-					<span class="filter__caption caption">Поддерживаемость</span>
+					<span class="filter__caption caption">SUPPORTABILITY</span>
 				</span>
 			</label>
 		</li>
@@ -104,7 +104,7 @@ function onStart(){
 			<label class="filter" for="universalism">
 				<span class="caption-wrap">
 					<input class="filter__input" id="universalism" type="checkbox" name="universalism" {% if 'universalism' in checked_input %} checked {% endif %} data-sort-selector="universalism"/>
-					<span class="filter__caption caption">Универсальность</span>
+					<span class="filter__caption caption">VERSATILITY</span>
 				</span>
 			</label>
 		</li>
@@ -113,7 +113,7 @@ function onStart(){
 			<label class="filter" for="safety">
 				<span class="caption-wrap">
 					<input class="filter__input" id="safety" type="checkbox" name="safety" {% if 'safety' in checked_input %} checked {% endif %} data-sort-selector="safety"/>
-					<span class="filter__caption caption">Безопасность</span>
+					<span class="filter__caption caption">SECURITY</span>
 				</span>
 			</label>
 		</li>
@@ -131,7 +131,7 @@ function onStart(){
 			<label class="filter" for="usability">
 				<span class="caption-wrap">
 					<input class="filter__input" id="usability" type="checkbox" name="usability" {% if 'usability' in checked_input %} checked {% endif %} data-sort-selector="usability"/>
-					<span class="filter__caption caption">Удобство использования</span>
+					<span class="filter__caption caption">USABILITY</span>
 				</span>
 			</label>
 		</li>
@@ -140,7 +140,7 @@ function onStart(){
 			<label class="filter" for="port">
 				<span class="caption-wrap">
 					<input class="filter__input" id="port" type="checkbox" name="port" {% if 'port' in checked_input %} checked {% endif %} data-sort-selector="port"/>
-					<span class="filter__caption caption">Портируемость</span>
+					<span class="filter__caption caption">PORTABILITY</span>
 				</span>
 			</label>
 		</li>
@@ -149,7 +149,7 @@ function onStart(){
 			<label class="filter" for="cost">
 				<span class="caption-wrap">
 					<input class="filter__input" id="cost" type="checkbox" name="cost" {% if 'cost' in checked_input %} checked {% endif %} data-sort-selector="cost"/>
-					<span class="filter__caption caption">Стоимость</span>
+					<span class="filter__caption caption">COST</span>
 				</span>
 			</label>
 		</li>
@@ -164,12 +164,12 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Один язык работы с данными</h2>
-		<div class="text">В платформе отсутствует <a href="https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch">объектно-реляционный семантический разрыв</a> - когда разработчику приходится постоянно выбирать между "быстрыми" SQL-запросами и кодом на "удобном" императивном языке. И тот и другой подход абстрагированы и объединены настолько, что грань между ними практически отсутствует. Разработчик всегда работает с данными в одной парадигме, а за то, как и где вся эта работа будет выполняться, полностью отвечает сама платформа.</div>
+		<h2>Single language for data</h2>
+		<div class="text">The platform is free from <a href="https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch">the object-relational semantic gap</a>, so developers don't need to constantly choose between "rapid" SQL queries and a "convenient" imperative language. Both of these approaches are almost fully abstracted and united. Each developer always works with data using a single paradigm, while the platform takes care of how and where to do all the remaining work.</div>
 		<div class="btn-wrap">
 			<a class="btn btn_narow__white" href="comparison?id=1">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -179,14 +179,14 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Одна парадигма работы с UI</h2>
-		<div class="text">В платформе отсутствует разделение пользовательского интерфейса на интерактивные формы и отчеты. Любая форма может содержать как первичные, так и вычисляемые данные, и ее можно открыть как в печатном представлении (в виде классического отчета) так и в интерактивном (с возможностью ввода). Соответственно, пользователь может в одном интерфейсе не только видеть данные, необходимые для принятия решения, но и сразу вводить принятое решение непосредственно в систему.</div>
+		<h2>Single paradigm for UI</h2>
+		<div class="text">The platform doesn't split the user interface into interactive forms and reports. Any form can contain both primary and computed data and can be displayed in a print-ready (like a classic report) or interactive (editable) view. By the same token, users can not only see the data they need to make a decision, but also immediately enter the decision they've made through the same UI.</div>
 		<div class="btn-wrap">
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=29884425">Документация</a>
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/display/LSFUS/How-to%3A+GUI">How-to</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/Form+views">Documentation</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/How-to%3A+GUI">How-to</a>
 			<a class="btn btn_narow__white" href="comparison?id=2">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -196,14 +196,14 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Обращение сервера к клиенту</h2>
-		<div class="text">В платформе отсутствует разделение логики на сервер и клиент, и, соответственно, разработчик в любой момент может запросить модальное взаимодействие с пользователем. В этом случае платформа автоматически останавливает процесс выполнения действия, отправляет запрос пользователю, и, сразу после получения ответа от него, продолжает выполнение остановленного действия.</div>
+		<h2>Server-to-client communication</h2>
+		<div class="text">The platform doesn't split business logic into server and client sides, which allows developers to request modal interaction with the user at any time. When this happens, the platform automatically pauses the current action, sends a request to the user, and resumes the action as soon as a response is received.</div>
 		<div class="btn-wrap">
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=35520941">Документация</a>
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=36307461">How-to</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/Value+input">Documentation</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/How-to%3A+Data+entry">How-to</a>
 			<a class="btn btn_narow__white" href="comparison?id=3">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -214,11 +214,11 @@ function onStart(){
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
 		<h2>No ORM, Yes SQL</h2>
-		<div class="text">Если некоторое действие предполагает обработку данных сразу для множества объектов, платформа пытается по возможности выполнить эту обработку на сервере БД одним запросом (то есть сразу для всех объектов). Все формируемые запросы при этом максимально оптимизируются с учетом особенностей используемого сервера БД.</div>
+		<div class="text">When a given action requires data processing for many objects at once, the platform tries, whenever possible, to perform this processing on the database server through a single request (i.e. for all objects at once). In this case, all of the requests generated are optimized as much as possible depending on the features of the database server.</div>
 		<div class="btn-wrap">
 			<a class="btn btn_narow__white" href="comparison?id=4">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -228,14 +228,14 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>События изменения данных</h2>
-		<div class="text">Платформа позволяет создавать обработки событий изменения любых (в том числе вычисляемых) данных. Использование этого механизма позволяет значительно повысить модульность создаваемых решений.</div>
+		<h2>Data modification events</h2>
+		<div class="text">The platform allows you to create event handlers for any changes in any data (even computed data). This mechanism can significantly increase the modularity of the solutions created.</div>
 		<div class="btn-wrap">
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=688155">Документация</a>
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=46367179">How-to</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/Events">Documentation</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/How-to%3A+Events">How-to</a>
 			<a class="btn btn_narow__white" href="comparison?id=5">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -245,14 +245,14 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Динамическая физическая модель</h2>
-		<div class="text">Платформа позволяет в любой момент материализовать любой из существующих показателей в системе, добавить новые или удалить существующие таблицы, а также изменить расположение материализованных показателей в этих таблицах.</div>
+		<h2>Dynamic physical model</h2>
+		<div class="text">The platform allows you to materialize any existing indicators in the system at any time, add new tables or delete existing ones, or change the location of materialized indicators in these tables.</div>
 		<div class="btn-wrap">
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=688190">Документация</a>
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=52429887">How-to</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/Execution">Documentation</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/How-to%3A+Physical+model">How-to</a>
 			<a class="btn btn_narow__white" href="comparison?id=6">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -262,14 +262,14 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Ограничения любых данных</h2>
-		<div class="text">В платформе существует возможность создавать ограничения значений любых (в том числе вычисляемых) данных. При этом, все созданные ограничения (как и события) глобальны, а значит неопытный пользователь или разработчик не сможет обойти их неправильно проведенной транзакцией.</div>
+		<h2>Constraints on any data</h2>
+		<div class="text">The platform allows you to set constraints for the values of any data (even computed data), and all such constraints (as with events) are global in order to prevent inexperienced users or developers from bypassing them with an invalid transaction.</div>
 		<div class="btn-wrap">
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=3538950">Документация</a>
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=46367200">How-to</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/Constraints">Documentation</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/How-to%3A+Constraints">How-to</a>
 			<a class="btn btn_narow__white" href="comparison?id=7">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -279,12 +279,12 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Абсолютная реактивность</h2>
-		<div class="text">Все вычисляемые данные автоматически обновляются при изменении данных, которые они используют. Это правило действует всегда и везде - как при отображении интерактивных форм, так и просто при обращении к данным внутри выполняемого действия.</div>
+		<h2>Absolute reactivity</h2>
+		<div class="text">All computed data is automatically updated once the data it uses is changed. This rule applies always and everywhere, whether you're displaying interactive forms or simply accessing data inside the action being performed.</div>
 		<div class="btn-wrap">
 			<a class="btn btn_narow__white" href="comparison?id=8">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -294,12 +294,12 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Кроссплатформенность сервера</h2>
-		<div class="text">Поддерживаются любые ОС, для которых существуют реализации JVM, а также наиболее распространенные реляционные СУБД.</div>
+		<h2>Cross-platform server</h2>
+		<div class="text">Supports any OS for which JVM is implemented, as well as the most popular relational databases.</div>
 		<div class="btn-wrap">
 			<a class="btn btn_narow__white" href="comparison?id=9">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -309,14 +309,14 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Открытая структура БД</h2>
-		<div class="text">Отображение логики в базу данных абсолютно прозрачно, при этом разработчик сам может управлять этим процессом. Никаких сгенерированных имен или суррогатных таблиц.</div>
+		<h2>Open database structure</h2>
+		<div class="text">The mapping of logic to the database is absolutely transparent, and developers can manage this process on their own. Forget about auto generated names and surrogate tables.</div>
 		<div class="btn-wrap">
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=688190">Документация</a>
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=52429887">How-to</a>
+			<a class="link tlink__btn" href="https://https://en-documentation.lsfusion.org/display/LSFUS/Execution">Documentation</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/How-to%3A+Physical+model">How-to</a>
 			<a class="btn btn_narow__white" href="comparison?id=10">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -326,12 +326,12 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Кроссплатформенность клиента</h2>
-		<div class="text">В платформе поддерживаются одновременно и десктоп и веб клиенты. Для десктоп-клиента, как и для сервера, поддерживаются любые ОС для которых существуют реализации JVM. Также, благодаря тому что для расположения компонент используется относительное (а не абсолютное) позиционирование, их отрисовка в веб-клиенте осуществляется нативно средствами CSS (без использования JavaScript), что значительно повышает отзывчивость интерфейсов при работе в веб-клиенте. Кроме того, ни десктоп, ни веб-клиент не содержат никакой прикладной логики, что значительно упрощает их развертывание (то есть можно использовать один и тот же клиент сразу для всех логик).</div>
+		<h2>Cross-platform client</h2>
+		<div class="text">The platform supports both desktop and Web clients with any OS for which JVM implementations are available. And since relative (rather than absolute) positioning is used for the components, they are rendered in the Web client natively using CSS (without JavaScript), which significantly increases UI responsiveness in the Web client. In addition, neither the desktop nor the Web client contain any application logic, which greatly simplifies their deployment (i.e. you can use the same client for any logic).</div>
 		<div class="btn-wrap">
 			<a class="btn btn_narow__white" href="comparison?id=11">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -341,14 +341,14 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Декларативная работа с внешними форматами</h2>
-		<div class="text">Любую форму в платформе можно не только показать пользователю в интерактивном режиме или распечатать, но и экспортировать в файл любого из наиболее распространенных форматов данных (JSON, XML, CSV, XLS, DBF и т.п.). Причем эта операция симметрична, и, соответственно, можно, наоборот, импортировать информацию из файла любого из перечисленных форматов обратно в форму. Оба процесса при этом абсолютно декларативны и работают с теми же понятиями, которые используются при работе с UI, тем самым значительно упрощая взаимодействие с внешними системами.</div>
+		<h2>Declarative handling of external formats</h2>
+		<div class="text">Any form can be shown to the user interactively or printed out or exported in most popular data formats (JSON, XML, CSV, XLS, DBF, etc.). This operation is symmetrical - you can also import data from a file to a form in any of these formats. Both processes are absolutely declarative and use the same concepts as the UI, which greatly simplifies interaction with external systems.</div>
 		<div class="btn-wrap">
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=29884537">Документация</a>
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=60555456">How-to</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/Structured+view">Documentation</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/How-to%3A+Working+with+external+formats">How-to</a>
 			<a class="btn btn_narow__white" href="comparison?id=12">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -358,12 +358,12 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Эффективное общение клиента с сервером</h2>
-		<div class="text">Общение клиента с сервером на физическом уровне построено таким образом чтобы минимизировать количество синхронных round-trip обращений (то есть одно действие пользователя - один запрос-ответ, по возможности асинхронный). Помимо этого в десктоп-клиенте все передаваемые данные архивируются и, при необходимости, шифруются. Также, при общении клиента с сервером (как десктоп-клиента через TCP/IP протокол, так и веб-клиента через HTTP протокол), в платформе обеспечивается гарантия доставки, то есть в случае если какие-то запросы теряются, платформа посылает их повторно, причем с гарантией того, что они будут обработаны в правильном порядке. Все вышеперечисленное позволяет платформе эффективно функционировать даже на узких и ненадежных каналах связи, а также каналах связи с большим временем отклика.</div>
+		<h2>Efficient client-server communication</h2>
+		<div class="text">Client-server communication at the physical level minimizes synchronous round-trip calls (i.e. each user action is mapped to a single - usually asynchronous - request/response pair). The desktop client also archives and encrypts all transferred data (when necessary). During client-server communication (via TCP/IP for the desktop client or HTTP for the Web client), the platform provides guaranteed delivery - it resends any lost requests and ensures that they are processed in the correct order. All these features help the platform run efficiently even on low-bandwidth, unstable, or high-latency communication channels.</div>
 		<div class="btn-wrap">
 			<a class="btn btn_narow__white" href="comparison?id=13">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -373,14 +373,14 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Прозрачная интеграция</h2>
-		<div class="text">Платформа поддерживает обращение к системе через самый распространенный прикладный протокол общего назначения (HTTP), при этом интерфейс обращения включает в себя не только выполнения некоторого действия (с автоматическим разбором параметров), но и выполнение кода на языке lsFusion (по аналогии с обращением к SQL серверам). Также платформа, на уровне языка, поддерживает обращение к любым внешним системам по протоколу HTTP, а также к SQL-серверам, другим lsFusion системам и т.д. Кроме того сам сервер реализован в виде Spring bean, что позволяет управлять его циклом жизни при помощи обычного Spring IoC контейнера. Все вышеперечисленное позволяет использовать lsFusion не только в качестве полноценной платформы разработки, но и, при необходимости, в качестве СУБД или даже в качестве Java-библиотеки.</div>
+		<h2>Transparent integration</h2>
+		<div class="text">The platform supports access to the system through the most common general-purpose application protocol (HTTP), while the access interface can execute not only standard commands (with automatic parsing of arguments), but also lsFusion code (as when accessing SQL servers). In addition, the platform supports access to any external systems at the language level via HTTP, as well as SQL servers, other lsFusion systems, etc. And, since the server itself is implemented as a Spring bean, you can manage its life cycle using a standard Spring IoC container. All these features allow you to use lsFusion not only as a full-fledged development platform, but also as a database or even a Java library.</div>
 		<div class="btn-wrap">
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=29884429">Документация</a>
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=55935068">How-to</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/Integration">Documentation</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/How-to%3A+Interaction+via+HTTP+protocol">How-to</a>
 			<a class="btn btn_narow__white" href="comparison?id=14">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -390,12 +390,12 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>CI в <a href="https://ru.wikipedia.org/wiki/ACID">ACID</a> из коробки</h2>
-		<div class="text">В платформе реализован корректный откат состояния сервера приложения на момент начала транзакции из любой операции, где идет обращение к данным. Это позволяет использовать родные средства обеспечения целостности реализованные в современных SQL-серверах, что, с одной стороны, значительно уменьшает трудозатраты / вероятность ошибок при разработке системы, работающей в высококонкурентной среде, а, с другой стороны, значительно увеличивает масштабируемость такой системы (при условии использования версионных СУБД).</div>
+		<h2>CI in <a href="https://en.wikipedia.org/wiki/ACID">ACID</a> right out of the box</h2>
+		<div class="text">The platform can properly roll back the application server to the state it was in before any data transaction had begun. This allows you to use the native integrity tools of modern SQL servers, which not only significantly reduces labor costs and human error when developing a system for a highly competitive environment, but also makes such a system much more scalable (provided that versioning databases are used).</div>
 		<div class="btn-wrap">
 			<a class="btn btn_narow__white" href="comparison?id=15">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -405,14 +405,14 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Бесшовное подключение Java-библиотек / SQL-функций</h2>
-		<div class="text">Сервер приложений выполняется в виртуальной Java машине (JVM), что позволяет подключить к нему любую из многочисленных существующих Java-библиотек. Для этого достаточно создать свое действие на Java, зарегистрировать его в платформе и использовать, как если бы оно было встроенным или реализованным на языке платформы. Аналогичным образом можно бесшовно подключать пользовательские SQL-функции используемого сервера БД.</div>
+		<h2>Seamless linking of Java libraries / SQL functions</h2>
+		<div class="text">The application server runs on a Java virtual machine (JVM) and can thus be integrated with countless Java libraries. To do this, just create your own action in Java, register it in the platform, and then use it just like any action built into the platform or written on the platform's built-in language. By the same token, you can seamlessly connect custom SQL functions of the database server you're using.</div>
 		<div class="btn-wrap">
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=51216543">Документация</a>
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=65241544">How-to</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/pages/viewpage.action?pageId=51216543">Documentation</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/How-to%3A+Access+to+internal+systems">How-to</a>
 			<a class="btn btn_narow__white" href="comparison?id=16">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -423,12 +423,12 @@ function onStart(){
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
 		<h2>Everything as Code</h2>
-		<div class="text">Все элементы системы, от событий до дизайна форм, задаются в виде кода на языке lsFusion, хранящегося в обычных текстовых файлах (без каких-либо общих репозитариев с неизвестной структурой). Это позволяет использовать при работе с проектами популярные системы контроля версий (Git, Subversion) и сборки проектов (Maven, встроенные в IDE). Кроме того, такой подход упрощает процесс поддержки / развертывания разработанной системы, так как позволяет, во-первых, при помощи обычного текстового редактора просматривать, и, при необходимости, оперативно изменять логику, а, во-вторых, легко идентифицировать любой элемент в системе, по его файлу и номеру строки в этом файле.</div>
+		<div class="text">All elements of the system, from events to form design, are written in the lsFusion language and stored in ordinary text files (without any shared repositories with an unknown structure). This allows you to use popular version control systems (Git, Subversion) and project-building tools (Maven in IDEs) when working with projects. In addition, this approach simplifies the support and deployment of the system you develop - you can use a regular text editor to view and quickly modify the logic when necessary and also easily identify any element in the system by file name and line number in this file.</div>
 		<div class="btn-wrap">
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=1573050">Документация</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/Language">Documentation</a>
 			<a class="btn btn_narow__white" href="comparison?id=17">
 				<span class="link">
-				<span class="link__text">Сравнить</span>
+				<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -438,14 +438,14 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Эргономичный язык</h2>
-		<div class="text">В платформе существует возможность объединять имена элементов в пространства имен, и при поиске элементов считать имена в одном и том же пространстве имен более приоритетными. Таким образом в большинстве случаев достаточно указывать только "короткое" имя искомого элемента, а значит код получается более компактным и читабельным. Кроме того, для каждого параметра в коде можно задавать его класс и при поиске элементов эти классы также будут учитываться (то есть поддерживается явная типизация). Последнее, кроме короткого кода, позволяет в том числе получить раннюю диагностику ошибок, умное автодополнение и ряд других похожих возможностей.</div>
+		<h2>Easy-to-use language</h2>
+		<div class="text">The platform allows you to group element names into namespaces and consider names in the same namespace as having higher priority when searching for elements. In most cases, you only need to enter the "short" name of the element you're searching for and eventually write more concise and readable code. In addition, you can specify a class for each parameter in the code, and this class will also be taken into account during a search (i.e. explicit types are supported). This also makes your code shorter and simpler and ensures early error detection, smart auto-completion, and lots of other useful features.</div>
 		<div class="btn-wrap">
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=2720036">Документация</a>
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=65241522">How-to</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/Element+identification">Documentation</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/How-to%3A+Searching+for+elements">How-to</a>
 			<a class="btn btn_narow__white" href="comparison?id=18">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -455,13 +455,13 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Эргономичная IDE</h2>
-		<div class="text">IDE на базе Intellij IDEA с полным арсеналом разработчика - поиск использований, подсветка кода / ошибок, умное автодополнение, переход к объявлению, структура класса, переименование элементов, дерево использований, брейкпоинты изменения данных, отладчик и множество других возможностей.</div>
+		<h2>Easy-to-use IDE</h2>
+		<div class="text">Intellij IDEA-based IDE with everything developers could ever need: search for uses, code/error highlighting, smart auto-completion, quick jump to declarations, class structure, renaming of elements, usage tree, data change breakpoints, debuggers, and more.</div>
 		<div class="btn-wrap">
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/display/LSFUS/IDE">Документация</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/IDE">Documentation</a>
 			<a class="btn btn_narow__white" href="comparison?id=19">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -471,14 +471,14 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Метапрограммирование</h2>
-		<div class="text">Хотите создать свой высокоуровневый оператор или просто не знаете как обобщить логику, но хотите использовать ее повторно? В платформе реализована полная поддержка автоматической генерации кода, причем как со стороны сервера, так и со стороны IDE.</div>
+		<h2>Metaprogramming</h2>
+		<div class="text">Do you want to create your own high-level operator, or maybe you just don't know how to generalize the logic, but want to reuse it? The platform provides full support for automatic code generation, from both the server side and IDE.</div>
 		<div class="btn-wrap">
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=1310740">Документация</a>
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=46367754">How-to</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/Metaprogramming">Documentation</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/How-to%3A+Metaprogramming">How-to</a>
 			<a class="btn btn_narow__white" href="comparison?id=20">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -488,12 +488,12 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Трехзвенная архитектура</h2>
-		<div class="text">Платформа построена таким образом, что императивная часть логики системы (все что связано с изменением данных) выполняется на серверах приложений, а декларативная (все что связано с вычислением данных) - на серверах БД. Такое разделение упрощает масштабирование разрабатываемой системы, а также в силу разного характера нагрузки на эти сервера повышает ее отказоустойчивость (к примеру, использование swap на сервере приложений гораздо опасней, чем его же использование на сервере БД)</div>
+		<h2>Three-tier architecture</h2>
+		<div class="text">The platform executes the imperative part of the system logic (i.e. everything related to data modifications) on application servers and the declarative part (i.e. everything related to data computations) on database servers. This separation simplifies the scaling of the system you develop and strengthens its fault tolerance due to the different nature of workload on these servers (e.g. swaps on application servers are much more dangerous than on database servers).</div>
 		<div class="btn-wrap">
 			<a class="btn btn_narow__white" href="comparison?id=21">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -503,12 +503,12 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Кластеризация</h2>
-		<div class="text">Сервера приложений не имеют никаких разделяемых данных, поэтому их количество при необходимости можно легко наращивать. Кроме того, платформа умеет асинхронно переносить пользовательские данные с одного сервера БД на другой, что, в свою очередь, позволяет динамически распределять нагрузку между серверами БД (к примеру, если данные записываются в базу и нужен ACID, выполняя обработку на мастерах, а в остальных случаях - на наименее нагруженных слейвах).</div>
+		<h2>Clustering</h2>
+		<div class="text">Since the application servers don't have any shared data, you can easily add as many of them as you need. In addition, the platform can transfer user data between database servers asynchronously, which, in turn, allows you to dynamically distribute the workload among them (e.g. when you add data to the database and need to use ACID, you can switch this processing to the master server or [in other cases] to the least busy slave servers).</div>
 		<div class="btn-wrap">
 			<a class="btn btn_narow__white" href="comparison?id=22">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -518,14 +518,14 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Расширения</h2>
-		<div class="text">Техника расширений позволяет разработчику расширять в одном модуле функционал другого модуля (например, изменять формы или классы созданные в другом модуле). Использование этого механизма позволяет значительно повысить модульность создаваемых решений.</div>
+		<h2>Extensions</h2>
+		<div class="text">The extension technique allows developers to extend the functionality of one module through another (e.g. they can modify forms or classes created in another module). This mechanism makes the solutions you create much more modular.</div>
 		<div class="btn-wrap">
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=1146886">Документация</a>
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=46367169">How-to</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/Extensions">Documentation</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/How-to%3A+Extensions">How-to</a>
 			<a class="btn btn_narow__white" href="comparison?id=23">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -535,12 +535,12 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Асинхронность</h2>
-		<div class="text">Платформа пытается по возможности выполнять все операции асинхронно (то есть возвращать управление пользователю не дожидаясь завершения операции). К примеру, к таким операциям относится большинство операций ввода и обработок локальных событий.</div>
+		<h2>Asynchrony</h2>
+		<div class="text">The platform tries, whenever possible, to perform all operations asynchronously (i.e. return control to the user before the operation completes), including most input operations and handling of local events.</div>
 		<div class="btn-wrap">
 			<a class="btn btn_narow__white" href="comparison?id=24">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -550,14 +550,14 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Полиморфизм и агрегации</h2>
-		<div class="text">В платформе поддерживаются механизмы наследования (в том числе множественного) и полиморфизма (опять-таки, в том числе множественного). Если механизма наследования по каким либо причинам недостаточно, в платформе также существует механизм агрегаций, который вместе с наследованием позволяет реализовать практически любую полиморфную логику.</div>
+		<h2>Polymorphism and aggregations</h2>
+		<div class="text">The platform supports inheritance (including multiple inheritance) and polymorphism (including multiple polymorphism). And, if inheritance isn't enough for you for whatever reason, the platform also provides an aggregation mechanism that, together with inheritance, allows you to implement almost any polymorphic logic.</div>
 		<div class="btn-wrap">
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=2031628">Документация</a>
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=65241436">How-to</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/Classes">Documentation</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/How-to%3A++Inheritance+and+aggregation">How-to</a>
 			<a class="btn btn_narow__white" href="comparison?id=25">
 				<entirety class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</entirety>
 			</a>
 		</div>
@@ -568,11 +568,11 @@ function onStart(){
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
 		<h2>WYSIWYG</h2>
-		<div class="text">В абсолютном большинстве случаев пользователь из коробки получает возможность редактировать любые данные, которые он видит, делать это сразу для всех видимых объектов (групповая корректировка), выполнять copy-paste (в том числе, к примеру, из Excel), объединять / отменять / сохранять сделанные изменения и другие WYSIWYG возможности.</div>
+		<div class="text">In almost all cases, the user gets lots of features right out of the box, including quick editing of any visible data and any visible objects (bulk editing), copy and paste (e.g. to/from Excel), merging/canceling/saving changes, and other WYSIWYG features.</div>
 		<div class="btn-wrap">
 			<a class="btn btn_narow__white" href="comparison?id=26">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -582,14 +582,14 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Интернационализация</h2>
-		<div class="text">Внутри любого строкового литерала (например заголовка элементов или строковой константы) платформа позволяет использовать идентификаторы (в фигурных скобках), для которых, в свою очередь, можно задавать разные тексты для разных языков. Соответственно, в момент обращения к этому литералу, платформа автоматически локализует его в зависимости от языковых настроек пользователя, действия которого приводят к этом обращению.</div>
+		<h2>Internationalization</h2>
+		<div class="text">Within any string literal (e.g. an element title or string constant) the platform allows the use of IDs (in brackets) to which you can then assign different texts for different languages. Accordingly, when accessing this literal, the platform automatically localizes it depending on the language settings of the target user.</div>
 		<div class="btn-wrap">
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=34996245">Документация</a>
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=60555378">How-to</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/Internationalization">Documentation</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/How-to%3A+Internationalization">How-to</a>
 			<a class="btn btn_narow__white" href="comparison?id=27">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -599,12 +599,12 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Изменения задним числом</h2>
-		<div class="text">Платформа позволяет пользователю изменять любые введенные ранее данные (например, если была ошибка при вводе), при этом платформа обновит только те данные которые нужно - без тысяч смежных сторнирующих операций, долгого перепроведения и глобальных блокировок БД. Помимо этого, платформа позволяет редактировать одни и те же данные (например один и тот же документ) нескольким пользователям одновременно, что может быть критично, если этих данных много, или их нужно вводить очень быстро.</div>
+		<h2>Retroactive modifications</h2>
+		<div class="text">The platform allows users to change any previously-entered data (e.g. to rectify input errors) and only updates the data that is actually needed without thousands of related reversal operations, long reposting, or global database locks. In addition, the platform allows the simultaneous editing of the same data (e.g. the same document), which is useful for teamwork and rapidly inputting large amounts of data.</div>
 		<div class="btn-wrap">
 			<a class="btn btn_narow__white" href="comparison?id=28">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -614,13 +614,13 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Развитые средства администрирования</h2>
-		<div class="text">Платформа предоставляет целый набор инструментов администрирования уже работающей системы : интерпретатор - выполняет код на языке lsFusion, монитор процессов - получает информацию о текущих процессах с различной информацией о них (например, время начала вызова, стек, пользователь и т.п.), планировщик - выполняет действия в заданные моменты времени (в том числе периодически), профайлер - замеряет производительность всех выполняемых действий для всех / заданных пользователей (строит граф вызовов, разделение времени между сервером приложений и сервером БД и т.п.), чат - для оповещения / общения с пользователями внутри системы, а также многочисленные журналы и логи (подключений, ошибок и т.п.)</div>
+		<h2>Sophisticated tools for administrators</h2>
+		<div class="text">The platform provides a complete set of administration tools for systems that are already running: interpreter (executes lsFusion code), process monitor (receives detailed information about processes that are running, e.g. call start time, stack, user, etc.), scheduler (performs periodic or scheduled actions), profiler (measures the performance of all actions performed for all/given users, e.g. builds a graph of calls, sharing time between the application server and the database server, etc.), messenger (for internal notifications/communication with users in the system), and numerous logs (connections, errors, etc.).</div>
 		<div class="btn-wrap">
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=60555466">Документация</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/Management">Documentation</a>
 			<a class="btn btn_narow__white" href="comparison?id=29">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -630,14 +630,14 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Продвинутые интерактивные интерфейсы</h2>
-		<div class="text">При интерактивном взаимодействии с пользователем платформа позволяет организовывать отображение любых данных не только в виде одиночных объектов и списков, но и в виде деревьев, как плоских ("вложенных" друг в друга списков), так и рекурсивных (например, классификаторов). Кроме того, если информации слишком много, платформа позволяет объединять различные блоки формы в папки (вкладки). При этом, если данные не видны пользователю, они не читаются / вычисляются (так, к примеру, любые списки являются по умолчанию динамическими, то есть читается только ограниченное число объектов, а остальные дочитываются по мере изменения текущего объекта в таблице).</div>
+		<h2>Advanced interactive UIs</h2>
+		<div class="text">When interacting with a user, the platform can display any data not only as individual objects and lists, but also as trees, both flat ("nested") and recursive (e.g. classifiers). In addition, the platform allows you to group various form blocks into folders (tabs) for structuring large quantities of data. When the data is not visible to the user, it is not read/computed (e.g. all lists are dynamic by default, i.e. only a limited number of objects are read initially, while the rest of them are read as updates to the current object in the table).</div>
 		<div class="btn-wrap">
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=1573071#id-%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D0%BE%D0%B5%D0%BF%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-tree">Документация</a>
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=46367457">How-to</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/Interactive+view#Interactiveview-tree">Documentation</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/How-to%3A+Trees">How-to</a>
 			<a class="btn btn_narow__white" href="comparison?id=30">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -647,13 +647,13 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Политика безопасности</h2>
-		<div class="text">Гибкая политика безопасности позволяет определять ограничения доступа к данным как на уровне форм, так и на уровне конкретных действий / показателей. При этом пользователь не только не увидит эти данные, но и даже не узнает об их существовании.</div>
+		<h2>Security policy</h2>
+		<div class="text">A flexible security policy allows you to define data access constraints for both individual forms and specific actions/indicators. Then users won't be able to see this data or even know that it exists.</div>
 		<div class="btn-wrap">
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=60555484&src=sidebar">Документация</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/Security+policy">Documentation</a>
 			<a class="btn btn_narow__white" href="comparison?id=31">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -663,13 +663,13 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Открытые исходники</h2>
-		<div class="text">Открытые исходники платформы и IDE позволяют разработчику самостоятельно изучать поведение платформы изнутри, создавать pull request'ы, свои сборки, а также лицензировать разрабатываемые решения для использования в случае жестких требований к безопасности.</div>
+		<h2>Open source code</h2>
+		<div class="text">The open source code of the platform and IDE allows developers to study the internal mechanisms of the platform independently, create pull requests or custom builds, and license their own solutions for use in case of strict security requirements.</div>
 		<div class="btn-wrap">
 			<a class="link tlink__btn" href="https://github.com/lsFusion">Github</a>
 			<a class="btn btn_narow__white" href="comparison?id=32">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -679,13 +679,13 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Настройка системы пользователем</h2>
-		<div class="text">Пользователь может настраивать любые формы, например добавлять пользовательские отборы и сортировки, добавлять / удалять колонки, изменять их порядок. Также, на любой форме, пользователь может осуществлять базовую аналитику - группировать данные, которые он видит, вычислять суммы / максимумы и другие агрегированные показатели. Помимо настроек пользовательского интерфейса, пользователь также может самостоятельно добавлять логирование, требование заполненности, уведомление об изменениях любых (в том числе вычисляемых) данных.</div>
+		<h2>Deep user customization</h2>
+		<div class="text">Users can customize any form, e.g. add custom selections and sorting rules or add/remove/reorder columns, and also perform basic analysis such as grouping visible data or calculating sums/maximums and other aggregated indicators. In addition to the UI settings, users can also add logging, completeness control, or notifications about any changes to the data (including computed data).</div>
 		<div class="btn-wrap">
-			<a class="link tlink__btn" href="https://documentation.lsfusion.org/pages/viewpage.action?pageId=60555470">Документация</a>
+			<a class="link tlink__btn" href="https://en-documentation.lsfusion.org/display/LSFUS/User+interface">Documentation</a>
 			<a class="btn btn_narow__white" href="comparison?id=33">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
@@ -695,13 +695,13 @@ function onStart(){
 		<div class="icon-wrap">
 			<img class="i" src="{{ 'assets/images/i-gear.svg'|theme }}" alt="icon"/>
 		</div>
-		<h2>Свободная лицензия</h2>
-		<div class="text">Платформа выпускается под лицензией LGPL v3, позволяющей свободно использовать, распространять, а также модифицировать платформу под свои нужды.</div>
+		<h2>Free license</h2>
+		<div class="text">The platform is licensed under LGPL v3, which allows you to freely use, distribute, and modify the platform as you wish.</div>
 		<div class="btn-wrap">
-			<a class="link tlink__btn" href="https://opensource.org/licenses/lgpl-3.0.html">Текст</a>
+			<a class="link tlink__btn" href="https://opensource.org/licenses/lgpl-3.0.html">Text</a>
 			<a class="btn btn_narow__white" href="comparison?id=34">
 				<span class="link">
-					<span class="link__text">Сравнить</span>
+					<span class="link__text">Compare</span>
 				</span>
 			</a>
 		</div>
