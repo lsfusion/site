@@ -339,7 +339,7 @@ function onStart()
 		for (var t = 0; t < tabs.length; t++) {
 			var currentTab = tabs[t];
 
-			let xhr = sendEscapedRequest(server + "/exec?action=Main.getExamples", {'mode': t});
+			let xhr = sendEscapedRequest(server + "/exec?action=Main.getExamples", {'mode': t, 'locale': 'en'});
 
 			xhr.addEventListener("readystatechange", function(currentTab, tab) {return function() {
 				if (
